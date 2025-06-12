@@ -1,0 +1,80 @@
+---
+title: Spherical and Cylindrical Coodrinates
+---
+
+
+```{python}
+import plotly.graph_objects as go
+import numpy as np
+
+# Function to generate spherical coordinates
+def sphere(radius, resolution=100):
+    phi = np.linspace(0, np.pi, resolution)  # Latitude
+    theta = np.linspace(0, 2 * np.pi, resolution)  # Longitude
+    phi, theta = np.meshgrid(phi, theta)
+
+    # Parametric equations for the sphere
+    x = radius * np.sin(phi) * np.cos(theta)
+    y = radius * np.sin(phi) * np.sin(theta)
+    z = radius * np.cos(phi)
+    
+    return x, y, z
+
+# Function to generate cone coordinates
+def cone(angle, height=2, resolution=100):
+    # Angle in radians
+    angle = np.radians(angle)
+    
+    # Generating the cone surface
+    z = np.linspace(0, height, resolution)  # Height of the cone
+    theta = np.linspace(0, 2 * np.pi, resolution)  # Angle around the cone
+    Z, Theta = np.meshgrid(z, theta)
+    
+    # Radius at each height level (linear tapering from the base to the apex)
+    R = (height - Z) * np.tan(angle)  # Radius varies with height
+
+    # Parametric equations for the cone
+    X = R * np.cos(Theta)
+    Y = R * np.sin(Theta)
+    
+    return X, Y, Z
+
+# Create the figure
+fig = go.Figure()
+
+# Add sphere to the plot
+radius_slider_value = 1.0  # Initial radius
+x_sphere, y_sphere, z_sphere = sphere(radius_slider_value)
+fig.add_trace(go.Surface(x=x_sphere, y=y_sphere, z=z_sphere, colorscale='Viridis', opacity=0.5, showscale=False))
+
+# Add cone to the plot
+angle_slider_value = 30  # Initial angle of the cone
+x_cone, y_cone, z_cone = cone(angle_slider_value)
+fig.add_trace(go.Surface(x=x_cone, y=y_cone, z=z_cone, colorscale='YlOrRd', opacity=0.6, showscale=False))
+
+# Set the layout with sliders for radius and cone angle
+fig.update_layout(
+    sliders=[dict(
+        yanchor="top",
+        xanchor="left",
+        currentvalue=dict(
+            visible=True,
+            xanchor="center",
+            font=dict(size=20),
+        ),
+        steps=[
+            dict(
+                label=f"Radius {r:.1f}",
+                method="relayout",
+                args=[{"scene.camera": {"eye": {"x": 1.25 * r, "y": 1.25 * r, "z": 1.25 * r}}}]  
+            )
+            for r in np.arange(0.5, 3.1, 0.5)
+        ]
+    )]
+)
+fig.show()
+
+
+```
+
+

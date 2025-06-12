@@ -1,0 +1,22 @@
+---
+title: Rough work
+---
+
+```{python}
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+## Using numpy
+from numpy import sin, cos, tan
+
+t = [0, 12]
+t = np.linspace(t[0],t[1],1000)
+
+x = t* np.sin(np.pi*t/2)
+y = t* np.cos(np.pi*t/2) 
+
+pd.DataFrame([t,x,y]).T
+
+plt.plot(x,y)
+plt.gca().set_aspect('equal')
+```

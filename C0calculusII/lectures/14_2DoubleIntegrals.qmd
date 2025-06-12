@@ -1,0 +1,33 @@
+---
+title: Partial Derivatives
+---
+
+
+```{python}
+#Example 4: Section 14.1, Thomas 15th edition.
+from sympy import symbols, integrate
+
+# Define the variables
+x, y = symbols('x y')
+
+# Define the function to integrate
+f = 16 - x**2 - y**2
+
+# Define the bounds
+x_lower = y**2 / 4
+x_upper = (y + 2)/4
+y_lower = 0
+y_upper = 2
+
+# Compute the double integral
+res = integrate(f, (x, x_lower, x_upper))
+result = integrate(res, (y, y_lower, y_upper))
+
+# Display the result
+display(res)
+print('Now integrating over y')
+display(result)
+
+
+```
+

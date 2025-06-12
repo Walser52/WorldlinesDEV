@@ -1,0 +1,141 @@
+---
+title: Gaussian Elimination 
+---
+
+
+We can either create a matrix randomly or feed one:
+```{julia}
+
+# A = rand(1:10, 4,4)
+A  = [1 -1 1 0; -1 1 -1 0; 0 10 -1 90; 20 10 0 80]
+
+
+```
+
+First we use row 1 as pivot and eliminate the rest of the non-zero entries in the first column:
+
+
+```{julia}
+A[2, :] = A[2, :] + A[1, :]
+A
+```
+
+
+
+```{julia}
+A[4, :] = A[4, :] - 20 * A[1, :]
+A
+
+```
+
+Now we need to swap the rows:
+
+
+```{julia}
+A[[2,3,4], :] = A[[3,4,2], :];
+A
+```
+
+Now we can use row 2 as the pivot and remove all the non-zero entries below:
+```{julia}
+A[3, :] = A[3, :] - 3 * A[2, :];
+A
+
+```
+
+
+```{julia}
+A
+```
+
+## Infinitely many solutions
+
+When the number of equations is fewer than the number of unknowns, infinitely many solutions exist. 
+
+```{julia}
+using LinearAlgebra;
+
+# Define the augmented matrix (coefficients) and right-hand side vector
+A = [
+    3.0   2.0   2.0  -5.0;
+    0.6   1.5   1.5  -5.4;
+    1.2  -0.3  -0.3   2.4
+];
+
+b = [8.0; 2.7; 2.1];
+
+# Solve the system to find a particular solution
+x_particular = A \ b;
+
+println("Particular solution: ", x_particular);
+
+```
+
+Note that julia has given one solution (not infinite). 
+
+
+```{julia}
+
+# Compute the null space of A
+N = nullspace(A)
+
+println("\nNull space of A:")
+println(N)
+
+# Check the dimensions of the null space
+println("\nNumber of free parameters (nullity of A): ", size(N, 2))
+
+# Generate a general solution using free parameters
+c = [1.0, 0.0]  # Example free parameters for the null space
+x_general = x_particular .+ N * c
+
+println("\nGeneral solution with c = [1.0, 0.0]: ", x_general)
+
+# Verify the solution
+println("\nVerification: A * x_general ≈ b")
+println(A * x_general)
+
+```
+
+
+## Row echelon form
+
+
+```{julia}
+function reduced_row_echelon_form(A)
+    A = float(copy(A))  # Make a copy to avoid mutating the original matrix
+    rows, cols = size(A)
+    pivot_row = 1
+    
+    for col in 1:cols
+        # Find the pivot in the current column
+        pivot = argmax(abs.(A[pivot_row:rows, col])) + pivot_row - 1
+        if A[pivot, col] ≈ 0
+            continue  # Skip this column if all entries are zero
+        end
+        
+        # Swap the pivot row with the current row
+        A[[pivot_row, pivot], :] = A[[pivot, pivot_row], :]
+        
+        # Normalize the pivot row
+        A[pivot_row, :] ./= A[pivot_row, col]
+        
+        # Eliminate entries below the pivot
+        for r in (pivot_row + 1):rows
+            A[r, :] .-= A[r, col] * A[pivot_row, :]
+        end
+        
+        # Move to the next row
+        pivot_row += 1
+        if pivot_row > rows
+            break
+        end
+    end
+    
+    return A
+end
+
+A = [3 2 1 3; 2 1 1 0; 6 2 4 6]
+reduced_row_echelon_form(A)
+
+```

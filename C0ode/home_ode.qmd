@@ -1,0 +1,64 @@
+---
+title: Ordinary Differential Equations
+---
+
+<!-- ## Project -->
+
+<!-- As announced in class, there will be a project. 
+
+The task: Reproduce 3 figures (two 2D and one 3D) from your textbook. 
+
+Note that the figure must be accurate in terms of annotations and labels, tick marks, precision etc.
+
+Furthermore:
+
+* The project will be done in groups of 3. 
+* The marks will be credited as bonus (i.e. they will not have a separate category)
+* There will be a viva in the 15th week. 
+* The individual with the lowest midterm marks in the group will most likely give the viva (although other members of the group can be called upon too.) -->
+
+
+## Quizzes
+
+We will three quizzes:
+
+
+
+* Quiz 1 (5 Marks)
+* Quiz 2 (10 marks, 8th week)
+* Quiz 3 (10 marks, 13th week)\
+  + <span style="color:crimson;">Apr 29 (Tuesday)</span>
+  + <span style="color:crimson;">Venue: Brabers building (Subject to availability)</span>   
+  + <span style="color:crimson;">Syllabus: Chapter 4 (Zill: 10th Ed.)</span>   
+
+## Assignments
+
+[Assignment 1](coursematerial/Assignments/MT102Assignment_I.pdf)\
+[Assignment 2](coursematerial/Assignments/MT102Assignment_II.pdf)\
+[Assignment 3](coursematerial/Assignments/MT102Assignment_III.pdf)\
+[Assignment 4](coursematerial/Assignments/MT102Assignment_IV.pdf)\
+[Assignment 5](coursematerial/Assignments/MT102Assignment_V.pdf)\ 
+
+
+## Slides and Notebooks
+
+You can use any programming language of your liking. We will most likely use one of python, julia, and R. If you need to set any of these up, either see me or the TA. 
+
+
+- [Practice questions](lectures/00-PracticeQuestions.qmd)
+- [Julia: Quick reference for matrices](../C0QuickReference/julia/matrices.qmd)
+- [Gaussian Elimination](lectures/01-GaussElimination.qmd)
+
+
+- [Julia: ODEs](../C0QuickReference/julia/ode.qmd)
+- [Summary of 1st order ODEs](lectures/02-Summaryof1stODE.qmd)
+
+## Course Outline
+
+[Outline (pdf)](coursematerial/outline.pdf)
+
+## Other info
+
+Course TA: Ms. Misbah Shaheen
+Email: misbah.shaheen [at] giki.edu.pk
+

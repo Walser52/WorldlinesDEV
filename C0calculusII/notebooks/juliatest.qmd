@@ -1,0 +1,22 @@
+---
+title: "Plots Demo"
+engine: julia
+---
+
+
+```{julia}
+using Plots
+
+# Sample data
+x = 1:10
+y = rand(10)  # Random y values
+
+# Create a plot
+plot(x, y, 
+     title="Simple Plot", 
+     xlabel="X-axis", 
+     ylabel="Y-axis", 
+     label="Random Data", 
+     legend=:topright)
+
+```

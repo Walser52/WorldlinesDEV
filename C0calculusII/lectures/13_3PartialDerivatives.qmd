@@ -1,0 +1,154 @@
+---
+title: Partial Derivatives
+---
+
+
+```{python}
+import sympy as sp
+x, y = sp.symbols('x y')
+
+# Define the function
+f = x * y**2
+
+
+# Calculate the partial derivatives
+partial_x = sp.diff(f, x)  # Partial derivative with respect to x
+partial_y = sp.diff(f, y)  # Partial derivative with respect to y
+
+# Display the results
+print("Partial derivatives wrt x and y:")
+display(partial_x, partial_y)
+
+```
+
+
+```{python}
+import numpy as np
+import plotly.graph_objects as go
+
+# Define the range for x and y
+pi = np.pi
+x = np.linspace(-4 * pi, 4*pi, 100)
+y = np.linspace(-1, 1, 100)
+x, y = np.meshgrid(x, y)
+
+# Calculate z based on the given function
+z = y**2 * np.cos(x * y)
+
+
+color1 = 'orange'
+color2 = 'orange'
+# Create the surface plot with custom colors
+fig = go.Figure(data=[go.Surface(z=z, x=x, y=y, colorscale=[[0, color1], [1,color2]], showscale=False, hoverinfo = 'skip')])
+
+# Update layout for background and titles
+fig.update_layout(
+    title='Surface Plot of z = y^2 cos(xy)',
+    scene=dict(xaxis_title='X', yaxis_title='Y', zaxis_title='Z')
+)
+
+showbackground = False
+
+fig.update_layout(scene = dict(
+                    xaxis = dict(
+                         backgroundcolor="rgb(200, 200, 230)",
+                         gridcolor="white",
+                         showbackground=showbackground,
+                         zerolinecolor="black",),
+                    yaxis = dict(
+                        backgroundcolor="rgb(230, 200,230)",
+                        gridcolor="white",
+                        showbackground=showbackground,
+                        zerolinecolor="black"),
+                    zaxis = dict(
+                        backgroundcolor="rgb(230, 230,200)",
+                        gridcolor="white",
+                        showbackground=showbackground,
+                        zerolinecolor="black",),),
+                    # width=700,
+                    margin=dict(
+                    r=10, l=10,
+                    b=10, t=26)
+                  )
+
+
+# Show the plot
+fig.show()
+
+```
+
+
+
+
+
+```{python}
+import numpy as np
+import plotly.graph_objects as go
+
+# Define the paraboloid z = x^2 + y^2
+def paraboloid(x, y):
+    return x**2 + y**2
+
+# Create a grid for x and y
+x = np.linspace(-2.5, 2.5, 100)
+y = np.linspace(-2.5, 2.5, 100)
+x, y = np.meshgrid(x, y)
+z = paraboloid(x, y)
+
+mask = x**2 + y**2 <= 4
+z[~mask] = np.nan  # Set values outside the circle to NaN for visualization
+
+
+# Define the intersection plane x = 1
+x_intersection = 1
+y_intersection = np.linspace(-2, 2, 100)
+z_intersection = paraboloid(x_intersection, y_intersection)
+
+# Point of tangency on the intersection
+y_tangent_point = 1  # You can choose another point on the parabola
+z_tangent_point = paraboloid(x_intersection, y_tangent_point)
+
+# Calculate the slope of the tangent line
+# Derivative of z with respect to y: dz/dy = 2y
+tangent_slope = 2 * y_tangent_point  # at y = 0, this is 0
+
+# Create the tangent line in the plane z = k + m(y - y0)
+y_tangent = np.linspace(y_tangent_point - 1, y_tangent_point + 1, 100)
+z_tangent = z_tangent_point + tangent_slope * (y_tangent - y_tangent_point)
+
+# Create the figure
+fig = go.Figure()
+
+# Add paraboloid 
+color1 = 'orange'
+color2 = 'orange'
+fig.add_trace(go.Surface(z=z, x=x, y=y, colorscale=[[0, color1], [1,color2]], opacity=0.7, name='Paraboloid', hoverinfo = 'skip'))
+
+# Add intersecting plane
+fig.add_trace(go.Scatter3d(x=[x_intersection]*len(y_intersection), 
+                             y=y_intersection, 
+                             z=z_intersection, 
+                             mode='lines', 
+                             name='Intersection Parabola', 
+                             line=dict(color='red', width=5)))
+
+# Add tangent line
+fig.add_trace(go.Scatter3d(x=[x_intersection]*len(y_tangent), 
+                             y=y_tangent, 
+                             z=z_tangent, 
+                             mode='lines', 
+                             name='Tangent Line', 
+                             line=dict(color='blue', width=5)))
+
+# Update layout
+fig.update_layout(title='Paraboloid with Intersection and Tangent Line',
+                  scene=dict(xaxis_title='X', yaxis_title='Y', zaxis_title='Z'),
+                  width=800, height=600,
+                  paper_bgcolor='white')
+
+# Show the plot
+fig.show()
+
+```
+
+

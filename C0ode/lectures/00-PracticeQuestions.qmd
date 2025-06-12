@@ -1,0 +1,21 @@
+---
+title: Practice Questions
+---
+
+Kreyszig is limited in terms of practice questions and some of you have asked for alternatives. 
+
+Two books you can use to circumvent that are:
+
+- Dennis G. Zill's Advanced Engineering Mathematics
+- Dean G. Duffy's Advanced Engineering Mathematics
+
+Zill's book in particular has a lot of practice problems. 
+
+Notwithstanding, you can use `julia` to create your own problems. All you need is a way to create a matrix. 
+
+The following creates a 4x3 matrix with numbers randomly filled from 1 to 10. 
+```{julia}
+mat = rand(1:10, 4, 3)
+```
+
+You can make changes to it and generate as many questions as you want. 

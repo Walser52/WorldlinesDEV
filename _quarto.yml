@@ -1,0 +1,76 @@
+project:
+  type: website
+  output-dir: courses/docs
+website:
+  title: "Worldlines"
+  reader-mode: true
+  search: 
+    location: navbar
+    type: overlay
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - text: "Courses"
+        menu:
+        - href: C0calculusI/home_calculusI.qmd
+          text: Calculus I
+        - href: C0calculusII/home_calculusII.qmd
+          text: Calculus II
+        - href: C0ode/home_ode.qmd
+          text: Diff. Eqs. & Lin. Alg.
+        - href: C0noneqthermo/home_noneqthermo.qmd
+          text: Non-equilibrium Thermodynamics
+      - text: "Guides"
+        menu:
+        - href: D0abinit/home_abinit.qmd
+          text: Ab initio calculation
+  sidebar:
+    style: "docked"
+    search: true
+    logo: _figs/hugorheinholdchimp.png
+    logo-alt: Undergraduate ponders mysteries of physics, mathematics, and life
+    contents:
+      - section: "Courses"
+        contents:
+          - href: C0calculusI/home_calculusI.qmd
+            text: Calculus I
+          - href: C0calculusII/home_calculusII.qmd
+            text: Calculus II
+          - href: C0ode/home_ode.qmd
+            text: ODEs & Lin. Alg.
+          - href: C0noneqthermo/home_noneqthermo.qmd
+            text: Non-equilibrium Thermodynamics
+      - section: "Under development"
+        contents:
+          - href: C0manybody/home_manybody.qmd
+            text: Many-Body Systems            
+          - href: C0probtheory/home_probabilitytheory.qmd
+            text: Probability Theory
+          - href: C0stochastic/home_stoch.qmd
+            text: Stochastic Processes
+          - href: C0statmech/home_statmech.qmd
+            text: Statistical Mechanics
+          - href: C0topology/home_topology.qmd
+            text: Topology
+          - href: C0diffgeom/home_diffgeom.qmd
+            text: Differential Geometry
+
+format:
+  html:
+    toc: true
+    theme: [css/style.scss]
+    css: [css/buttons.css, 
+          css/tabs.css,
+          css/callouts.css,
+          css/fonts-ebgaramond.css, 
+          css/shapes.css, 
+          css/leaders.css]
+    include-in-header:
+      - file: scripts/scripts.js
+      - file: scripts/leader-line-master/my-lines.js
+    include-after-body: 
+      - text: |
+          <script src="/scripts/leader-line-master/leader-line.min.js"></script> 

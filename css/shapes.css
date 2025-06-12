@@ -1,0 +1,15 @@
+    .blob {
+      /* display: inline-block; */
+      position: absolute;
+      text-align: center;
+      width: 150px;
+      height: 120px;
+      background: #cce5ff;
+      border: 2px solid #004080;
+      border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
+      margin: 10% 50%;
+      position: relative;
+      line-height: 120px;
+      font-weight: bold;
+      color: #004080;
+    }

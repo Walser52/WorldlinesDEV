@@ -1,0 +1,79 @@
+---
+title: Calculus II
+---
+
+## Project
+
+As announced in class, there will be a project. 
+
+The task: Reproduce 3 figures (two 2D and one 3D) from your textbook. 
+
+Note that the figure must be accurate in terms of annotations and labels, tick marks, precision etc.
+
+Furthermore:
+
+* The project will be done in groups of 3. 
+* The marks will be credited as bonus (i.e. they will not have a separate category)
+* There will be a viva in the 15th week. 
+* The individual with the lowest midterm marks in the group will most likely give the viva (although other members of the group can be called upon too.)
+
+
+## Quizzes
+
+We will most likely have three quizzes:
+
+* Quiz 1 [5 Marks]
+* Quiz 2 (10 marks, 8th week)
+* Quiz 3 (10 marks, 13th week)\
+  + <span style="color:crimson;">December 10 (Tuesday), 6:00pm at LH4, FES </span>
+  + <span style="color:crimson;">From chapters 13 & 14</span>   
+  
+## Assignments
+
+[Assignment 1](coursematerial/Assignments/MT202Assignment_I.pdf)\
+[Assignment 2](coursematerial/Assignments/MT202Assignment_II.pdf)\
+[Assignment 3](coursematerial/Assignments/MT202Assignment_III.pdf)\
+[Assignment 4](coursematerial/Assignments/MT202Assignment_IV.pdf)\
+[Assignment 5](coursematerial/Assignments/MT202Assignment_V.pdf)\
+
+
+## Slides and Notebooks
+
+Note: You may need to setup python and sympy. You can either see an online tutorial for that, or consult me. 
+
+If you want a quick solution, then you can use sympy on Google colab as shown [here](https://colab.research.google.com/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-5-Sympy.ipynb)
+
+
+- [Parametric Curves](lectures/10_1ParametricPlots.qmd)
+- [Parametric Curves Calculus](lectures/10_2ParametricCalculus.qmd)
+- [Parametric Curves Polar](lectures/10_3ParametricPolar.qmd)
+- [Conic Sections](lectures/10_5ConicSections.qmd)
+- [Vectors](lectures/11_1VectorsGeometryofSpace.qmd)
+- [Quadric Surfaces](lectures/11_6Quadric.qmd)
+- [Partial Derivatives](lectures/13_3PartialDerivatives.qmd)
+- [Double Integrals](lectures/14_2DoubleIntegrals.qmd)
+
+## Course Outline
+
+[Outline (pdf)](coursematerial/MT202%20-%20Course%20Outline%20-%20Fall%202024.pdf)
+
+
+## Other Resources
+### Python related
+
+- [Calculus I in python](https://www.youtube.com/watch?v=-SdIZHPuW9o)
+- [Calculus II in python](https://www.youtube.com/watch?v=Teb28OFMVFc)
+- [Sympy tutorial](https://www.youtube.com/watch?v=1yBPEPhq54M)
+## Teaching Assistants 
+
+In case of queries regarding attendance, quizzes, and assignments contact:
+
+Ms. Iqra Anjum\
+Email: ges2319@giki.edu.pk
+
+
+## Temp
+- [Julia test](notebooks/juliatest.qmd)
+
+
+

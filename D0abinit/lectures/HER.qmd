@@ -1,0 +1,120 @@
+---
+title: Hydrogen Evolution Reaction for Water Splitting
+---
+
+HER electrocatalysis can be well performed by Pt with a low overpotential close to zero and a Tafel slope of about 30 mV dec–1
+
+Due to electrocatalytic activity and electrochemical stability, transition metal compounds are the best options for HER electrocatalysts
+
+
+:::{.column-margin}
+Energy density of hydrogen is approximately equivalent to 33.5 kWh/kg of usable energy, while this amount of energy for diesel is about 13 kWh/kg.
+
+i.e. Energy per kg of hydrogen = Energy per gallon of diesel
+
+$ED_{diesel} (45.5) \approx ED_{gasoline} (45.8) < ED_{Hydrogen}(120)$ in MJ/kg
+:::
+
+
+::::{.ddm}
+:::{.ddm-head onclick="toggleBox(this)"}
+## Green Hydrogen & HER: Opportunities and Challenges
+:::
+:::{.ddm-box}
+Green hydrogen, also known as *renewable hydrogen*, is hydrogen produced using only renewable energy, typically through the **water electrolysis (WE)** process. This process offers several advantages for sustainable energy systems.
+
+### Advantages of Water Electrolysis (WE)
+
+- The **hydrogen evolution reaction (HER)** can be performed at **room temperature and atmospheric pressure**, making it operationally efficient.  
+- It enables **selective production** of hydrogen (H₂) and oxygen (O₂), eliminating the need for gas separation steps[^10][^11].  
+- The **feedstock (H₂O)** and **products (O₂ and H₂)** are environmentally friendly and sustainable.
+
+### Challenges in HER
+
+Despite its advantages, HER presents several limitations:
+
+- **High electricity consumption** is a major challenge for large-scale implementation[^12].  
+- The process heavily depends on **optimized electrocatalysts** to reduce energy barriers and increase efficiency.
+
+### Role of Electrocatalysts
+
+The performance of HER (and the oxygen evolution reaction, OER) is strongly influenced by the **type of electrocatalyst** used.
+
+#### State-of-the-Art Catalysts
+
+- **Platinum (Pt)** is currently the most efficient catalyst for HER, requiring **very low overpotentials** even at high reaction rates.  
+- **IrO₂ and RuO₂** are among the best-known catalysts for the **OER**.
+
+
+
+### Need for Alternatives
+
+To support large-scale hydrogen production, research is focused on finding **low-cost**, **abundant**, and **high-performance electrocatalysts** that can rival the efficiency of noble metals.
+:::
+::::
+
+
+::::{.ddm}
+:::{.ddm-head onclick="toggleBox(this)"}
+Hydrogen Evolution Reaction: Some chemistry
+:::
+:::{.ddm-box}
+
+```{dot}
+digraph HER_Mechanism {
+    rankdir=TB;
+    node [shape=box, style=filled, color=lightblue];
+
+    Volmer [label="Step 1: Volmer\nH⁺ + e⁻ → H*"];
+    Heyrovsky [label="Step 2A: Heyrovsky\nH* + H⁺ + e⁻ → H₂\n(High potential)"];
+    Tafel [label="Step 2B: Tafel\nH* + H* → H₂"];
+    H2 [label="H₂ (gas)", shape=ellipse, style=filled, color=lightgreen];
+
+    Volmer -> Heyrovsky -> H2;
+    Volmer -> Tafel -> H2;
+}
+
+```
+
+There is a choice on the reduction process. Nevertheless, the electrocatalyst's task is to facilitate the adsorption of $H^+$.
+
+
+The key half-reaction for hydrogen production in water splitting occurs at the cathode and involves the transfer of two highly dependent electrons in environmental conditions.
+
+### Reason why Pt is used?
+The free energy from absorption of H in Pt is near to the thermoneutral state (ΔGH* ≈ 0). That is why Pt is widely recognized as the greatest HER electrocatalyst available to date. 
+
+
+The Tafel step in the high potential of the HER mechanism is insignificant, and the Volmer–Heyrovsky mechanism is used to carry out the reaction.
+
+Reason? 
+
+High potential here means a more negative electrode potential (relative to a reference electrode like RHE). In other words, we are talking about conditions where the driving force for HER is strong.
+
+At low overpotentials, the Tafel step (recombination of two adsorbed H atoms) can dominate.
+
+At high (negative) potentials, the Heyrovsky step (involving another electron transfer) becomes kinetically more favorable.
+
+Thus, the HER tends to proceed via the Volmer–Heyrovsky mechanism, and the Tafel step becomes negligible.
+:::
+::::
+
+
+
+
+
+
+
+
+
+
+
+## Strategies
+doping, crystallization control, structural engineering, carbon nanomaterials, and increasing active sites by changing morphology are helpful to improve HER performance. Finally, the challenges and future perspectives in designing functional and stable electrocatalysts for HER in efficient hydrogen production from water-splitting electrolysis will be described.
+
+
+
+
+## References
+https://pubs.acs.org/doi/10.1021/acsomega.3c07911
+

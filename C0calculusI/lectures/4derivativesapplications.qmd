@@ -1,0 +1,59 @@
+---
+title: Applications of Derivatives
+---
+
+```{python}
+
+import sympy as sp
+import numpy as np
+import matplotlib.pyplot as plt
+
+```
+
+
+```{python}
+import sympy as sp
+from sympy.plotting import plot
+
+x = sp.symbols('x')
+#Define the variable and the function
+
+f = x**(2)**(1/3) +(x+2)
+point = sp.pi / 4  # Point of tangency
+rng = [-1, 1] # Range
+
+#______________________________-
+
+slope = f.diff(x).subs(x, point)  # Calculate the slope
+tangent_line = slope * (x - point) + f.subs(x, point)
+p1 = plot(f, (x, rng[0], rng[1]), show=False, line_color='blue')
+p2 = plot(tangent_line, (x, point - 0.5, point+0.5), show=False, line_color='red', line_dash='--', label='Tangent line')
+p1.extend(p2)
+
+
+p1.show()
+
+```
+
+
+## Maxima/Minima
+
+```{python}
+
+x = sp.symbols('x')
+equation = x*sp.exp(-x**2/10)
+
+firstDeriv = equation.diff(x)
+secondDeriv = firstDeriv.diff(x)
+
+criticalPoints = list(sp.solveset(firstDeriv, x))
+criticalPointsY = [equation.subs(x, a) for a in criticalPoints]
+
+xx = np.linspace(-10, 10, 1000)
+yy = sp.lambdify(x, [equation, firstDeriv, secondDeriv])(xx)
+plt.plot(xx, np.transpose(yy))
+plt.plot(criticalPoints, criticalPointsY, 'k*')
+plt.legend(['f', "f'", "f''"])
+plt.show()
+
+```

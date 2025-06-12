@@ -1,0 +1,387 @@
+---
+title: Calculus with Parametric Curves
+---
+
+##
+```{python}
+#| code-fold: true
+#| code-summary: Some plotting routines. Click to expand
+import numpy as np
+import sympy as sp
+import matplotlib.pyplot as plt
+from sympy import plot_parametric, symbols
+from IPython.display import display, Markdown
+from functools import partial
+
+## This is a 'partial function' so that we don't have to set figure size and aspect ratio every time.
+splot = partial(plot_parametric, aspect_ratio = (1,1),size=(4,4),axis_center = (0,0))
+
+
+
+def _plotter(x, y, create = False):
+    if create: plt.figure(figsize=(6, 6))
+    plt.plot(x, y)
+    plt.gca().set_aspect('equal', adjustable='box')
+
+    return
+
+def _centeraxes():
+    ax = plt.gca()
+    # Move left y-axis and bottom x-axis to centre, passing through (0,0)
+
+    ax.spines['left'].set_position('zero')
+    ax.spines['bottom'].set_position('zero')
+
+    # Eliminate upper and right axes
+    ax.spines['right'].set_color('none')
+    ax.spines['top'].set_color('none')
+
+    # Show ticks in the left and lower axes only
+    ax.xaxis.set_ticks_position('bottom')
+    ax.yaxis.set_ticks_position('left')
+    return
+
+def _displayM(text, expr):
+  """
+  Display text and expression inline. 
+  """
+  display(Markdown('{} {}'.format(
+            text,
+            sp.latex(expr, mode='inline')
+          ))
+  )
+
+
+
+```
+
+## Integration and Differentiation via python
+
+A quick reminder, you can perform differentiation and integration (definite or indefinite) as follows:
+
+```{python}
+#| code-summary: "Sympy differentiate"
+import sympy as sp
+x, y, z = sp.symbols('x y z')
+
+f = sp.cos(x)**3
+
+result = sp.diff(f)
+result
+## To evaluate a function, substitute the value of x.
+# result.subs(x,sp.pi/3)
+
+```
+
+```{python}
+#| code-summary: "Sympy integrate"
+
+inf = sp.oo
+
+x, y, z = sp.symbols('x y z')
+
+# Indefinite integrals
+f = sp.ln(x)
+sp.integrate(f,x)
+
+# Definite integrals
+sp.integrate(sp.exp(-x), (x, 0, inf))
+
+```
+
+
+::: {.callout-caution collapse="true" title="Warning"}
+
+If integrate is unable to compute an integral, it returns an unevaluated Integral object.
+
+:::
+
+
+
+
+## Tangents to Parametric Curves
+
+Steps:
+
+- For curve $C = (x(t), y(t))$, find $\frac{dy}{dt}$ and $\frac{dx}{dt}$.
+- Find $\frac{dy}{dx}$
+
+
+### Example 1 (First derivative):
+*Find the tangent to the line $x = sec(t), y = tan(t)$ at $(\sqrt(2),1)$ where $t=\pi/4$.*
+
+```{python}
+
+t = symbols('t')
+
+f = sp.sec(t)
+g = sp.tan(t)
+
+splot((f, g), (t, -sp.pi/3, sp.pi/3))
+
+```
+
+Now we need to find the slope:
+```{python}
+evalat = sp.pi/4
+
+dy_dx = sp.diff(g)/sp.diff(f)
+slope = dy_dx.subs(t, evalat)
+
+display(dy_dx)
+display(slope)
+```
+
+So our tangent is a line passing through $(\sqrt{2},1)$ with slope `{python} slope`. Let's plot the curve and this tangent line together.
+
+```{python}
+# From question
+x0, y0 = sp.sqrt(2), 1
+
+## Parametric representation of a line
+x   = t
+y_t = slope * (t - x0) + y0
+
+## Plot both the curve and the tangent.
+splot((f, g,    (t, -sp.pi/3, sp.pi/3)), 
+      (t, y_t,  (t, 0, 2)),
+      )
+
+```
+
+
+
+
+### Example 2 (Second derivatives):
+
+ Find $\frac{d^{2}y}{dx^{2}}$ as a function of $t$ if:
+$$
+x = t − t^2;\quad y = t − t^3
+$$
+
+```{python}
+
+## Paramterizations
+t = symbols('t')
+f = t - t**2
+g = t - t**3
+
+## Plot curve
+splot((f, g), (t, -1, 1.5))
+
+## Find first and second derivates to curve
+dy_dx = sp.diff(g)/sp.diff(f)
+d2y_dx = sp.simplify(sp.diff(dy_dx)/sp.diff(f))
+
+## Display resulting equations
+_displayM('First derivative:', dy_dx)
+_displayM('Second derivative:', d2y_dx)
+        
+
+```
+
+Now we need to find the slope:
+```{python}
+evalat = -0.75
+
+x0 = f.subs(t, evalat)
+y0 = g.subs(t, evalat)
+
+slope = dy_dx.subs(t, evalat)
+
+_displayM(f"Slope at t = {evalat} is:", slope)
+```
+
+Let's replot the curve with the tangent.
+```{python}
+
+x   = t
+y_t = slope * (t - x0) + y0
+
+## Plot both the curve and the tangent.
+splot((f, g,    (t, -sp.pi/3, sp.pi/3)), 
+      (t, y_t,  (t, evalat - 1, evalat + 1)),
+      )
+
+```
+
+
+## Areas of Parametric Cruves
+
+### Example 3 (Area of astroid)
+
+
+```{python}
+
+## Paramterizations
+t = symbols('t')
+f = sp.cos(t)**3
+g = sp.sin(t)**3
+
+## Plot curve
+splot((f, g), (t, 0, 2* sp.pi))
+
+## Find first and second derivates to curve
+dy_dx = sp.diff(g)/sp.diff(f)
+d2y_dx = sp.simplify(sp.diff(dy_dx)/sp.diff(f))
+
+## Display resulting equations
+_displayM('First derivative:', dy_dx)
+_displayM('Second derivative:', d2y_dx)
+        
+
+```
+
+To find the area we make use of the symmetry of the object. We integrate $y$ from $x=[0,1]$ and multiply it by 4:
+
+
+```{python}
+
+dx = sp.diff(f, t)
+y = g
+_displayM("Integrand:", y*dx)
+
+sp.integrate(4*y*dx, (t, sp.pi/2, 0))
+
+```
+
+
+## Length of Parametric Curves
+
+```{python}
+marker = {"color": "r", "marker": "s", "fillstyle":'full',"markerfacecolor":'white', "markersize":3, "linestyle":'--'}
+
+
+t = sp.symbols('t')
+f = t**2
+g = sp.cos(50* t)
+
+# Evaluate functions at ten points 
+numpoints = 10
+tval = [i/numpoints for i in list(range(0,numpoints))] + [1]
+fvals = [f.subs(t, t0 ) for t0 in tval]
+gvals = [g.subs(t, t0 ) for t0 in tval]
+marker["args"] = [fvals,gvals]
+
+# Plot parameters
+sp.plot_parametric(f,g, (t, 0, 1), markers = marker)
+
+
+```
+
+$$
+L = \int_a^b\sqrt{f'(t)^2 + g'(t)^2} dt
+$$
+
+
+To make things convenient we will convert our operations into a function.
+
+```{python}
+
+def _curvelength(f, g, var):
+  """
+  Inputs:
+    f, g: x and y parametrizations
+    var (tuple): (sp.symbol, lower lim, upper lim)
+
+    var is a  the variable upon which to integrate.
+  """
+  t, a, b = var
+
+  dx_dt = sp.diff(f, t)
+  dy_dt = sp.diff(g, t)
+
+  integ = (dx_dt**2 + dy_dt**2)
+  integ = sp.sqrt(integ)
+  _displayM("Integrating: ", integ)
+  _displayM(f"over [{a}, {b}] w.r.t.", t)
+
+  res = sp.integrate(integ, (t, a, b))
+  print("gives:")
+
+  return res
+```
+
+### Example (circle/spiral)
+
+```{python}
+
+
+t, r = sp.symbols('t r', positive = True)
+
+f = r * sp.cos(t)
+g = r * sp.sin(t)
+
+_curvelength(f,g, (t, 0, 2 * sp.pi))
+
+```
+
+### Example (astroid)
+
+
+```{python}
+
+t = sp.symbols('t')
+
+f = (sp.cos(t))**3
+g = (sp.sin(t))**3
+
+
+_curvelength(f,g, (t, 0, sp.pi/2))
+
+
+```
+
+
+### Example (ellipse)
+
+```{python}
+
+t, a, b = sp.symbols('t a b', positive=True)
+
+f = a * sp.cos(t)
+g = b * sp.sin(t)
+
+_curvelength(f, g, (t, 0, sp.pi/2))
+
+```
+
+This is a special integral called the _complete elliptic integral of the second kind_.
+
+
+::: {.callout-note collapse="true" title="Elliptic Integrals"}
+
+[Elliptic integrals](https://en.wikipedia.org/wiki/Elliptic_integral)
+
+:::
+
+Let's take the parametrization again and look for a series solution.
+
+```{python}
+
+dx_dt = sp.diff(f,t)
+dy_dt = sp.diff(g,t)
+
+ecc = sp.symbols('e')
+# e = sp.sqrt(1 - (b/a)**2)
+
+
+
+integrand = (dx_dt**2 + dy_dt**2)
+integrand = integrand.subs({a: b/sp.sqrt(1-ecc**2),
+                            sp.cos(t)**2: 1 - sp.sin(t**2)})
+integrand
+```
+
+
+```{python}
+
+t, e = sp.symbols('t e')
+f = sp.sqrt(1 - e**2 * sp.sin(t**2))
+sp.series(f,t)
+
+
+```
+
+
+

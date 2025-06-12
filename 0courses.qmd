@@ -1,0 +1,25 @@
+---
+title: "Courses"
+---
+
+All pages grouped.
+
+## Non-Equilibrium Physics 
+
+[Langevin equation](C0noneqthermo/langevin.qmd)\\\
+[Fokker Planck equation](C0noneqthermo/fokkerplanck.qmd)
+
+## Probability Theory
+
+
+## Statistical Field Theory
+
+## Bayesian Statistics
+
+## GIS
+
+[GIS](C0TimeSeriesandGIS/home_timeseriesandGIS.qmd)
+
+## Statistical Analysis
+
+[Rainfall](C0statanalysis/rainfall.qmd)

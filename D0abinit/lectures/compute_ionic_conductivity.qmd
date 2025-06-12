@@ -1,0 +1,113 @@
+---
+title: "Investigating Ionic Conductivity in Molecular Systems"
+---
+
+### *Disclaimer:* Part of this content was AI generated and still needs curation.
+
+This guide walks you through the key concepts and computational methods used to evaluate **ionic conductivity** in molecular materials, such as organic conductors, polymer electrolytes, and metal-organic frameworks.
+
+---
+
+## 1. Understanding Ionic Conductivity
+
+Ionic conductivity $\sigma$ is governed by the **Nernst-Einstein relation**:
+
+$$
+\sigma = \frac{n q^2 D}{k_B T}
+$$
+
+Where:
+
+- \( n \) = charge carrier concentration  
+- \( q \) = ionic charge  
+- \( D \) = diffusion coefficient  
+- \( k_B \) = Boltzmann constant  
+- \( T \) = temperature  
+
+Thus the goal is to maximize \( D \) and \( n \) for high conductivity.
+
+
+## 2. Computational Methods
+
+Multiple approaches may be taken.
+
+### A. Ab Initio Molecular Dynamics (AIMD)
+
+- Use **DFT-based molecular dynamics** (e.g., VASP, Quantum ESPRESSO, CP2K).
+- Simulate at **300–800 K** for ~20–100 ps.
+- Analyze **mean squared displacement (MSD)** to extract diffusion:
+
+$$
+D = \lim_{t \to \infty} \frac{1}{6t} \langle |r_i(t) - r_i(0)|^2 \rangle
+$$
+
+- Estimate $\sigma$ using the Nernst-Einstein equation.
+
+---
+
+### B. Nudged Elastic Band (NEB)
+
+- Calculate **ion migration energy barriers** between stable sites.
+- Use to extract **activation energy \( E_a \)**:
+
+$$
+\sigma(T) \propto e^{-E_a/k_BT}
+$$
+
+Useful for understanding **temperature dependence** of ionic conductivity.
+
+---
+
+### C. Classical Molecular Dynamics
+
+- Ideal for **larger systems** or **longer time simulations**.
+- Suitable for:
+  - Polymer electrolytes
+  - Liquid electrolytes
+- Use force fields like **GAFF**, **CHARMM**, or **OPLS-AA**.
+
+---
+
+### D. Static DFT Analysis
+
+- Perform:
+  - Geometry optimization
+  - Charge density analysis (Bader, ELF, Voronoi)
+
+Helps identify:
+- Preferred ion sites
+- Binding strength
+- Possible migration paths
+
+---
+
+## 3. Workflow Example
+
+**Goal:** Evaluate **Li⁺ conductivity** in an organic host
+
+1. Build the structure (Li-doped molecular system).
+2. Relax geometry using DFT (e.g., PBE or optB88-vdW).
+3. Run AIMD at 300–600 K for ~20–50 ps.
+4. Extract MSD and compute diffusion coefficient \( D \).
+5. Calculate ionic conductivity \( \sigma \).
+6. *(Optional)* Use NEB to estimate migration barrier and predict behavior over temperature.
+
+---
+
+## 4. What You Need
+
+- A realistic structural model (crystal, amorphous, or polymeric).
+- Correct ion environment (e.g., solvation shell or coordinating ligands).
+- Use **DFT+U** for TM-containing systems.
+- Consider **thermal effects** in AIMD or phonon calculations.
+
+---
+
+## 5. Comparison to Experiment
+
+- Compare to **AC impedance spectroscopy** data.
+- Analyze **ionic transference number** to isolate ionic from electronic conductivity.
+- Match **activation energy** from NEB with **Arrhenius slope** from experiments.
+
+
+

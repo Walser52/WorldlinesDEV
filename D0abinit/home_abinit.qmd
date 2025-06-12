@@ -1,0 +1,6 @@
+---
+title: Ab initio calculations
+---
+
+[Ab initio](lectures/compute_ionic_conductivity.qmd)
+

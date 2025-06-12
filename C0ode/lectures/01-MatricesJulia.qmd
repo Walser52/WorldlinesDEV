@@ -1,0 +1,98 @@
+---
+title: Matrix operations with Julia
+---
+
+You can define a matrix in Julia.
+
+:::{.panel-tabset group="language"}
+
+## Julia
+
+```{julia}
+using LinearAlgebra 
+
+A = [1 2 3; 4 1 6; 7 8 1]
+A
+
+``` 
+
+You can do some basic operations:
+
+ 
+```{julia}
+println("Trace is: ", tr(A));
+println("Determinant is: ", det(A));
+println("Inverse is: ");
+inv(A)
+```
+
+## Python
+
+```{python}
+import numpy as np
+
+# Define the matrix
+matrix = np.array([[2, 4, 6],
+                   [1, 3, 5],
+                   [9, 7, 8]])
+
+# Compute the trace of the matrix
+matrix_trace = np.trace(matrix)
+
+# Compute the inverse of the matrix
+matrix_inverse = np.linalg.inv(matrix)
+
+# Compute the transpose of the matrix
+matrix_transpose = np.transpose(matrix)
+
+# Print the results
+print("Matrix:")
+print(matrix)
+
+print("\nTrace of the matrix:")
+print(matrix_trace)
+
+print("\nInverse of the matrix:")
+print(matrix_inverse)
+
+print("\nTranspose of the matrix:")
+print(matrix_transpose)
+
+```
+
+:::
+
+For more info see [julia docs](https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/)
+
+## Solving linear equations
+
+Say we have a linear system of equations. How do we find out in advance whether there is a solution to the system or not. 
+
+The determinant 'determines' it for us (hence the name):
+
+
+\begin{align}
+1x + 2y + 3z = 6\\
+2x + 4y + 6z = 12\\
+3x + 6y + 9z = 18\\
+\end{align}
+
+```{julia}
+using LinearAlgebra
+# using LinearSolve
+
+# Define the coefficient matrix A and the right-hand side vector b
+A = [
+    1  2  3;
+    2  4  6;
+    3  6  9
+]
+
+b = [6, 12, 18]
+
+# Calculate the determinant of A
+det_A = det(A)
+println("Determinant of A: $det_A")
+
+
+```

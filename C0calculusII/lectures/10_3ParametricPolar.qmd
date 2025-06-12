@@ -1,0 +1,217 @@
+---
+title: Parametric Curves and Polar Coordinates
+---
+
+
+```{python}
+#| code-fold: true
+#| code-summary: Some plotting routines. Click to expand
+import numpy as np
+import sympy as sp
+import matplotlib.pyplot as plt
+from sympy import plot_parametric, symbols
+from IPython.display import display, Markdown
+from functools import partial
+
+## This is a 'partial function' so that we don't have to set figure size and aspect ratio every time.
+splot = partial(plot_parametric, aspect_ratio = (1,1),size=(4,4),axis_center = (0,0))
+
+
+def _displayM(text, expr):
+  """
+  Display text and expression inline. 
+  """
+  display(Markdown('{} {}'.format(
+            text,
+            sp.latex(expr, mode='inline')
+          ))
+  )
+
+```
+
+## Example (r = 1 - cos(t))
+
+```{python}
+
+# x, y = sp.symbols('x y')
+r, t = sp.symbols('r t')
+
+r = 1 - sp.cos(t)
+
+x = r * sp.cos(t)
+y = r * sp.sin(t)
+splot((x,y), (t, 0, 2 * sp.pi))
+
+
+```
+
+## Example ($r^2 = 4 cos(t))
+
+```{python}
+## NUMPY
+## -----
+# Define the parameter
+t = np.linspace(0, 2 * np.pi, 1000)
+
+# Compute r from the parametrization
+r = np.sqrt(4* np.cos(t))
+
+# Compute x and y for the two lobes
+x1 = r * np.cos(t)
+y1 = r * np.sin(t)
+
+x2 = -r * np.cos(t)
+y2 = -r * np.sin(t)
+
+# Plot using Matplotlib
+plt.figure(figsize=(6, 6))
+plt.plot(x1, y1)
+plt.plot(x2, y2)
+
+plt.axhline(0, color='black',linewidth=0.5)
+plt.axvline(0, color='black',linewidth=0.5)
+plt.grid(True, which='both')
+plt.gca().set_aspect('equal', adjustable='box')
+plt.show()
+
+```
+
+```{python}
+## SYMPY
+##-------
+r, t = sp.symbols('r t', positive = False)
+
+r_sq = 4 * sp.cos(t)
+r_lobes = [sp.sqrt(r_sq), -sp.sqrt(r_sq)]
+
+## Find x and y
+x_lobes = [lobe * sp.cos(t) for lobe in r_lobes]
+y_lobes = [lobe * sp.sin(t) for lobe in r_lobes]
+
+splot((x_lobes[0],y_lobes[0], (t, - sp.pi/2, sp.pi/2)),
+      (x_lobes[1],y_lobes[1], (t, - sp.pi/2, sp.pi/2))
+)
+
+
+```
+
+
+
+
+## Areas in Polar Coordinates
+
+
+### Of cardioid ($r = 2(1+cos(\theta))$)
+
+
+```{python}
+# Total area
+
+r, t = sp.symbols('r t')
+
+r = 2 * (1 + sp.cos(t))
+
+sp.integrate(1/2 * r**2, (t, 0, 2 * sp.pi))
+
+```
+
+
+### Area between curves
+
+```{python}
+# Area between regions 
+
+##-- Define curves
+r1, r2, t = sp.symbols('r1 r2 t')
+
+r1 = 1 - sp.cos(t)
+r2 = 1
+
+##-- Find Area
+
+res = sp.integrate((r2**2 - r1**2)/2, (t, -sp.pi/2, sp.pi/2))
+_displayM("Area between curves is:", res)
+
+
+##-- Plot curves
+x1 = r1 * sp.cos(t)
+y1 = r1 * sp.sin(t)
+
+x2 = r2 * sp.cos(t)
+y2 = r2 * sp.sin(t)
+
+splot((x1,y1, (t, -sp.pi/2, sp.pi/2)),
+      (x2,y2, (t, -sp.pi/2, sp.pi/2))
+)
+
+
+
+
+```
+
+
+## Intersecting curves
+
+```{python}
+
+r1, r2, t = sp.symbols('r1 r2 t')
+
+r1 = 2 * sp.cos(t/3)
+r2 = sp.sqrt(2)
+
+## Find intersects to r1 == r2.
+res = sp.solve(r1 - r2, t, dict = True)
+
+res
+## Display neatly
+# [_displayM(f"Solution {idx}: ", i[t]) for idx, i in enumerate(res)];
+```
+
+
+```{python}
+
+x = [r * sp.cos(t) for r in (r1, r2)]
+y = [r * sp.sin(t) for r in (r1, r2)]
+
+splot(x[1], y[1], (t, 0, 2 * sp.pi))
+
+splot((x[1], y[1], (t, 0, 2 * sp.pi)),
+(x[0], y[0], (t, 0, 4 * sp.pi))
+
+)
+
+```
+
+
+## Lengths in Polar Coordinates
+
+### Length of cardioid ($r= 1 - cos(\theta)$)
+
+```{python}
+# Total area
+
+from sympy.simplify.fu import TR11, TR0
+
+
+r, t = sp.symbols('r t', real = True)
+
+r = (1 - sp.cos(t))
+drdt = sp.diff(r,t)
+
+
+f = sp.sqrt(r**2 + drdt**2)
+integrand = sp.simplify(f)
+# integrand = integrand.subs(sp.sqrt(1-sp.cos(t)), sp.sin(t/2)*2)
+integrand
+# sp.integrate(integrand, (t, 0, 2 * sp.pi))
+
+```
+
+
+```{python}
+from sympy.simplify.fu import TR11, TR0
+from sympy import cos, sin, pi
+from sympy.abc import x
+TR0(TR11(integrand, base = t*2))
+
+```

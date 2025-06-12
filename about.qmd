@@ -1,0 +1,33 @@
+---
+title: "About"
+---
+
+*Disclaimer: *
+
+Some of the content here was generated using LLMs and still needs curation. Use the content with caution. 
+
+<!-- 
+</script>
+<div class="stage" id="stage">
+<div class="anchor80-line" id="nodeA" style="width: 30%;">$$x+2=3$$</div>
+</div>
+
+<script>
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA'},
+    to: {id: 'nodeB', text: 'result = 5', style: { left: '380px', top: '180px' }},
+    lineOptions: {color: 'navy', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
+  });
+
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA'},
+    to: {id: 'nodeC',text: 'result = 5',style: { left: '0px', top: '180px' }
+    },
+    lineOptions: {
+      color: 'coral',endLabel: 'T(x)',path: 'fluid',startPlug: 'disc',endPlug: 'arrow3'}
+  });
+</script> -->
+
+

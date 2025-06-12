@@ -1,0 +1,39 @@
+---
+title: "Course Hub Developer Version"
+---
+ 
+This is the developer version of the website. 
+
+
+## Notes
+
+Folders starting with C0 are for courses. Folders starting with D0 are for guides. 
+
+All bibliography goesto /_bibliography
+
+
+Content relevant to your course will be posted on the corresponding course pages which you can access from the list below or using side panel. 
+
+Note that <s> it is your responsiblity to keep yourself updated </s> with any new developments and/or announcements. 
+
+::: {.column-margin}
+![](_figs/calvin.webp)
+:::
+
+## Undergraduate
+[Calculus I - MT101](C0calculusI/home_calculusI.qmd)\
+[Differential Equations & Linear Algebra - MT102](C0ode/home_ode.qmd)\
+[Calculus II - MT202](C0calculusII/home_calculusII.qmd)\
+
+## Graduate
+[Non-equilibrium Thermodynamics - ES696](C0noneqthermo/home_noneqthermo.qmd)\
+
+
+<!-- [Courses](0courses.qmd) -->
+
+## Contact
+
+sheharyar [at] giki.edu.pk\
+Office (G-27, FES)\
+Consultation hours (9 to 10 am, Mon to Fri)
+
