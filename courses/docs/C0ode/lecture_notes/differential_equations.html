@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>untitled – Worldlines</title>
+<title>Differential Equations Notes – Worldlines</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,61 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6bf82afa94d109b5b09dc08c588be60.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7c382221746ed5f81b504d56e6835486.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a6bf82afa94d109b5b09dc08c588be60.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-55569385c0041540e18a04121c3d6769.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,13 +141,42 @@ function drawLeader({
 
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../css/buttons.css">
-<link rel="stylesheet" href="../css/tabs.css">
-<link rel="stylesheet" href="../css/callouts.css">
-<link rel="stylesheet" href="../css/fonts-ebgaramond.css">
-<link rel="stylesheet" href="../css/shapes.css">
-<link rel="stylesheet" href="../css/leaders.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../css/buttons.css">
+<link rel="stylesheet" href="../../css/tabs.css">
+<link rel="stylesheet" href="../../css/callouts.css">
+<link rel="stylesheet" href="../../css/fonts-ebgaramond.css">
+<link rel="stylesheet" href="../../css/shapes.css">
+<link rel="stylesheet" href="../../css/leaders.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -192,7 +186,7 @@ function drawLeader({
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Worldlines</span>
     </a>
   </div>
@@ -203,11 +197,11 @@ function drawLeader({
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page"> 
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -216,19 +210,19 @@ function drawLeader({
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-courses">    
         <li>
-    <a class="dropdown-item" href="../C0calculusI/home_calculusI.html">
+    <a class="dropdown-item" href="../../C0calculusI/home_calculusI.html">
  <span class="dropdown-text">Calculus I</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../C0calculusII/home_calculusII.html">
+    <a class="dropdown-item" href="../../C0calculusII/home_calculusII.html">
  <span class="dropdown-text">Calculus II</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../C0ode/home_ode.html">
+    <a class="dropdown-item" href="../../C0ode/home_ode.html">
  <span class="dropdown-text">Diff. Eqs. &amp; Lin. Alg.</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../C0noneqthermo/home_noneqthermo.qmd">
+    <a class="dropdown-item" href="../../C0noneqthermo/home_noneqthermo.qmd">
  <span class="dropdown-text">Non-equilibrium Thermodynamics</span></a>
   </li>  
     </ul>
@@ -239,7 +233,7 @@ function drawLeader({
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-guides">    
         <li>
-    <a class="dropdown-item" href="../D0abinit/home_abinit.html">
+    <a class="dropdown-item" href="../../D0abinit/home_abinit.html">
  <span class="dropdown-text">Ab initio calculation</span></a>
   </li>  
     </ul>
@@ -260,7 +254,7 @@ function drawLeader({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Differential Equations Notes</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -274,8 +268,8 @@ function drawLeader({
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../_figs/hugorheinholdchimp.png" alt="Undergraduate ponders mysteries of physics, mathematics, and life" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../_figs/hugorheinholdchimp.png" alt="Undergraduate ponders mysteries of physics, mathematics, and life" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -296,25 +290,25 @@ function drawLeader({
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../C0calculusI/home_calculusI.html" class="sidebar-item-text sidebar-link">
+  <a href="../../C0calculusI/home_calculusI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calculus I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../C0calculusII/home_calculusII.html" class="sidebar-item-text sidebar-link">
+  <a href="../../C0calculusII/home_calculusII.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calculus II</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../C0ode/home_ode.html" class="sidebar-item-text sidebar-link">
+  <a href="../../C0ode/home_ode.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ODEs &amp; Lin. Alg.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../C0noneqthermo/home_noneqthermo.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../C0noneqthermo/home_noneqthermo.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Non-equilibrium Thermodynamics</span></a>
   </div>
 </li>
@@ -331,37 +325,37 @@ function drawLeader({
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../C0manybody/home_manybody.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../C0manybody/home_manybody.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Many-Body Systems</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../C0probtheory/home_probabilitytheory.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../C0probtheory/home_probabilitytheory.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probability Theory</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../C0stochastic/home_stoch.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../C0stochastic/home_stoch.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Stochastic Processes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../C0statmech/home_statmech.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../C0statmech/home_statmech.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistical Mechanics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../C0topology/home_topology.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../C0topology/home_topology.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topology</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../C0diffgeom/home_diffgeom.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../C0diffgeom/home_diffgeom.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Differential Geometry</span></a>
   </div>
 </li>
@@ -372,61 +366,319 @@ function drawLeader({
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#differential-equations" id="toc-differential-equations" class="nav-link active" data-scroll-target="#differential-equations">Differential Equations</a>
+  <ul class="collapse">
+  <li><a href="#reference-function" id="toc-reference-function" class="nav-link" data-scroll-target="#reference-function">Reference Function</a></li>
+  <li><a href="#classifications" id="toc-classifications" class="nav-link" data-scroll-target="#classifications">Classifications</a>
+  <ul class="collapse">
+  <li><a href="#by-type" id="toc-by-type" class="nav-link" data-scroll-target="#by-type">1. By Type</a></li>
+  <li><a href="#by-order" id="toc-by-order" class="nav-link" data-scroll-target="#by-order">2. By Order</a></li>
+  <li><a href="#by-linearity" id="toc-by-linearity" class="nav-link" data-scroll-target="#by-linearity">3. By Linearity</a></li>
+  </ul></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#general-solutions" id="toc-general-solutions" class="nav-link" data-scroll-target="#general-solutions">General Solutions</a></li>
+  <li><a href="#initial-value-problem-ivp" id="toc-initial-value-problem-ivp" class="nav-link" data-scroll-target="#initial-value-problem-ivp">Initial Value Problem (IVP)</a></li>
+  <li><a href="#boundary-value-problem-bvp" id="toc-boundary-value-problem-bvp" class="nav-link" data-scroll-target="#boundary-value-problem-bvp">Boundary Value Problem (BVP)</a></li>
+  <li><a href="#normal-form" id="toc-normal-form" class="nav-link" data-scroll-target="#normal-form">Normal Form</a></li>
+  <li><a href="#family-of-curves" id="toc-family-of-curves" class="nav-link" data-scroll-target="#family-of-curves">Family of Curves</a></li>
+  <li><a href="#solutions-of-first-order-differential-equations" id="toc-solutions-of-first-order-differential-equations" class="nav-link" data-scroll-target="#solutions-of-first-order-differential-equations">Solutions of First Order Differential Equations</a>
+  <ul class="collapse">
+  <li><a href="#slope-conditions" id="toc-slope-conditions" class="nav-link" data-scroll-target="#slope-conditions">Slope Conditions:</a></li>
+  </ul></li>
+  <li><a href="#autonomous-first-order-equations" id="toc-autonomous-first-order-equations" class="nav-link" data-scroll-target="#autonomous-first-order-equations">Autonomous First-Order Equations</a></li>
+  <li><a href="#solution-by-integration" id="toc-solution-by-integration" class="nav-link" data-scroll-target="#solution-by-integration">Solution by Integration</a>
+  <ul class="collapse">
+  <li><a href="#fundamental-theorem-of-calculus" id="toc-fundamental-theorem-of-calculus" class="nav-link" data-scroll-target="#fundamental-theorem-of-calculus">Fundamental Theorem of Calculus</a></li>
+  </ul></li>
+  <li><a href="#solution-by-integrating-factor-method" id="toc-solution-by-integrating-factor-method" class="nav-link" data-scroll-target="#solution-by-integrating-factor-method">Solution by Integrating Factor Method</a>
+  <ul class="collapse">
+  <li><a href="#find-integrating-factor" id="toc-find-integrating-factor" class="nav-link" data-scroll-target="#find-integrating-factor">Find Integrating Factor:</a></li>
+  <li><a href="#solving-the-equation" id="toc-solving-the-equation" class="nav-link" data-scroll-target="#solving-the-equation">Solving the Equation</a></li>
+  </ul></li>
+  <li><a href="#error-function" id="toc-error-function" class="nav-link" data-scroll-target="#error-function">Error Function</a></li>
+  <li><a href="#exact-differential-equations" id="toc-exact-differential-equations" class="nav-link" data-scroll-target="#exact-differential-equations">Exact Differential Equations</a>
+  <ul class="collapse">
+  <li><a href="#steps-to-solve" id="toc-steps-to-solve" class="nav-link" data-scroll-target="#steps-to-solve">Steps to Solve:</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Differential Equations Notes</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<div id="79dd14ea-11e6-4ad8-a340-18514256086b" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="694323ff-c179-4833-a8f6-d929b97e4a63" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Sampling the Gaussian distribution using the Box-Muller Transform</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="b7ef3b68-66de-45da-9e7e-bde269eaeef0" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> np.random.rand(<span class="dv">1000</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>u1 <span class="op">=</span> u[:<span class="dv">500</span>]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>u2 <span class="op">=</span> u[<span class="dv">500</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="a6be24c7-c38d-4781-9574-e6932907dcd1" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>np.pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>3.141592653589793</code></pre>
-</div>
-</div>
-<div id="c7d6b97f-8bbc-4d97-a24f-238942dfc419" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>z0 <span class="op">=</span> np.sqrt(<span class="op">-</span><span class="dv">2</span><span class="op">*</span>np.log(u1)) <span class="op">*</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">*</span> u1)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>z1 <span class="op">=</span> np.sqrt(<span class="op">-</span><span class="dv">2</span><span class="op">*</span>np.log(u1)) <span class="op">*</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">*</span> u2)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.concatenate((z0,z1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="beb02141-81bc-47b8-97ca-54bd17d827e5" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.hist(z, bins <span class="op">=</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="c3b02eea-b96f-440d-a8e6-dcfc214be393" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
-<pre><code>(array([  4.,  14.,  50., 260., 236., 236., 104.,  54.,  34.,   8.]),
- array([-3.26780785, -2.58134183, -1.8948758 , -1.20840978, -0.52194376,
-         0.16452227,  0.85098829,  1.53745431,  2.22392034,  2.91038636,
-         3.59685238]),
- &lt;BarContainer object of 10 artists&gt;)</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Untitled_files/figure-html/cell-8-output-2.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<section id="differential-equations" class="level1">
+<h1>Differential Equations</h1>
+<p>Equations in which rates and derivatives are mentioned.<br>
+We use the <strong>operator</strong> <code>L</code> in such equations.</p>
+<hr>
+<section id="reference-function" class="level2">
+<h2 class="anchored" data-anchor-id="reference-function">Reference Function</h2>
+<p>A <strong>reference function</strong> is one <strong>not directly involved</strong> in the differentiability of an equation.</p>
+<hr>
+</section>
+<section id="classifications" class="level2">
+<h2 class="anchored" data-anchor-id="classifications">Classifications</h2>
+<section id="by-type" class="level3">
+<h3 class="anchored" data-anchor-id="by-type">1. By Type</h3>
+<ul>
+<li><strong>Ordinary Differential Equation (ODE)</strong>: involves derivatives with respect to a single variable.<br>
+</li>
+<li><strong>Partial Differential Equation (PDE)</strong>: involves partial derivatives (i.e., with respect to multiple variables).</li>
+</ul>
+</section>
+<section id="by-order" class="level3">
+<h3 class="anchored" data-anchor-id="by-order">2. By Order</h3>
+<ul>
+<li>Refers to the <strong>highest derivative</strong> in the equation.<br>
+</li>
+<li>Note: This is not the same as the <strong>degree</strong> (which refers to the power of the derivative).</li>
+</ul>
+</section>
+<section id="by-linearity" class="level3">
+<h3 class="anchored" data-anchor-id="by-linearity">3. By Linearity</h3>
+<ul>
+<li><p>A differential equation is <strong>linear</strong> if it is of the form:</p>
+<p><span class="math display">\[ a_n(x)\frac{d^n y}{dx^n} + \cdots + a_1(x)\frac{dy}{dx} + a_0(x)y = g(x) \]</span></p></li>
+<li><p><strong>Linearity condition</strong>:</p>
+<ul>
+<li>The <strong>n</strong><sup>th</sup> order differential must have degree 1.<br>
+</li>
+<li>Its <strong>prefactor (coefficient)</strong> should be 1 or a function of the independent variable.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="notation" class="level2">
+<h2 class="anchored" data-anchor-id="notation">Notation</h2>
+<ul>
+<li><p><strong>Leibniz Notation</strong>:<br>
+<span class="math display">\[ \frac{dy}{dx} \]</span></p></li>
+<li><p><strong>Newton Notation</strong>:<br>
+<span class="math display">\[ y' \]</span></p></li>
+</ul>
+<hr>
+</section>
+<section id="general-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="general-solutions">General Solutions</h2>
+<ul>
+<li>Particular solutions are infinite and depend on the value taken for constant <strong>C</strong>.</li>
+</ul>
+<hr>
+</section>
+<section id="initial-value-problem-ivp" class="level2">
+<h2 class="anchored" data-anchor-id="initial-value-problem-ivp">Initial Value Problem (IVP)</h2>
+<ul>
+<li>Defined at a <strong>particular instant</strong> (i.e., value of the independent variable is specified).</li>
+</ul>
+</section>
+<section id="boundary-value-problem-bvp" class="level2">
+<h2 class="anchored" data-anchor-id="boundary-value-problem-bvp">Boundary Value Problem (BVP)</h2>
+<ul>
+<li>Defined <strong>between a given interval</strong> (start and end conditions given).</li>
+</ul>
+<hr>
+</section>
+<section id="normal-form" class="level2">
+<h2 class="anchored" data-anchor-id="normal-form">Normal Form</h2>
+<p>The general form of an <em>n</em>th-order differential equation:</p>
+<p><span class="math display">\[
+\frac{d^n y}{dx^n} = f(x, y, y', \dots, y^{(n-1)})
+\]</span></p>
+<hr>
+</section>
+<section id="family-of-curves" class="level2">
+<h2 class="anchored" data-anchor-id="family-of-curves">Family of Curves</h2>
+<ul>
+<li>The <strong>solution curves</strong> depend on the value of constant <strong>C</strong>.</li>
+</ul>
+<hr>
+</section>
+<section id="solutions-of-first-order-differential-equations" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-of-first-order-differential-equations">Solutions of First Order Differential Equations</h2>
+<p>Given:</p>
+<p><span class="math display">\[
+\frac{dy}{dx} = f(x, y)
+\]</span></p>
+<p>This represents the <strong>slope</strong> of the function at each point.</p>
+<section id="slope-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="slope-conditions">Slope Conditions:</h3>
+<ul>
+<li><span class="math inline">\(( \frac{dy}{dx} &gt; 0 )\)</span>: slope going up<br>
+</li>
+<li><span class="math inline">\(( \frac{dy}{dx} &lt; 0 )\)</span>: slope going down<br>
+</li>
+<li><span class="math inline">\(( \frac{dy}{dx} = 0 )\)</span>: stationary or critical point</li>
+</ul>
+<p>At equilibrium point:</p>
+<p><span class="math display">\[
+\frac{dy}{dx} = 0 \Rightarrow y = c
+\]</span></p>
+<hr>
+</section>
+</section>
+<section id="autonomous-first-order-equations" class="level2">
+<h2 class="anchored" data-anchor-id="autonomous-first-order-equations">Autonomous First-Order Equations</h2>
+<p>Given:</p>
+<p><span class="math display">\[
+\frac{dy}{dx} = f(y)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(( y )\)</span> may depend on <span class="math inline">\(( x )\)</span> in the derivative, but <strong>not directly</strong>.</li>
+<li>By finding the <strong>zeros</strong> of the function <span class="math inline">\(( f(y) ),\)</span> we can determine:
+<ul>
+<li>Increasing and decreasing intervals</li>
+<li>Equilibrium points/regions</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="solution-by-integration" class="level2">
+<h2 class="anchored" data-anchor-id="solution-by-integration">Solution by Integration</h2>
+<ul>
+<li><strong>Separable</strong>: written as a product<br>
+</li>
+<li><strong>Inseparable</strong>: written as a sum</li>
+</ul>
+<section id="fundamental-theorem-of-calculus" class="level3">
+<h3 class="anchored" data-anchor-id="fundamental-theorem-of-calculus">Fundamental Theorem of Calculus</h3>
+<p>Links derivative and antiderivative:</p>
+<p><span class="math display">\[
+\frac{d}{dx} \int_{a}^{x} g(t)\,dt = g(x)
+\]</span></p>
+<p><span class="math display">\[
+y = y_0 + \int_{x_0}^{x} g(t)\,dt
+\]</span></p>
+<hr>
+</section>
+</section>
+<section id="solution-by-integrating-factor-method" class="level2">
+<h2 class="anchored" data-anchor-id="solution-by-integrating-factor-method">Solution by Integrating Factor Method</h2>
+<ul>
+<li>Applicable to all <strong>First Order Differential Equations (FODE)</strong></li>
+</ul>
+<p>Given:</p>
+<p><span class="math display">\[
+a_1(x)\frac{dy}{dx} + a_0(x)y = g(x)
+\]</span></p>
+<p>Divide by <span class="math inline">\(( a_1(x) )\)</span>:</p>
+<p><span class="math display">\[
+\frac{dy}{dx} + \frac{a_0(x)}{a_1(x)}y = \frac{g(x)}{a_1(x)}
+\]</span></p>
+<p>This is the <strong>standard form</strong>:</p>
+<p><span class="math display">\[
+\frac{dy}{dx} + P(x)y = f(x)
+\]</span></p>
+<p>Multiply both sides by the <strong>integrating factor</strong> <span class="math inline">\(( \mu )\)</span>:</p>
+<p><span class="math display">\[
+\mu \frac{dy}{dx} + \mu P(x)y = \mu f(x)
+\]</span></p>
+<p>Left-hand side becomes:</p>
+<p><span class="math display">\[
+\frac{d}{dx}[\mu y] = \mu f(x)
+\]</span></p>
+<section id="find-integrating-factor" class="level3">
+<h3 class="anchored" data-anchor-id="find-integrating-factor">Find Integrating Factor:</h3>
+<p><span class="math display">\[
+\ln \mu = \int P(x)\,dx + \ln C \Rightarrow \mu = C e^{\int P(x)\,dx}
+\]</span></p>
+<hr>
+</section>
+<section id="solving-the-equation" class="level3">
+<h3 class="anchored" data-anchor-id="solving-the-equation">Solving the Equation</h3>
+<ol type="1">
+<li>Multiply by integrating factor:</li>
+</ol>
+<p><span class="math display">\[
+\frac{d}{dx}(\mu y) = \mu f(x)
+\]</span></p>
+<ol start="2" type="1">
+<li>Integrate both sides:</li>
+</ol>
+<p><span class="math display">\[
+\mu y = \int \mu f(x)\,dx + C
+\]</span></p>
+<ol start="3" type="1">
+<li>Solve for ( y ):</li>
+</ol>
+<p><span class="math display">\[
+y = \frac{1}{\mu} \left[\int \mu f(x)\,dx + C \right]
+\]</span></p>
+<hr>
+</section>
+</section>
+<section id="error-function" class="level2">
+<h2 class="anchored" data-anchor-id="error-function">Error Function</h2>
+<p>Defined as:</p>
+<p><span class="math display">\[
+\text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
+\]</span></p>
+<p>Complementary form:</p>
+<p><span class="math display">\[
+\text{erfc}(x) = \frac{2}{\sqrt{\pi}} \int_x^{\infty} e^{-t^2} dt
+\]</span></p>
+<ul>
+<li>Often used in differential equations</li>
+<li>Denominator most likely includes <span class="math inline">\(( \pi )\)</span></li>
+</ul>
+<hr>
+</section>
+<section id="exact-differential-equations" class="level2">
+<h2 class="anchored" data-anchor-id="exact-differential-equations">Exact Differential Equations</h2>
+<p>General Form:</p>
+<p><span class="math display">\[
+M(x, y)\,dx + N(x, y)\,dy = 0
+\]</span></p>
+<p>Check for <strong>exactness</strong> using total differential:</p>
+<p><span class="math display">\[
+dF = \frac{\partial F}{\partial x}dx + \frac{\partial F}{\partial y}dy
+\]</span></p>
+<p>Test for exactness:</p>
+<p><span class="math display">\[
+\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
+\]</span></p>
+<hr>
+<section id="steps-to-solve" class="level3">
+<h3 class="anchored" data-anchor-id="steps-to-solve">Steps to Solve:</h3>
+<ol type="1">
+<li>Integrate <span class="math inline">\(( M(x, y) )\)</span> w.r.t <span class="math inline">\(( x )\)</span> or <span class="math inline">\(( N(x, y) )\)</span> w.r.t <span class="math inline">\(( y )\)</span> to get <span class="math inline">\(( F(x, y) )\)</span><br>
+</li>
+<li>Partially differentiate w.r.t. the other variable<br>
+</li>
+<li>Use that to find the constant<br>
+</li>
+<li>Substitute everything into <span class="math inline">\(( F(x, y) = C )\)</span></li>
+</ol>
+
+
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -829,7 +1081,7 @@ function drawLeader({
   });
   </script>
 </div> <!-- /content -->
-<script src="../scripts/leader-line-master/leader-line.min.js"></script>
+<script src="../../scripts/leader-line-master/leader-line.min.js"></script>
 
 
 

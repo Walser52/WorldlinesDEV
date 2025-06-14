@@ -1,0 +1,256 @@
+---
+title: "Differential Equations Notes"
+format: html
+editor: visual
+theme: cosmo
+---
+
+# Differential Equations
+
+Equations in which rates and derivatives are mentioned.\
+We use the **operator** `L` in such equations.
+
+------------------------------------------------------------------------
+
+## Reference Function
+
+A **reference function** is one **not directly involved** in the differentiability of an equation.
+
+------------------------------------------------------------------------
+
+## Classifications
+
+### 1. By Type
+
+-   **Ordinary Differential Equation (ODE)**: involves derivatives with respect to a single variable.\
+-   **Partial Differential Equation (PDE)**: involves partial derivatives (i.e., with respect to multiple variables).
+
+### 2. By Order
+
+-   Refers to the **highest derivative** in the equation.\
+-   Note: This is not the same as the **degree** (which refers to the power of the derivative).
+
+### 3. By Linearity
+
+-   A differential equation is **linear** if it is of the form:
+
+    $$ a_n(x)\frac{d^n y}{dx^n} + \cdots + a_1(x)\frac{dy}{dx} + a_0(x)y = g(x) $$
+
+-   **Linearity condition**:
+
+    -   The **n**<sup>th</sup> order differential must have degree 1.\
+    -   Its **prefactor (coefficient)** should be 1 or a function of the independent variable.
+
+------------------------------------------------------------------------
+
+## Notation
+
+-   **Leibniz Notation**:\
+    $$ \frac{dy}{dx} $$
+
+-   **Newton Notation**:\
+    $$ y' $$
+
+------------------------------------------------------------------------
+
+## General Solutions
+
+-   Particular solutions are infinite and depend on the value taken for constant **C**.
+
+------------------------------------------------------------------------
+
+## Initial Value Problem (IVP)
+
+-   Defined at a **particular instant** (i.e., value of the independent variable is specified).
+
+## Boundary Value Problem (BVP)
+
+-   Defined **between a given interval** (start and end conditions given).
+
+------------------------------------------------------------------------
+
+## Normal Form
+
+The general form of an *n*th-order differential equation:
+
+$$
+\frac{d^n y}{dx^n} = f(x, y, y', \dots, y^{(n-1)})
+$$
+
+------------------------------------------------------------------------
+
+## Family of Curves
+
+-   The **solution curves** depend on the value of constant **C**.
+
+------------------------------------------------------------------------
+
+## Solutions of First Order Differential Equations
+
+Given:
+
+$$
+\frac{dy}{dx} = f(x, y)
+$$
+
+This represents the **slope** of the function at each point.
+
+### Slope Conditions:
+
+-   $( \frac{dy}{dx} > 0 )$: slope going up\
+-   $( \frac{dy}{dx} < 0 )$: slope going down\
+-   $( \frac{dy}{dx} = 0 )$: stationary or critical point
+
+At equilibrium point:
+
+$$
+\frac{dy}{dx} = 0 \Rightarrow y = c
+$$
+
+------------------------------------------------------------------------
+
+## Autonomous First-Order Equations
+
+Given:
+
+$$
+\frac{dy}{dx} = f(y)
+$$
+
+-   $( y )$ may depend on $( x )$ in the derivative, but **not directly**.
+-   By finding the **zeros** of the function $( f(y) ),$ we can determine:
+    -   Increasing and decreasing intervals
+    -   Equilibrium points/regions
+
+------------------------------------------------------------------------
+
+## Solution by Integration
+
+-   **Separable**: written as a product\
+-   **Inseparable**: written as a sum
+
+### Fundamental Theorem of Calculus
+
+Links derivative and antiderivative:
+
+$$
+\frac{d}{dx} \int_{a}^{x} g(t)\,dt = g(x)
+$$
+
+$$
+y = y_0 + \int_{x_0}^{x} g(t)\,dt
+$$
+
+------------------------------------------------------------------------
+
+## Solution by Integrating Factor Method
+
+-   Applicable to all **First Order Differential Equations (FODE)**
+
+Given:
+
+$$
+a_1(x)\frac{dy}{dx} + a_0(x)y = g(x)
+$$
+
+Divide by $( a_1(x) )$:
+
+$$
+\frac{dy}{dx} + \frac{a_0(x)}{a_1(x)}y = \frac{g(x)}{a_1(x)}
+$$
+
+This is the **standard form**:
+
+$$
+\frac{dy}{dx} + P(x)y = f(x)
+$$
+
+Multiply both sides by the **integrating factor** $( \mu )$:
+
+$$
+\mu \frac{dy}{dx} + \mu P(x)y = \mu f(x)
+$$
+
+Left-hand side becomes:
+
+$$
+\frac{d}{dx}[\mu y] = \mu f(x)
+$$
+
+### Find Integrating Factor:
+
+$$
+\ln \mu = \int P(x)\,dx + \ln C \Rightarrow \mu = C e^{\int P(x)\,dx}
+$$
+
+------------------------------------------------------------------------
+
+### Solving the Equation
+
+1.  Multiply by integrating factor:
+
+$$
+\frac{d}{dx}(\mu y) = \mu f(x)
+$$
+
+2.  Integrate both sides:
+
+$$
+\mu y = \int \mu f(x)\,dx + C
+$$
+
+3.  Solve for ( y ):
+
+$$
+y = \frac{1}{\mu} \left[\int \mu f(x)\,dx + C \right]
+$$
+
+------------------------------------------------------------------------
+
+## Error Function
+
+Defined as:
+
+$$
+\text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
+$$
+
+Complementary form:
+
+$$
+\text{erfc}(x) = \frac{2}{\sqrt{\pi}} \int_x^{\infty} e^{-t^2} dt
+$$
+
+-   Often used in differential equations
+-   Denominator most likely includes $( \pi )$
+
+------------------------------------------------------------------------
+
+## Exact Differential Equations
+
+General Form:
+
+$$
+M(x, y)\,dx + N(x, y)\,dy = 0
+$$
+
+Check for **exactness** using total differential:
+
+$$
+dF = \frac{\partial F}{\partial x}dx + \frac{\partial F}{\partial y}dy
+$$
+
+Test for exactness:
+
+$$
+\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
+$$
+
+------------------------------------------------------------------------
+
+### Steps to Solve:
+
+1.  Integrate $( M(x, y) )$ w.r.t $( x )$ or $( N(x, y) )$ w.r.t $( y )$ to get $( F(x, y) )$\
+2.  Partially differentiate w.r.t. the other variable\
+3.  Use that to find the constant\
+4.  Substitute everything into $( F(x, y) = C )$
