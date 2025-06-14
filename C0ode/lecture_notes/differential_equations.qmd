@@ -1,8 +1,5 @@
 ---
 title: "Differential Equations Notes"
-format: html
-editor: visual
-theme: cosmo
 ---
 
 # Differential Equations
@@ -19,6 +16,8 @@ A **reference function** is one **not directly involved** in the differentiabili
 ------------------------------------------------------------------------
 
 ## Classifications
+
+{{< include _figs/classifications.qmd >}}
 
 ### 1. By Type
 

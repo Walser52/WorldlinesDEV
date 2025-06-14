@@ -1,0 +1,54 @@
+
+</script>
+<div class="stage" id="stage" style="position: relative; height: 300px;">
+
+  <div class="tbox"  id="nodeA0" style="top: 50%; left: 0%;">
+  <div class="theader" id="nodeA0h" style="">Classes of differential equations</div>
+  <div class="tbody" id="nodeA0c" style="">Several classifications are possible.  </div>
+  </div>
+
+  <div class="tbox"  id="nodeB0" style="top: 10%; left: 50%;position: absolute">
+  <div class="theader" id="nodeB0h" style="">By Type</div>
+  <div class="tbody" id="nodeB0c" style="">Involving ordinary or partial derivatives </div>
+  </div>
+
+  <div class="tbox"  id="nodeB1" style="top: 53%; left: 50%; position: absolute">
+  <div class="theader" id="nodeB1h" style="">By Order</div>
+  <div class="tbody" id="nodeB1c" style="">Involving ordinary or partial derivatives </div>
+  </div>
+
+  <div class="tbox"  id="nodeB2" style="top: 90%; left: 50%; position: absolute">
+  <div class="theader" id="nodeB2h" style="">By Linearity</div>
+  <div class="tbody" id="nodeB2c" style="">Involving ordinary or partial derivatives </div>
+  </div>
+
+
+<!-- 
+  <div class="anchor80-line" id="nodeC" style="width: 30%; position: absolute; top: 80%; left: 100px;">
+    bb
+  </div> -->
+</div>
+
+
+<script>
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA0'},
+    to: {id: 'nodeB0'},
+    lineOptions: {color: 'DarkGoldenRod', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
+  });
+
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA0'},
+    to: {id: 'nodeB1'},
+    lineOptions: {color: 'DarkGoldenRod', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
+  });
+
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA0'},
+    to: {id: 'nodeB2'},
+    lineOptions: {color: 'DarkGoldenRod', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
+  });
+</script>
