@@ -1,5 +1,8 @@
 ---
 title: "Differential Equations Notes"
+format: html
+editor: visual
+theme: cosmo
 ---
 
 # Differential Equations
@@ -16,8 +19,6 @@ A **reference function** is one **not directly involved** in the differentiabili
 ------------------------------------------------------------------------
 
 ## Classifications
-
-{{< include _figs/classifications.qmd >}}
 
 ### 1. By Type
 
@@ -253,3 +254,82 @@ $$
 2.  Partially differentiate w.r.t. the other variable\
 3.  Use that to find the constant\
 4.  Substitute everything into $( F(x, y) = C )$
+
+# Integrating Factor (Special Cases)
+
+- If μ only depends on **x**: $\mu_y = 0$
+  $$
+  \mu = \exp\left(\int \frac{\partial N/\partial x - \partial M/\partial y}{M} \; dx\right)
+  $$
+  Must be a function of **x** only.
+
+- If μ only depends on **y**: $\mu_x = 0$
+  $$
+  \mu = \exp\left(\int \frac{\partial M/\partial y - \partial N/\partial x}{N} \; dy\right)
+  $$
+  Must be a function of **y** only.
+
+- In general:
+  $$
+  \mu = \frac{1}{M_x + N_y}
+  $$
+
+- If you can take **x** common from one part and **y** common from another:
+  $$
+  \mu = \frac{1}{M_y - N_x}
+  $$
+
+# Solution by Substitution
+
+## 1. Homogeneous Equations
+
+Given: $M(x, y) dx + N(x, y) dy = 0$
+
+- It is homogeneous if:
+  $$
+  M(tx, ty) = t^k M(x, y), \quad N(tx, ty) = t^k N(x, y)
+  $$
+
+- Substitutions:
+  - $y = ux$
+  - $x = vy$
+
+## 2. Bernoulli’s Equation
+
+General form:
+$$
+\frac{dy}{dx} + P(x)y = F(x)y^n
+$$
+
+- If $n \neq 1$ or $n \neq 0$, use:
+  - $u = y^{1-n}$
+  - Then use **integrating factor** method
+
+- If $n = 0$ or $n = 1$: directly solvable
+
+## 3. Reduction to Separation of Variables
+
+Given:
+$$
+\frac{dy}{dx} = F(Ax + By + C)
+$$
+
+- If $B \neq 0$:
+  - Substitution: $u = Ax + By + C$
+
+Also relates to:
+$$
+M(x,y) dx + N(x,y) dy = 0
+$$
+
+- Check if homogeneous or exact:
+  - If homogeneous: use substitution to convert into separable form
+  - If not homogeneous: check for exactness
+  - If not exact: make it exact using integrating factor
+
+**Note:** Homogeneous is a special case of Exact.
+
+
+# Include flowcharts and diagrams
+
+```{include} mermaid-diagram-flow.md

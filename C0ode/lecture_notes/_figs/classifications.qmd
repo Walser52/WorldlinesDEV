@@ -1,35 +1,55 @@
-
 </script>
-<div class="stage" id="stage" style="position: relative; height: 300px;">
 
-  <div class="tbox"  id="nodeA0" style="top: 50%; left: 0%;">
-  <div class="theader" id="nodeA0h" style="">Classes of differential equations</div>
-  <div class="tbody" id="nodeA0c" style="">Several classifications are possible.  </div>
-  </div>
+::::::::::::::: {#stage .stage style="position: relative; height: 300px;"}
+::::: {#nodeA0 .tbox style="top: 50%; left: 0%;"}
+::: {#nodeA0h .theader style=""}
+Classes of differential equations
+:::
 
-  <div class="tbox"  id="nodeB0" style="top: 10%; left: 50%;position: absolute">
-  <div class="theader" id="nodeB0h" style="">By Type</div>
-  <div class="tbody" id="nodeB0c" style="">Involving ordinary or partial derivatives </div>
-  </div>
+::: {#nodeA0c .tbody style=""}
+Several classifications are possible.
+:::
+:::::
 
-  <div class="tbox"  id="nodeB1" style="top: 53%; left: 50%; position: absolute">
-  <div class="theader" id="nodeB1h" style="">By Order</div>
-  <div class="tbody" id="nodeB1c" style="">Involving ordinary or partial derivatives </div>
-  </div>
+::::: {#nodeB0 .tbox style="top: 10%; left: 50%;position: absolute"}
+::: {#nodeB0h .theader style=""}
+By Type
+:::
 
-  <div class="tbox"  id="nodeB2" style="top: 90%; left: 50%; position: absolute">
-  <div class="theader" id="nodeB2h" style="">By Linearity</div>
-  <div class="tbody" id="nodeB2c" style="">Involving ordinary or partial derivatives </div>
-  </div>
+::: {#nodeB0c .tbody style=""}
+Involving ordinary or partial derivatives
+:::
+:::::
 
+::::: {#nodeB1 .tbox style="top: 53%; left: 50%; position: absolute"}
+::: {#nodeB1h .theader style=""}
+By Order
+:::
 
+::: {#nodeB1c .tbody style=""}
+Involving ordinary or partial derivatives
+:::
+:::::
+
+::::: {#nodeB2 .tbox style="top: 90%; left: 50%; position: absolute"}
+::: {#nodeB2h .theader style=""}
+By Linearity
+:::
+
+::: {#nodeB2c .tbody style=""}
+Involving ordinary or partial derivatives
+:::
+:::::
+
+```{=html}
 <!-- 
   <div class="anchor80-line" id="nodeC" style="width: 30%; position: absolute; top: 80%; left: 100px;">
     bb
   </div> -->
-</div>
+```
+:::::::::::::::
 
-
+```{=html}
 <script>
   drawLeader({
     containerId: 'stage',
@@ -52,3 +72,4 @@
     lineOptions: {color: 'DarkGoldenRod', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
   });
 </script>
+```
