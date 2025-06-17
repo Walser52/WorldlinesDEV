@@ -1,9 +1,3 @@
----
-title: "Differential Equations Notes"
-format: html
-include: 
-  after-body: mermaid-diagram-flow.md
----
 
 ## Solution by Substitution
 

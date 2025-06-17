@@ -2119,5 +2119,26 @@
     "title": "Course Hub Developer Version",
     "section": "Notes",
     "text": "Notes\nFolders starting with C0 are for courses. Folders starting with D0 are for guides.\nAll bibliography goesto /_bibliography\nContent relevant to your course will be posted on the corresponding course pages which you can access from the list below or using side panel.\nNote that  it is your responsiblity to keep yourself updated  with any new developments and/or announcements."
+  },
+  {
+    "objectID": "C0ode/lecture_notes/differential_equations.html#homogeneous-equations",
+    "href": "C0ode/lecture_notes/differential_equations.html#homogeneous-equations",
+    "title": "Differential Equations Notes",
+    "section": "1. Homogeneous Equations",
+    "text": "1. Homogeneous Equations\nGiven: \\(M(x, y) dx + N(x, y) dy = 0\\)\n\nIt is homogeneous if: \\[\nM(tx, ty) = t^k M(x, y), \\quad N(tx, ty) = t^k N(x, y)\n\\]\nSubstitutions:\n\n\\(y = ux\\)\n\\(x = vy\\)"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/differential_equations.html#bernoullis-equation",
+    "href": "C0ode/lecture_notes/differential_equations.html#bernoullis-equation",
+    "title": "Differential Equations Notes",
+    "section": "2. Bernoulli’s Equation",
+    "text": "2. Bernoulli’s Equation\nGeneral form: \\[\n\\frac{dy}{dx} + P(x)y = F(x)y^n\n\\]\n\nIf \\(n \\neq 1\\) or \\(n \\neq 0\\), use:\n\n\\(u = y^{1-n}\\)\nThen use integrating factor method\n\nIf \\(n = 0\\) or \\(n = 1\\): directly solvable"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/differential_equations.html#reduction-to-separation-of-variables",
+    "href": "C0ode/lecture_notes/differential_equations.html#reduction-to-separation-of-variables",
+    "title": "Differential Equations Notes",
+    "section": "3. Reduction to Separation of Variables",
+    "text": "3. Reduction to Separation of Variables\nGiven: \\[\n\\frac{dy}{dx} = F(Ax + By + C)\n\\]\n\nIf \\(B \\neq 0\\):\n\nSubstitution: \\(u = Ax + By + C\\)\n\n\nAlso relates to: \\[\nM(x,y) dx + N(x,y) dy = 0\n\\]\n\nCheck if homogeneous or exact:\n\nIf homogeneous: use substitution to convert into separable form\nIf not homogeneous: check for exactness\nIf not exact: make it exact using integrating factor\n\n\nNote: Homogeneous is a special case of Exact."
   }
 ]

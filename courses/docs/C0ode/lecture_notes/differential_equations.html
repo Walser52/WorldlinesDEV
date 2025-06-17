@@ -406,6 +406,14 @@ window.Quarto = {
   <li><a href="#steps-to-solve" id="toc-steps-to-solve" class="nav-link" data-scroll-target="#steps-to-solve">Steps to Solve:</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#integrating-factor-special-cases" id="toc-integrating-factor-special-cases" class="nav-link" data-scroll-target="#integrating-factor-special-cases">Integrating Factor (Special Cases)</a></li>
+  <li><a href="#solution-by-substitution" id="toc-solution-by-substitution" class="nav-link" data-scroll-target="#solution-by-substitution">Solution by Substitution</a>
+  <ul class="collapse">
+  <li><a href="#homogeneous-equations" id="toc-homogeneous-equations" class="nav-link" data-scroll-target="#homogeneous-equations">1. Homogeneous Equations</a></li>
+  <li><a href="#bernoullis-equation" id="toc-bernoullis-equation" class="nav-link" data-scroll-target="#bernoullis-equation">2. Bernoulli’s Equation</a></li>
+  <li><a href="#reduction-to-separation-of-variables" id="toc-reduction-to-separation-of-variables" class="nav-link" data-scroll-target="#reduction-to-separation-of-variables">3. Reduction to Separation of Variables</a></li>
+  </ul></li>
+  <li><a href="#include-flowcharts-and-diagrams" id="toc-include-flowcharts-and-diagrams" class="nav-link" data-scroll-target="#include-flowcharts-and-diagrams">Include flowcharts and diagrams</a></li>
   </ul>
 </nav>
     </div>
@@ -674,10 +682,86 @@ dF = \frac{\partial F}{\partial x}dx + \frac{\partial F}{\partial y}dy
 </li>
 <li>Substitute everything into <span class="math inline">\(( F(x, y) = C )\)</span></li>
 </ol>
-
-
 </section>
 </section>
+</section>
+<section id="integrating-factor-special-cases" class="level1">
+<h1>Integrating Factor (Special Cases)</h1>
+<ul>
+<li><p>If μ only depends on <strong>x</strong>: <span class="math inline">\(\mu_y = 0\)</span> <span class="math display">\[
+\mu = \exp\left(\int \frac{\partial N/\partial x - \partial M/\partial y}{M} \; dx\right)
+\]</span> Must be a function of <strong>x</strong> only.</p></li>
+<li><p>If μ only depends on <strong>y</strong>: <span class="math inline">\(\mu_x = 0\)</span> <span class="math display">\[
+\mu = \exp\left(\int \frac{\partial M/\partial y - \partial N/\partial x}{N} \; dy\right)
+\]</span> Must be a function of <strong>y</strong> only.</p></li>
+<li><p>In general: <span class="math display">\[
+\mu = \frac{1}{M_x + N_y}
+\]</span></p></li>
+<li><p>If you can take <strong>x</strong> common from one part and <strong>y</strong> common from another: <span class="math display">\[
+\mu = \frac{1}{M_y - N_x}
+\]</span></p></li>
+</ul>
+</section>
+<section id="solution-by-substitution" class="level1">
+<h1>Solution by Substitution</h1>
+<section id="homogeneous-equations" class="level2">
+<h2 class="anchored" data-anchor-id="homogeneous-equations">1. Homogeneous Equations</h2>
+<p>Given: <span class="math inline">\(M(x, y) dx + N(x, y) dy = 0\)</span></p>
+<ul>
+<li><p>It is homogeneous if: <span class="math display">\[
+M(tx, ty) = t^k M(x, y), \quad N(tx, ty) = t^k N(x, y)
+\]</span></p></li>
+<li><p>Substitutions:</p>
+<ul>
+<li><span class="math inline">\(y = ux\)</span></li>
+<li><span class="math inline">\(x = vy\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="bernoullis-equation" class="level2">
+<h2 class="anchored" data-anchor-id="bernoullis-equation">2. Bernoulli’s Equation</h2>
+<p>General form: <span class="math display">\[
+\frac{dy}{dx} + P(x)y = F(x)y^n
+\]</span></p>
+<ul>
+<li>If <span class="math inline">\(n \neq 1\)</span> or <span class="math inline">\(n \neq 0\)</span>, use:
+<ul>
+<li><span class="math inline">\(u = y^{1-n}\)</span></li>
+<li>Then use <strong>integrating factor</strong> method</li>
+</ul></li>
+<li>If <span class="math inline">\(n = 0\)</span> or <span class="math inline">\(n = 1\)</span>: directly solvable</li>
+</ul>
+</section>
+<section id="reduction-to-separation-of-variables" class="level2">
+<h2 class="anchored" data-anchor-id="reduction-to-separation-of-variables">3. Reduction to Separation of Variables</h2>
+<p>Given: <span class="math display">\[
+\frac{dy}{dx} = F(Ax + By + C)
+\]</span></p>
+<ul>
+<li>If <span class="math inline">\(B \neq 0\)</span>:
+<ul>
+<li>Substitution: <span class="math inline">\(u = Ax + By + C\)</span></li>
+</ul></li>
+</ul>
+<p>Also relates to: <span class="math display">\[
+M(x,y) dx + N(x,y) dy = 0
+\]</span></p>
+<ul>
+<li>Check if homogeneous or exact:
+<ul>
+<li>If homogeneous: use substitution to convert into separable form</li>
+<li>If not homogeneous: check for exactness</li>
+<li>If not exact: make it exact using integrating factor</li>
+</ul></li>
+</ul>
+<p><strong>Note:</strong> Homogeneous is a special case of Exact.</p>
+</section>
+</section>
+<section id="include-flowcharts-and-diagrams" class="level1">
+<h1>Include flowcharts and diagrams</h1>
+<p>```hyhymvefj mermaid-diagram-flow.md</p>
+
+
 </section>
 
 </main> <!-- /main -->
