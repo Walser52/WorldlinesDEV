@@ -1,13 +1,14 @@
 ---
 title: Tikz Test
 filters:
-  - tikz
+  - pandoc-ext/tikz
 # tikz:
 #   cache: false
 #   save-tex: true  # Enable saving intermediate .tex files
 #   tex-dir: tikz-tex  # Optional: Specify directory to save .tex files
 ---
 
+::: {#fig-tikz}
 
 ```{.tikz}
 %%| filename: stick-figure
@@ -24,3 +25,10 @@ filters:
   \draw (-1,-4) -- (0,-3) -- (1,-4);
 \end{tikzpicture}
 ```
+
+This is a caption
+:::
+
+See @fig-tikz.
+
+

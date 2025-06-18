@@ -2167,7 +2167,7 @@
     "href": "C0ode/lecture_notes/figs/tikz_test.html",
     "title": "Tikz Test",
     "section": "",
-    "text": "%%| filename: stick-figure\n%%| caption: A Stick Figure\n\n\\begin{tikzpicture}\n  % Head\n  \\draw (0,0) circle (1cm);\n  % Body\n  \\draw (0,-1) -- (0,-3);\n  % Arms\n  \\draw (-1,-2) -- (0,-1) -- (1,-2);\n  % Legs\n  \\draw (-1,-4) -- (0,-3) -- (1,-4);\n\\end{tikzpicture}"
+    "text": "Figure 1: This is a caption\n\n\nSee Figure 1."
   },
   {
     "objectID": "C0ode/lecture_notes/figs/mermaid_diagram_flow.html",
