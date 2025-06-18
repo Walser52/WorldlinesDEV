@@ -2140,5 +2140,26 @@
     "title": "Differential Equations Notes",
     "section": "3. Reduction to Separation of Variables",
     "text": "3. Reduction to Separation of Variables\nGiven: \\[\n\\frac{dy}{dx} = F(Ax + By + C)\n\\]\n\nIf \\(B \\neq 0\\):\n\nSubstitution: \\(u = Ax + By + C\\)\n\n\nAlso relates to: \\[\nM(x,y) dx + N(x,y) dy = 0\n\\]\n\nCheck if homogeneous or exact:\n\nIf homogeneous: use substitution to convert into separable form\nIf not homogeneous: check for exactness\nIf not exact: make it exact using integrating factor\n\n\nNote: Homogeneous is a special case of Exact."
+  },
+  {
+    "objectID": "C0ode/lecture_notes/differential_equations.html#solution-by-substitution-1",
+    "href": "C0ode/lecture_notes/differential_equations.html#solution-by-substitution-1",
+    "title": "Differential Equations Notes",
+    "section": "Solution by Substitution",
+    "text": "Solution by Substitution\n\n① Homogeneous Equation:\nGiven: \\[\nM(x, y)dx + N(x, y)dy = 0\n\\]\nIt is homogeneous if: \\[\nM(tx, ty) = t^k M(x, y) \\quad \\text{and} \\quad N(tx, ty) = t^k N(x, y)\n\\]\nSo, substitutions: - \\(y = ux\\) - \\(x = vy\\)\n\n\n\n② Bernoulli’s Equation:\n\\[\n\\frac{dy}{dx} + P(x)y = F(x)y^n\n\\]\nIf \\(n \\ne 1\\) or \\(n \\ne 0\\), use: - Substitution: \\(u = y^{1-n}\\) - Then use Integrating Factor Method\nIf \\(n = 0, 1\\): Apply integrating factor method directly.\n\n\n\n③ Reduction to Separation of Variables:\nGiven: \\[\n\\frac{dy}{dx} = F(Ax + By + C)\n\\] If \\(B \\ne 0\\),\nSo, substitution: - \\(u = Ax + By + C\\)"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/differential_equations.html#general-strategy",
+    "href": "C0ode/lecture_notes/differential_equations.html#general-strategy",
+    "title": "Differential Equations Notes",
+    "section": "General Strategy:",
+    "text": "General Strategy:\nGiven: \\[\nM(x, y)dx + N(x, y)dy = 0\n\\]\n\nCheck if it’s homogeneous:\n\nIf yes → Substitute \\(y = ux\\) or \\(x = vy\\)\n\nElse, check if it’s exact:\n\nIf yes → Solve as exact\nIf not → Try to make exact using integrating factor\n\n\nNote: Homogeneous is a special case of exact."
+  },
+  {
+    "objectID": "C0ode/lecture_notes/differential_equations.html#special-integrating-factor-cases",
+    "href": "C0ode/lecture_notes/differential_equations.html#special-integrating-factor-cases",
+    "title": "Differential Equations Notes",
+    "section": "Special Integrating Factor Cases:",
+    "text": "Special Integrating Factor Cases:\n\nIf \\(\\mu\\) only depends on \\(x\\):\n\\[\n\\mu_y = 0\n\\quad \\Rightarrow \\quad \\mu = e^{\\int \\frac{N_x - M_y}{M} dx}\n\\] \\(\\mu\\) must be function of \\(x\\) only.\n\n\nIf \\(\\mu\\) only depends on \\(y\\):\n\\[\n\\mu_x = 0\n\\quad \\Rightarrow \\quad \\mu = e^{\\int \\frac{M_y - N_x}{N} dy}\n\\] \\(\\mu\\) must be function of \\(y\\) only.\n\n\nIn general:\n\\[\n\\mu = \\frac{1}{M_x + N_y}\n\\]\n\n\nIf you can factor \\(x\\) and \\(y\\) separately:\n\\[\n\\mu = \\frac{1}{M_y - N_x}\n\\]\n\n(See diagram of strategy and flow in the Mermaid chart included below)\n\n\n\n\n\nflowchart LR\n  A[qmd] --&gt; B(Knitr)\n  A[qmd] --&gt; C(Jupyter)\n  B(Knitr) --&gt; D[md]\n  C(Jupyter) --&gt; D[md]\n  D[md] --&gt; E(pandoc)\n  E(pandoc) --&gt; F(HTML)\n  E(pandoc) --&gt; G(PDF)\n  E(pandoc) --&gt; H(Word)\n  E(pandoc) --&gt; I{and more}\n\n\nFigure 1: How Quarto orchestrates rendering of documents: start with a qmd file, use the Knitr or Jupyter engine to perform the computations and convert it to an md file, then use Pandoc to convert to various file formats including HTML, PDF, and Word."
   }
 ]

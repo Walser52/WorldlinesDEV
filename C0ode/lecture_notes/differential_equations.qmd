@@ -1,8 +1,5 @@
 ---
 title: "Differential Equations Notes"
-format: html
-editor: visual
-theme: cosmo
 ---
 
 # Differential Equations
@@ -332,4 +329,4 @@ $$
 
 # Include flowcharts and diagrams
 
-```{include} mermaid-diagram-flow.md
+{{< include _figs/mermaid_diagram_flow.qmd >}}
