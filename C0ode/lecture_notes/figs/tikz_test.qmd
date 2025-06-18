@@ -1,7 +1,7 @@
 ---
 title: Tikz Test
 filters:
-  - pandoc-ext/tikz
+  - pandoc-ext/diagram
 # tikz:
 #   cache: false
 #   save-tex: true  # Enable saving intermediate .tex files
