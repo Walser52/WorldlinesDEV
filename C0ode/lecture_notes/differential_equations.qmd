@@ -329,4 +329,4 @@ $$
 
 # Include flowcharts and diagrams
 
-{{< include _figs/mermaid_diagram_flow.qmd >}}
+{{< include figs/mermaid_diagram_flow.qmd >}}

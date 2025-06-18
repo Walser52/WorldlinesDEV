@@ -1,0 +1,26 @@
+---
+title: Tikz Test
+filters:
+  - tikz
+# tikz:
+#   cache: false
+#   save-tex: true  # Enable saving intermediate .tex files
+#   tex-dir: tikz-tex  # Optional: Specify directory to save .tex files
+---
+
+
+```{.tikz}
+%%| filename: stick-figure
+%%| caption: A Stick Figure
+
+\begin{tikzpicture}
+  % Head
+  \draw (0,0) circle (1cm);
+  % Body
+  \draw (0,-1) -- (0,-3);
+  % Arms
+  \draw (-1,-2) -- (0,-1) -- (1,-2);
+  % Legs
+  \draw (-1,-4) -- (0,-3) -- (1,-4);
+\end{tikzpicture}
+```
