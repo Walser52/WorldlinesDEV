@@ -254,24 +254,24 @@ $$
 
 # Integrating Factor (Special Cases)
 
-- If μ only depends on **x**: $\mu_y = 0$
+### If μ only depends on **x**: $\mu_y = 0$
   $$
   \mu = \exp\left(\int \frac{\partial N/\partial x - \partial M/\partial y}{M} \; dx\right)
   $$
   Must be a function of **x** only.
 
-- If μ only depends on **y**: $\mu_x = 0$
+### If μ only depends on **y**: $\mu_x = 0$
   $$
   \mu = \exp\left(\int \frac{\partial M/\partial y - \partial N/\partial x}{N} \; dy\right)
   $$
   Must be a function of **y** only.
 
-- In general:
+### In general:
   $$
   \mu = \frac{1}{M_x + N_y}
   $$
 
-- If you can take **x** common from one part and **y** common from another:
+### If you can take **x** common from one part and **y** common from another:
   $$
   \mu = \frac{1}{M_y - N_x}
   $$
@@ -329,4 +329,33 @@ $$
 
 # Include flowcharts and diagrams
 
-{{< include figs/mermaid_diagram_flow.qmd >}}
+```{mermaid}
+%%| label: fig-mermaid
+%%| fig-width: 6
+%%| fig-cap: |
+%%|   How Quarto orchestrates rendering of documents: start with 
+%%|   a qmd file, use the Knitr or Jupyter engine to perform the 
+%%|   computations and convert it to an md file, then use Pandoc 
+%%|   to convert to various file formats including HTML, PDF, 
+%%|   and Word.
+flowchart TD
+    A["dy/dx + P(x)y = F(x)yⁿ"] --> B["If n ≥ 2"]
+    A --> C["If n = 0 or 1"]
+    
+    B --> D["Substitute u = y¹⁻ⁿ"]
+    D --> E["Then use integrating factor method"]
+    
+    C --> F["Integrating factor method"]
+```
+
+```{mermaid}
+
+flowchart TD
+    A["M(x,y)dx + N(x,y)dy"] --> B["If it is not Homogeneous"]
+    A --> C["Check if it is Homogeneous"]
+    
+    B --> D["Then it must be exact"]
+    D --> E["Otherwise make exact"]
+    
+    C --> F["If so substitute y=vx then solve as seperable equations"]
+```
