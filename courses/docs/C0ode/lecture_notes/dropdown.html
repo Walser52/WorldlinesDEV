@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Worldlines - Differential Equations Notes</title>
+<title>Worldlines - Simple drop down example</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -220,7 +220,7 @@ function drawLeader({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Differential Equations Notes</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Simple drop down example</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -333,31 +333,14 @@ function drawLeader({
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#system-of-linear-first-order-differential-equations" id="toc-system-of-linear-first-order-differential-equations" class="nav-link active" data-scroll-target="#system-of-linear-first-order-differential-equations">System of Linear First Order Differential Equations</a>
-  <ul class="collapse">
-  <li><a href="#matrix-form" id="toc-matrix-form" class="nav-link" data-scroll-target="#matrix-form">Matrix Form:</a></li>
-  <li><a href="#solution-vector" id="toc-solution-vector" class="nav-link" data-scroll-target="#solution-vector">Solution Vector:</a></li>
-  <li><a href="#superposition-principle" id="toc-superposition-principle" class="nav-link" data-scroll-target="#superposition-principle">Superposition Principle:</a></li>
-  <li><a href="#linear-dependence-independence" id="toc-linear-dependence-independence" class="nav-link" data-scroll-target="#linear-dependence-independence">Linear Dependence / Independence:</a></li>
-  <li><a href="#wronskian-for-systems" id="toc-wronskian-for-systems" class="nav-link" data-scroll-target="#wronskian-for-systems">Wronskian for Systems:</a></li>
-  <li><a href="#fundamental-set" id="toc-fundamental-set" class="nav-link" data-scroll-target="#fundamental-set">Fundamental Set:</a></li>
-  <li><a href="#general-solution" id="toc-general-solution" class="nav-link" data-scroll-target="#general-solution">General Solution:</a></li>
-  <li><a href="#homogeneous-solutions" id="toc-homogeneous-solutions" class="nav-link" data-scroll-target="#homogeneous-solutions">Homogeneous Solutions:</a></li>
-  <li><a href="#non-homogeneous-linear-systems" id="toc-non-homogeneous-linear-systems" class="nav-link" data-scroll-target="#non-homogeneous-linear-systems">Non-homogeneous Linear Systems:</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Differential Equations Notes</h1>
+<h1 class="title">Simple drop down example</h1>
 </div>
 
 
@@ -372,100 +355,32 @@ function drawLeader({
 
 </header>
 
-<section id="system-of-linear-first-order-differential-equations" class="level1">
-<h1>System of Linear First Order Differential Equations</h1>
-<p>General form: <span class="math display">\[
-\frac{dx_1}{dt} = a_{11}(t)x_1 + a_{12}(t)x_2 + \dots + a_{1n}(t)x_n + F_1(t)
-\]</span> <span class="math display">\[
-\frac{dx_2}{dt} = a_{21}(t)x_1 + a_{22}(t)x_2 + \dots + a_{2n}(t)x_n + F_2(t)
-\]</span> <span class="math display">\[
-\vdots
-\]</span> <span class="math display">\[
-\frac{dx_n}{dt} = a_{n1}(t)x_1 + a_{n2}(t)x_2 + \dots + a_{nn}(t)x_n + F_n(t)
-\]</span></p>
-<section id="matrix-form" class="level3">
-<h3 class="anchored" data-anchor-id="matrix-form">Matrix Form:</h3>
+<p>This is a ‘minimal style’ header. The css files need some tweaking to balance the margins.</p>
+<div class="ddm">
+<div class="ddm-head" onclick="toggleBox(this)">
+<p>Header content goes here.</p>
+</div>
+<div class="ddm-box">
+<p>Body content goes here.</p>
 <p><span class="math display">\[
-\frac{d}{dt}
-\begin{pmatrix}
-x_1 \\ x_2 \\ \vdots \\ x_n
-\end{pmatrix}
-=
-\begin{pmatrix}
-a_{11}(t) &amp; a_{12}(t) &amp; \cdots &amp; a_{1n}(t) \\
-a_{21}(t) &amp; a_{22}(t) &amp; \cdots &amp; a_{2n}(t) \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-a_{n1}(t) &amp; a_{n2}(t) &amp; \cdots &amp; a_{nn}(t)
-\end{pmatrix}
-\begin{pmatrix}
-x_1 \\ x_2 \\ \vdots \\ x_n
-\end{pmatrix}
-+
-\begin{pmatrix}
-F_1(t) \\ F_2(t) \\ \vdots \\ F_n(t)
-\end{pmatrix}
+x + y = 2
 \]</span></p>
-<p>This can be written compactly as: <span class="math inline">\(X' = AX + F\)</span></p>
-<ul>
-<li><strong>Homogeneous System:</strong> <span class="math inline">\(X' = AX\)</span></li>
-<li><strong>Non-homogeneous System:</strong> <span class="math inline">\(X' = AX + F\)</span></li>
-</ul>
-</section>
-<section id="solution-vector" class="level3">
-<h3 class="anchored" data-anchor-id="solution-vector">Solution Vector:</h3>
-<p>A solution vector is one whose entries are differentiable functions satisfying the system on the interval.</p>
-</section>
-<section id="superposition-principle" class="level3">
-<h3 class="anchored" data-anchor-id="superposition-principle">Superposition Principle:</h3>
-<p>Same as that for <span class="math inline">\(n^\text{th}\)</span> order differential equations, but now <span class="math inline">\(X\)</span> is a solution vector.</p>
-</section>
-<section id="linear-dependence-independence" class="level3">
-<h3 class="anchored" data-anchor-id="linear-dependence-independence">Linear Dependence / Independence:</h3>
-<p>If a vector cannot be expressed as a combination of the other vectors, <span class="math inline">\(c_1 X_1 + c_2 X_2 + \dots + c_k X_k = 0\)</span>, then they are linearly independent.</p>
-</section>
-<section id="wronskian-for-systems" class="level3">
-<h3 class="anchored" data-anchor-id="wronskian-for-systems">Wronskian for Systems:</h3>
-<p>If you have <span class="math inline">\(n\)</span> vectors with <span class="math inline">\(n\)</span> elements: Place each vector as a column of a matrix. If <span class="math inline">\(\det \ne 0\)</span>, they are independent. If <span class="math inline">\(\det = 0\)</span>, they are dependent.</p>
-</section>
-<section id="fundamental-set" class="level3">
-<h3 class="anchored" data-anchor-id="fundamental-set">Fundamental Set:</h3>
-<p>Set of all linearly independent solution vectors.</p>
-</section>
-<section id="general-solution" class="level3">
-<h3 class="anchored" data-anchor-id="general-solution">General Solution:</h3>
-<p>Sum of fundamental set: <span class="math inline">\(X = c_1 X_1 + c_2 X_2 + \dots + c_n X_n\)</span> (must be linearly independent - check if they are using Wronskian if not mentioned).</p>
-</section>
-<section id="homogeneous-solutions" class="level3">
-<h3 class="anchored" data-anchor-id="homogeneous-solutions">Homogeneous Solutions:</h3>
-<p>For <span class="math inline">\(X' = AX\)</span>, assume a solution of the form <span class="math inline">\(X = K e^{\lambda t}\)</span> where <span class="math inline">\(K\)</span> is an eigenvector and <span class="math inline">\(\lambda\)</span> is an eigenvalue. Substitute into the equation: <span class="math inline">\(\lambda K e^{\lambda t} = A K e^{\lambda t}\)</span>. Since <span class="math inline">\(e^{\lambda t} \ne 0\)</span>, this simplifies to <span class="math inline">\(AK = \lambda K\)</span>, or <span class="math inline">\(AK - \lambda K = 0\)</span>, which is <span class="math inline">\((A - \lambda I)K = 0\)</span>. This is an <strong>eigenvalue problem</strong>. This has 3 types of roots (eigenvalues): - Real - distinct - Real - repeated - Complex conjugate</p>
-<section id="types-of-roots-eigenvalues" class="level4">
-<h4 class="anchored" data-anchor-id="types-of-roots-eigenvalues">Types of Roots / Eigenvalues:</h4>
-<ul>
-<li><p><strong>Distinct real eigenvalues</strong> (<span class="math inline">\(\lambda_1, \lambda_2, \dots, \lambda_n\)</span>): Solutions are <span class="math inline">\(X_1 = K_1 e^{\lambda_1 t}\)</span>, <span class="math inline">\(X_2 = K_2 e^{\lambda_2 t}\)</span>, etc.</p></li>
-<li><p><strong>Repeated eigenvalues</strong>:</p>
-<ul>
-<li>If more than one independent eigenvector for a value is possible: Solution is <span class="math inline">\(c_1 K_1 e^{\lambda t} + c_2 K_2 e^{\lambda t} + \dots + c_m K_m e^{\lambda t}\)</span>.</li>
-<li>If only one eigenvector is possible (for multiplicity <span class="math inline">\(k\)</span>): The solutions are <span class="math inline">\(X_1 = K e^{\lambda t}\)</span> and <span class="math inline">\(X_2 = (K t + P) e^{\lambda t}\)</span> (for multiplicity 2). Similarly progresses for multiplicity &gt; 2. For <span class="math inline">\(X' = AX\)</span>, we solve <span class="math inline">\((A - \lambda I) K = 0\)</span> for <span class="math inline">\(K\)</span>, and <span class="math inline">\((A - \lambda I) P = K\)</span> for <span class="math inline">\(P\)</span>.</li>
-</ul></li>
-<li><p><strong>Complex Eigenvalues (</strong><span class="math inline">\(\lambda = \alpha \pm i\beta\)</span>): If <span class="math inline">\(\lambda_1 = \alpha + i\beta\)</span> and <span class="math inline">\(\lambda_2 = \alpha - i\beta\)</span> are complex conjugate eigenvalues, then the corresponding solutions derived from <span class="math inline">\(X_1 = K e^{(\alpha + i\beta)t}\)</span> can be written in real form. <span class="math inline">\(K = B_1 + iB_2\)</span>, where <span class="math inline">\(B_1 = Re(K)\)</span> and <span class="math inline">\(B_2 = Im(K)\)</span>. <span class="math inline">\(e^{(\alpha + i\beta)t} = e^{\alpha t}(\cos(\beta t) + i\sin(\beta t))\)</span>. The two linearly independent real solutions are: <span class="math inline">\(X_1 = e^{\alpha t}(B_1 \cos(\beta t) - B_2 \sin(\beta t))\)</span> <span class="math inline">\(X_2 = e^{\alpha t}(B_2 \cos(\beta t) + B_1 \sin(\beta t))\)</span></p></li>
-</ul>
-</section>
-</section>
-<section id="non-homogeneous-linear-systems" class="level3">
-<h3 class="anchored" data-anchor-id="non-homogeneous-linear-systems">Non-homogeneous Linear Systems:</h3>
-<p><span class="math inline">\(X' = AX + F\)</span> First solve the homogeneous part, <span class="math inline">\(X_c\)</span>. Then find <span class="math inline">\(X_p\)</span>.</p>
-<section id="methods-to-solve-for-x_p" class="level4">
-<h4 class="anchored" data-anchor-id="methods-to-solve-for-x_p">Methods to solve for <span class="math inline">\(X_p\)</span>:</h4>
-<ul>
-<li><p><strong>Undetermined Coefficients:</strong> Suppose <span class="math inline">\(X_p\)</span> on basis of <span class="math inline">\(F\)</span> and put in <span class="math inline">\(A\)</span> to solve. For other terms in <span class="math inline">\(F\)</span>, split them into similar parts, as sum of particular solutions is a solution of a summed equation.</p></li>
-<li><p><strong>Variation of Parameters for Systems:</strong> Given <span class="math inline">\(X' = AX + F\)</span>. The general solution for the homogeneous system <span class="math inline">\(X' = AX\)</span> is <span class="math inline">\(X_c = \Phi(t)C\)</span>, where <span class="math inline">\(\Phi(t)\)</span> is the <strong>fundamental matrix</strong>. The fundamental matrix <span class="math inline">\(\Phi(t)\)</span> is a matrix whose columns are the linearly independent solutions of the homogeneous system. We know <span class="math inline">\(\Phi'(t) = A\Phi(t)\)</span>. Assume a particular solution of the form <span class="math inline">\(X_p = \Phi(t)U(t)\)</span>. Then <span class="math inline">\(X_p' = \Phi' U + \Phi U'\)</span>. Substitute into <span class="math inline">\(X_p' = AX_p + F\)</span>: <span class="math inline">\(\Phi' U + \Phi U' = A(\Phi U) + F\)</span> Since <span class="math inline">\(\Phi' = A\Phi\)</span>, this simplifies to: <span class="math inline">\(A\Phi U + \Phi U' = A\Phi U + F\)</span> <span class="math inline">\(\Phi U' = F\)</span> To solve for <span class="math inline">\(U'\)</span>, multiply by <span class="math inline">\(\Phi^{-1}\)</span>: <span class="math inline">\(U' = \Phi^{-1} F\)</span> Integrate to find <span class="math inline">\(U\)</span>: <span class="math inline">\(U = \int \Phi^{-1} F \,dt\)</span> Finally, the particular solution is: <span class="math inline">\(X_p = \Phi \int \Phi^{-1} F \,dt\)</span></p></li>
-</ul>
-<hr>
+</div>
+</div>
+<p>This is a dropdown with background.</p>
+<div class="dd">
+<div class="dd-head" onclick="toggleBox(this)">
+<p>Header content goes here.</p>
+</div>
+<div class="dd-box">
+<p>Body content goes here.</p>
+<p><span class="math display">\[
+x + y = 2
+\]</span></p>
+</div>
+</div>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

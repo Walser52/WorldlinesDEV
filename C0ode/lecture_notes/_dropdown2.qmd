@@ -1,0 +1,14 @@
+---
+---
+::::{.dd}
+:::{.dd-head onclick="toggleBox(this)"}
+Header content goes here.
+:::
+:::{.dd-box}
+Body content goes here. 
+
+$$
+x + y = 2
+$$
+:::
+::::

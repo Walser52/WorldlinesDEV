@@ -1,0 +1,16 @@
+---
+---
+
+::::{.ddm}
+:::{.ddm-head onclick="toggleBox(this)"}
+Header content goes here.
+:::
+:::{.ddm-box}
+Body content goes here. 
+
+$$
+x + y = 2
+$$
+:::
+::::
+
