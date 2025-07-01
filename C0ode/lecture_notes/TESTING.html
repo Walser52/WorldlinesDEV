@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Differential Equations Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="testing_examples_files/libs/clipboard/clipboard.min.js"></script>
+<script src="testing_examples_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="testing_examples_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="testing_examples_files/libs/quarto-html/popper.min.js"></script>
+<script src="testing_examples_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="testing_examples_files/libs/quarto-html/anchor.min.js"></script>
+<link href="testing_examples_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="testing_examples_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="testing_examples_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="testing_examples_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="testing_examples_files/libs/bootstrap/bootstrap-8a894fcc3cb5e37eb5bf30def131be2f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="testing_examples_files/libs/quarto-diagram/mermaid.min.js"></script>
+<script src="testing_examples_files/libs/quarto-diagram/mermaid-init.js"></script>
+<link href="testing_examples_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Differential Equations Notes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="differential-equations" class="level1">
+<h1>Differential Equations</h1>
+<p>Equations in which rates and derivatives are mentioned. We use the <strong>operator</strong> <span class="math inline">\(L\)</span> in such equations.</p>
+<hr>
+<section id="reference-function" class="level2">
+<h2 class="anchored" data-anchor-id="reference-function">Reference Function</h2>
+<p>A <strong>reference function</strong> is one <strong>not directly involved</strong> in the differentiability of an equation.</p>
+<hr>
+</section>
+<section id="classifications-of-differential-equations" class="level2">
+<h2 class="anchored" data-anchor-id="classifications-of-differential-equations">Classifications of Differential Equations</h2>
+<section id="by-type" class="level3">
+<h3 class="anchored" data-anchor-id="by-type">1. By Type</h3>
+<ul>
+<li><strong>Ordinary Differential Equation (ODE)</strong>: involves derivatives with respect to a single independent variable.</li>
+<li><strong>Partial Differential Equation (PDE)</strong>: involves partial derivatives (i.e., with respect to multiple independent variables).</li>
+</ul>
+</section>
+<section id="by-order" class="level3">
+<h3 class="anchored" data-anchor-id="by-order">2. By Order</h3>
+<ul>
+<li>Refers to the <strong>highest derivative</strong> in the equation.</li>
+<li>Note: This is not the same as the <strong>degree</strong> (which refers to the power of the highest derivative term).</li>
+</ul>
+</section>
+<section id="by-linearity" class="level3">
+<h3 class="anchored" data-anchor-id="by-linearity">3. By Linearity</h3>
+<ul>
+<li><p>A differential equation is <strong>linear</strong> if it is of the form:</p>
+<p><span class="math display">\[ a_n(x)\frac{d^n y}{dx^n} + a_{n-1}(x)\frac{d^{n-1} y}{dx^{n-1}} + \cdots + a_1(x)\frac{dy}{dx} + a_0(x)y = g(x) \]</span></p></li>
+<li><p><strong>Linearity conditions</strong>:</p>
+<ul>
+<li>The dependent variable <span class="math inline">\(y\)</span> and all its derivatives <span class="math inline">\(y', y'', \ldots, y^{(n)}\)</span> are of <strong>first degree</strong> (i.e., raised to the power of 1).</li>
+<li>The coefficients <span class="math inline">\(a_0(x), a_1(x), \ldots, a_n(x)\)</span> depend <strong>only on the independent variable</strong> <span class="math inline">\(x\)</span> (or are constants).</li>
+<li>The term <span class="math inline">\(g(x)\)</span> depends <strong>only on the independent variable</strong> <span class="math inline">\(x\)</span> (or is a constant).</li>
+<li>No products of <span class="math inline">\(y\)</span> or its derivatives (e.g., <span class="math inline">\(y \cdot y'\)</span> or <span class="math inline">\((y'')^2\)</span>).</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="notation" class="level2">
+<h2 class="anchored" data-anchor-id="notation">Notation</h2>
+<ul>
+<li><p><strong>Leibniz Notation</strong>: <span class="math display">\[ \frac{dy}{dx} \]</span></p></li>
+<li><p><strong>Newton Notation</strong>: <span class="math display">\[ y' \]</span></p></li>
+</ul>
+<hr>
+</section>
+<section id="solutions-of-differential-equations" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-of-differential-equations">Solutions of Differential Equations</h2>
+<section id="general-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="general-solutions">General Solutions</h3>
+<ul>
+<li>A <strong>general solution</strong> contains arbitrary constants (e.g., <span class="math inline">\(C_1, C_2\)</span>).</li>
+<li><strong>Particular solutions</strong> are derived from the general solution by assigning specific values to these constants, usually determined by initial or boundary conditions. Hence, there are infinitely many particular solutions.</li>
+</ul>
+</section>
+<section id="initial-value-problem-ivp" class="level3">
+<h3 class="anchored" data-anchor-id="initial-value-problem-ivp">Initial Value Problem (IVP)</h3>
+<ul>
+<li>A differential equation where the conditions are specified at a <strong>single point</strong> (i.e., a specific value of the independent variable). For an <span class="math inline">\(n\)</span>-th order ODE, <span class="math inline">\(n\)</span> conditions are given at the same point <span class="math inline">\(x_0\)</span>.</li>
+</ul>
+</section>
+<section id="boundary-value-problem-bvp" class="level3">
+<h3 class="anchored" data-anchor-id="boundary-value-problem-bvp">Boundary Value Problem (BVP)</h3>
+<ul>
+<li>A differential equation where the conditions are specified at <strong>two or more different points</strong> (boundaries) of the independent variable. For example, conditions might be given at <span class="math inline">\(x=a\)</span> and <span class="math inline">\(x=b\)</span>.</li>
+</ul>
+</section>
+<section id="normal-form" class="level3">
+<h3 class="anchored" data-anchor-id="normal-form">Normal Form</h3>
+<p>The general form of an <span class="math inline">\(n\)</span>-th order differential equation, solved for the highest derivative:</p>
+<p><span class="math display">\[
+\frac{d^n y}{dx^n} = f(x, y, y', \dots, y^{(n-1)})
+\]</span></p>
+</section>
+<section id="family-of-curves" class="level3">
+<h3 class="anchored" data-anchor-id="family-of-curves">Family of Curves</h3>
+<ul>
+<li>The <strong>solution curves</strong> for a general solution form a family, with each curve corresponding to a different combination of the arbitrary constants.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="first-order-differential-equations" class="level2">
+<h2 class="anchored" data-anchor-id="first-order-differential-equations">First Order Differential Equations</h2>
+<p>Given a first-order differential equation:</p>
+<p><span class="math display">\[
+\frac{dy}{dx} = f(x, y)
+\]</span></p>
+<p>This represents the <strong>slope</strong> of the tangent line to the solution curve at each point <span class="math inline">\((x, y)\)</span>.</p>
+<section id="slope-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="slope-conditions">Slope Conditions:</h3>
+<ul>
+<li><span class="math inline">\((\frac{dy}{dx} &gt; 0)\)</span>: The function <span class="math inline">\(y(x)\)</span> is increasing.</li>
+<li><span class="math inline">\((\frac{dy}{dx} &lt; 0)\)</span>: The function <span class="math inline">\(y(x)\)</span> is decreasing.</li>
+<li><span class="math inline">\((\frac{dy}{dx} = 0)\)</span>: The function <span class="math inline">\(y(x)\)</span> has a local extremum or a horizontal tangent; these points are often called <strong>equilibrium points</strong> or <strong>critical points</strong>.</li>
+</ul>
+<p>At an equilibrium point: <span class="math display">\[ \frac{dy}{dx} = 0 \Rightarrow y = \text{constant} \]</span> (if <span class="math inline">\(f\)</span> depends only on <span class="math inline">\(y\)</span>)</p>
+<hr>
+</section>
+<section id="autonomous-first-order-equations" class="level3">
+<h3 class="anchored" data-anchor-id="autonomous-first-order-equations">Autonomous First-Order Equations</h3>
+<p>An autonomous first-order differential equation is of the form:</p>
+<p><span class="math display">\[
+\frac{dy}{dx} = f(y)
+\]</span></p>
+<ul>
+<li>The derivative depends only on the dependent variable <span class="math inline">\(y\)</span>, not directly on the independent variable <span class="math inline">\(x\)</span>.</li>
+<li>By finding the <strong>zeros</strong> of the function <span class="math inline">\(f(y)\)</span> (i.e., <span class="math inline">\(f(y)=0\)</span>), we can determine:
+<ul>
+<li><strong>Equilibrium points</strong> (constant solutions)</li>
+<li>Intervals where <span class="math inline">\(y(x)\)</span> is increasing (<span class="math inline">\(f(y)&gt;0\)</span>)</li>
+<li>Intervals where <span class="math inline">\(y(x)\)</span> is decreasing (<span class="math inline">\(f(y)&lt;0\)</span>)</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="solution-methods-for-first-order-differential-equations" class="level3">
+<h3 class="anchored" data-anchor-id="solution-methods-for-first-order-differential-equations">Solution Methods for First-Order Differential Equations</h3>
+<section id="solution-by-direct-integration-separable-equations" class="level4">
+<h4 class="anchored" data-anchor-id="solution-by-direct-integration-separable-equations">1. Solution by Direct Integration (Separable Equations)</h4>
+<p>A first-order ODE is <strong>separable</strong> if it can be written in the form <span class="math inline">\(dy/dx = G(x)H(y)\)</span>, or equivalently: <span class="math display">\[ M(x)dx + N(y)dy = 0 \]</span> where the variables can be separated.</p>
+<p><strong>Fundamental Theorem of Calculus (as applied to solutions):</strong> If <span class="math inline">\(\frac{dy}{dx} = g(x)\)</span>, then the solution is given by: <span class="math display">\[ y(x) = y_0 + \int_{x_0}^{x} g(t)\,dt \]</span></p>
+</section>
+<section id="solution-by-integrating-factor-method-linear-first-order-odes" class="level4">
+<h4 class="anchored" data-anchor-id="solution-by-integrating-factor-method-linear-first-order-odes">2. Solution by Integrating Factor Method (Linear First-Order ODEs)</h4>
+<p>Applicable to all <strong>linear first-order differential equations (FODE)</strong>.</p>
+<p>Given the general linear first-order ODE: <span class="math display">\[ a_1(x)\frac{dy}{dx} + a_0(x)y = g(x) \]</span></p>
+<p><strong>Step 1: Convert to Standard Form</strong> Divide by <span class="math inline">\(a_1(x)\)</span> (assuming <span class="math inline">\(a_1(x) \ne 0\)</span>): <span class="math display">\[ \frac{dy}{dx} + \frac{a_0(x)}{a_1(x)}y = \frac{g(x)}{a_1(x)} \]</span> This is the <strong>standard form</strong>: <span class="math display">\[ \frac{dy}{dx} + P(x)y = f(x) \]</span> where <span class="math inline">\(P(x) = \frac{a_0(x)}{a_1(x)}\)</span> and <span class="math inline">\(f(x) = \frac{g(x)}{a_1(x)}\)</span>.</p>
+<p><strong>Step 2: Find the Integrating Factor</strong> <span class="math inline">\(\mu(x)\)</span> The integrating factor <span class="math inline">\(\mu(x)\)</span> is defined as: <span class="math display">\[ \mu(x) = e^{\int P(x)\,dx} \]</span> (Note: we typically choose the constant of integration to be zero for simplicity, as any constant factor will cancel out).</p>
+<p><strong>Step 3: Multiply by Integrating Factor</strong> Multiply both sides of the standard form equation by <span class="math inline">\(\mu(x)\)</span>: <span class="math display">\[ \mu(x) \frac{dy}{dx} + \mu(x) P(x)y = \mu(x) f(x) \]</span> The left-hand side is now the derivative of a product: <span class="math display">\[ \frac{d}{dx}[\mu(x) y] = \mu(x) f(x) \]</span></p>
+<p><strong>Step 4: Integrate Both Sides</strong> Integrate with respect to <span class="math inline">\(x\)</span>: <span class="math display">\[ \int \frac{d}{dx}[\mu(x) y]\,dx = \int \mu(x) f(x)\,dx \]</span> <span class="math display">\[ \mu(x) y = \int \mu(x) f(x)\,dx + C \]</span></p>
+<p><strong>Step 5: Solve for <span class="math inline">\(y(x)\)</span></strong> <span class="math display">\[ y(x) = \frac{1}{\mu(x)} \left[\int \mu(x) f(x)\,dx + C \right] \]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Easy Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Easy Example
+  <iframe src="direct integration easy example.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+<div class="callout callout-style-default callout-note callout-titled" title="Medium Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Medium Example
+</div>
+ <iframe src="direct integration medium example.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Hard Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hard Example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+  <iframe src="direct integration hard examples.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+</div>
+</div>
+</div>
+</section>
+<section id="exact-differential-equations" class="level4">
+<h4 class="anchored" data-anchor-id="exact-differential-equations">3. Exact Differential Equations</h4>
+<p>General Form: <span class="math display">\[ M(x, y)\,dx + N(x, y)\,dy = 0 \]</span></p>
+<p>A differential equation of this form is <strong>exact</strong> if there exists a function <span class="math inline">\(F(x, y)\)</span> such that its total differential <span class="math inline">\(dF\)</span> is equal to <span class="math inline">\(M(x, y)\,dx + N(x, y)\,dy\)</span>. This means: <span class="math display">\[ dF = \frac{\partial F}{\partial x}dx + \frac{\partial F}{\partial y}dy \]</span> So, <span class="math inline">\(M(x, y) = \frac{\partial F}{\partial x}\)</span> and <span class="math inline">\(N(x, y) = \frac{\partial F}{\partial y}\)</span>.</p>
+<p><strong>Test for exactness:</strong> For an equation to be exact, the mixed partial derivatives must be equal: <span class="math display">\[ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} \]</span></p>
+<p><strong>Steps to Solve an Exact Equation:</strong> 1. Verify exactness using the test condition. 2. Integrate <span class="math inline">\(M(x, y)\)</span> with respect to <span class="math inline">\(x\)</span> (treating <span class="math inline">\(y\)</span> as a constant) to find <span class="math inline">\(F(x, y)\)</span>: <span class="math inline">\(F(x, y) = \int M(x, y)\,dx + h(y)\)</span> (where <span class="math inline">\(h(y)\)</span> is an arbitrary function of <span class="math inline">\(y\)</span>) 3. Alternatively, integrate <span class="math inline">\(N(x, y)\)</span> with respect to <span class="math inline">\(y\)</span> (treating <span class="math inline">\(x\)</span> as a constant) to find <span class="math inline">\(F(x, y)\)</span>: <span class="math inline">\(F(x, y) = \int N(x, y)\,dy + k(x)\)</span> (where <span class="math inline">\(k(x)\)</span> is an arbitrary function of <span class="math inline">\(x\)</span>) 4. Differentiate the obtained <span class="math inline">\(F(x, y)\)</span> (from step 2) with respect to <span class="math inline">\(y\)</span> and set it equal to <span class="math inline">\(N(x, y)\)</span> to find <span class="math inline">\(h'(y)\)</span>. Integrate <span class="math inline">\(h'(y)\)</span> to find <span class="math inline">\(h(y)\)</span>. (If using step 3, differentiate with respect to <span class="math inline">\(x\)</span> and set equal to <span class="math inline">\(M(x,y)\)</span> to find <span class="math inline">\(k'(x)\)</span>, then integrate for <span class="math inline">\(k(x)\)</span>.) 5. Substitute the found <span class="math inline">\(h(y)\)</span> (or <span class="math inline">\(k(x)\)</span>) back into <span class="math inline">\(F(x, y)\)</span>. 6. The general solution is implicitly given by <span class="math inline">\(F(x, y) = C\)</span>, where <span class="math inline">\(C\)</span> is an arbitrary constant.</p>
+</section>
+<section id="integrating-factor-for-non-exact-equations-special-cases" class="level4">
+<h4 class="anchored" data-anchor-id="integrating-factor-for-non-exact-equations-special-cases">4. Integrating Factor for Non-Exact Equations (Special Cases)</h4>
+<p>If <span class="math inline">\(M(x, y)\,dx + N(x, y)\,dy = 0\)</span> is not exact, we might be able to find an integrating factor <span class="math inline">\(\mu(x, y)\)</span> such that <span class="math inline">\(\mu M\,dx + \mu N\,dy = 0\)</span> is exact.</p>
+<ul>
+<li><p><strong>If <span class="math inline">\(\mu\)</span> depends only on <span class="math inline">\(x\)</span></strong>: This is possible if <span class="math inline">\(\frac{\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}}{N}\)</span> is a function of <span class="math inline">\(x\)</span> only. Then the integrating factor is: <span class="math display">\[ \mu(x) = \exp\left(\int \frac{\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}}{N} \; dx\right) \]</span></p></li>
+<li><p><strong>If <span class="math inline">\(\mu\)</span> depends only on <span class="math inline">\(y\)</span></strong>: This is possible if <span class="math inline">\(\frac{\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}}{M}\)</span> is a function of <span class="math inline">\(y\)</span> only. Then the integrating factor is: <span class="math display">\[ \mu(y) = \exp\left(\int \frac{\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}}{M} \; dy\right) \]</span></p></li>
+<li><p><strong>Other cases for finding <span class="math inline">\(\mu\)</span> (More advanced/specific)</strong>: Sometimes an integrating factor can be found in forms like <span class="math inline">\(\mu(x+y)\)</span>, <span class="math inline">\(\mu(xy)\)</span>, or by inspection, but the formulas above are the most common general approaches for non-exact equations. The expressions <span class="math inline">\(\frac{1}{M_x + N_y}\)</span> or <span class="math inline">\(\frac{1}{M_y - N_x}\)</span> are not general integrating factors; they might appear in specific contexts or derivations for certain types of non-exact equations, but they are not universal formulas for <span class="math inline">\(\mu\)</span>.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Easy Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Easy Example
+</div>
+<iframe src="exact equations easy example.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+<div class="callout callout-style-default callout-note callout-titled" title="Medium Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Medium Example
+</div>
+<iframe src="exact equations medium example.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+<div class="callout callout-style-default callout-note callout-titled" title="Hard Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hard Example </div>
+  <iframe src="exact equations hard example.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+</section>
+<section id="solution-by-substitution" class="level4">
+<h4 class="anchored" data-anchor-id="solution-by-substitution">5. Solution by Substitution</h4>
+<section id="a.-homogeneous-equations" class="level5">
+<h5 class="anchored" data-anchor-id="a.-homogeneous-equations">a. Homogeneous Equations</h5>
+<p>A first-order differential equation <span class="math inline">\(M(x, y) dx + N(x, y) dy = 0\)</span> (or <span class="math inline">\(dy/dx = f(x,y)\)</span>) is <strong>homogeneous</strong> if <span class="math inline">\(M(x,y)\)</span> and <span class="math inline">\(N(x,y)\)</span> are homogeneous functions of the same degree. A function <span class="math inline">\(F(x,y)\)</span> is homogeneous of degree <span class="math inline">\(k\)</span> if <span class="math inline">\(F(tx, ty) = t^k F(x, y)\)</span> for some constant <span class="math inline">\(k\)</span>.</p>
+<p><strong>Substitutions for Homogeneous Equations:</strong> - If <span class="math inline">\(N(x,y)\)</span> is simpler or <span class="math inline">\(dy/dx = f(x,y)\)</span> is easier to express as <span class="math inline">\(f(y/x)\)</span>: Let <span class="math inline">\(y = ux \Rightarrow dy = u\,dx + x\,du\)</span>. - If <span class="math inline">\(M(x,y)\)</span> is simpler or <span class="math inline">\(dx/dy = g(x,y)\)</span> is easier to express as <span class="math inline">\(g(x/y)\)</span>: Let <span class="math inline">\(x = vy \Rightarrow dx = v\,dy + y\,dv\)</span>.</p>
+<p>These substitutions transform the homogeneous equation into a <strong>separable equation</strong> in terms of <span class="math inline">\(u\)</span> (or <span class="math inline">\(v\)</span>) and <span class="math inline">\(x\)</span> (or <span class="math inline">\(y\)</span>).</p>
+</section>
+<section id="b.-bernoullis-equation" class="level5">
+<h5 class="anchored" data-anchor-id="b.-bernoullis-equation">b. Bernoulli’s Equation</h5>
+<p>General form: <span class="math display">\[ \frac{dy}{dx} + P(x)y = F(x)y^n \]</span> This is a non-linear first-order ODE.</p>
+<ul>
+<li><strong>If <span class="math inline">\(n=0\)</span></strong>: The equation becomes <span class="math inline">\(\frac{dy}{dx} + P(x)y = F(x)\)</span>, which is a <strong>linear first-order ODE</strong> solvable by the integrating factor method.</li>
+<li><strong>If <span class="math inline">\(n=1\)</span></strong>: The equation becomes <span class="math inline">\(\frac{dy}{dx} + P(x)y = F(x)y \Rightarrow \frac{dy}{dx} = (F(x)-P(x))y\)</span>, which is a <strong>separable equation</strong>.</li>
+<li><strong>If <span class="math inline">\(n \neq 0\)</span> and <span class="math inline">\(n \neq 1\)</span></strong>: <strong>Substitution:</strong> Let <span class="math inline">\(u = y^{1-n}\)</span>. Then <span class="math inline">\(\frac{du}{dx} = (1-n)y^{-n}\frac{dy}{dx}\)</span>. From the original equation, <span class="math inline">\(\frac{dy}{dx} = F(x)y^n - P(x)y\)</span>. Substitute <span class="math inline">\(\frac{dy}{dx}\)</span> and <span class="math inline">\(y = u^{1/(1-n)}\)</span> into the expression for <span class="math inline">\(\frac{du}{dx}\)</span>. This substitution transforms Bernoulli’s equation into a <strong>linear first-order ODE in terms of <span class="math inline">\(u\)</span></strong>, which can then be solved using the integrating factor method.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Easy Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Easy Example
+</div>
+ <iframe src="bernoulli easy example.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+<div class="callout callout-style-default callout-note callout-titled" title="Medium Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Medium Example
+</div>
+ <iframe src="bernoulli medium example.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+<div class="callout callout-style-default callout-note callout-titled" title="Hard Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hard Example
+</div>
+<iframe src="bernoulli hard example.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+</section>
+<section id="c.-reduction-to-separation-of-variables-for-dydx-fax-by-c" class="level5">
+<h5 class="anchored" data-anchor-id="c.-reduction-to-separation-of-variables-for-dydx-fax-by-c">c.&nbsp;Reduction to Separation of Variables (for <span class="math inline">\(dy/dx = F(Ax + By + C)\)</span>)</h5>
+<p>Given an equation of the form: <span class="math display">\[ \frac{dy}{dx} = F(Ax + By + C) \]</span></p>
+<ul>
+<li><strong>If <span class="math inline">\(B \neq 0\)</span></strong>: <strong>Substitution:</strong> Let <span class="math inline">\(u = Ax + By + C\)</span>. Then <span class="math inline">\(\frac{du}{dx} = A + B\frac{dy}{dx}\)</span>. So, <span class="math inline">\(\frac{dy}{dx} = \frac{1}{B}\left(\frac{du}{dx} - A\right)\)</span>. Substitute these into the original equation: <span class="math inline">\(\frac{1}{B}\left(\frac{du}{dx} - A\right) = F(u)\)</span> <span class="math inline">\(\frac{du}{dx} = B F(u) + A\)</span> This is a <strong>separable equation</strong> in terms of <span class="math inline">\(u\)</span> and <span class="math inline">\(x\)</span>.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Easy Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Easy Example
+</div>
+ <iframe src="separation easy.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+<div class="callout callout-style-default callout-note callout-titled" title="Medium Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Medium Example
+</div>
+ <iframe src="separation medium.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+<div class="callout callout-style-default callout-note callout-titled" title="Hard Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hard Example
+</div>
+  <iframe src="separation hard.html" width="100%" height="400px" style="border:1px solid black;"></iframe>
+<p><strong>General Strategy for First-Order ODEs:</strong></p>
+<ul>
+<li>When given <span class="math inline">\(M(x,y) dx + N(x,y) dy = 0\)</span>:
+<ol type="1">
+<li><strong>Check for Exactness:</strong> Is <span class="math inline">\(\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}\)</span>?
+<ul>
+<li>If <strong>Yes</strong>: Solve as an exact equation.</li>
+<li>If <strong>No</strong>: Proceed.</li>
+</ul></li>
+<li><strong>Check for Homogeneity:</strong> Are <span class="math inline">\(M(x,y)\)</span> and <span class="math inline">\(N(x,y)\)</span> homogeneous functions of the same degree?
+<ul>
+<li>If <strong>Yes</strong>: Use substitution (<span class="math inline">\(y=ux\)</span> or <span class="math inline">\(x=vy\)</span>) to convert to a separable equation .</li>
+<li>If <strong>No</strong> : Proceed .</li>
+</ul></li>
+<li><strong>Check if Linear:</strong> Can it be written as <span class="math inline">\(\frac{dy}{dx} + P(x)y = f(x)\)</span>?
+<ul>
+<li>If <strong>Yes</strong>: Use the integrating factor method.</li>
+<li>If <strong>No</strong>: Proceed.</li>
+</ul></li>
+<li><strong>Check if Bernoulli:</strong> Can it be written as <span class="math inline">\(\frac{dy}{dx} + P(x)y = F(x)y^n\)</span>?
+<ul>
+<li>If <strong>Yes</strong>: Use the substitution <span class="math inline">\(u = y^{1-n}\)</span> to convert to a linear equation.</li>
+<li>If <strong>No</strong>: Proceed.</li>
+</ul></li>
+<li><strong>Check for <span class="math inline">\(F(Ax+By+C)\)</span> form:</strong> Can it be written as <span class="math inline">\(\frac{dy}{dx} = F(Ax+By+C)\)</span>?
+<ul>
+<li>If <strong>Yes</strong>: Use the substitution <span class="math inline">\(u = Ax+By+C\)</span> to convert to a separable equation.</li>
+<li>If <strong>No</strong>: Look for an appropriate integrating factor to make it exact (special cases) or it might be a more advanced type of equation.</li>
+</ul></li>
+</ol></li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+</section>
+<section id="error-function" class="level2">
+<h2 class="anchored" data-anchor-id="error-function">Error Function</h2>
+<p>The <strong>error function</strong> is a special function often encountered in solutions of differential equations related to diffusion or probability. It is defined as: <span class="math display">\[
+\text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
+\]</span> Its <strong>complementary form</strong> is: <span class="math display">\[
+\text{erfc}(x) = 1 - \text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_x^{\infty} e^{-t^2} dt
+\]</span> - The denominator usually includes <span class="math inline">\(\sqrt{\pi}\)</span>.</p>
+<hr>
+</section>
+<section id="flowcharts-for-solution-strategies" class="level2">
+<h2 class="anchored" data-anchor-id="flowcharts-for-solution-strategies">Flowcharts for Solution Strategies</h2>
+<section id="flowchart-1-solving-bernoullis-equation" class="level3">
+<h3 class="anchored" data-anchor-id="flowchart-1-solving-bernoullis-equation">Flowchart 1: Solving Bernoulli’s Equation</h3>
+<div class="cell" data-fig-width="6" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-mermaid" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mermaid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-mermaid">flowchart TD
+    A["dy/dx + P(x)y = F(x)yⁿ"] --&gt; B["If n ≥ 2"]
+    A --&gt; C["If n = 0 or 1"]
+    
+    B --&gt; D["Substitute u = y¹⁻ⁿ"]
+    D --&gt; E["Then use integrating factor method"]
+    
+    C --&gt; F["Integrating factor method"]
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mermaid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: How Quarto orchestrates rendering of documents: start with a qmd file, use the Knitr or Jupyter engine to perform the computations and convert it to an md file, then use Pandoc to convert to various file formats including HTML, PDF, and Word.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A["M(x,y)dx + N(x,y)dy"] --&gt; B["If it is not Homogeneous"]
+    A --&gt; C["Check if it is Homogeneous"]
+    
+    B --&gt; D["Then it must be exact"]
+    D --&gt; E["Otherwise make exact"]
+    
+    C --&gt; F["If so substitute y=vx then solve as seperable equations"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) {  // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else {  // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
