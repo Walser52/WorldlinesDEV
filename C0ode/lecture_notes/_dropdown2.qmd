@@ -12,3 +12,28 @@ x + y = 2
 $$
 :::
 ::::
+
+
+::: {.callout-note icon=false}
+
+## Pay Attention
+
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+:::
+
+::: {.callout-note icon=false collapse="true"}
+
+## Pay Attention Collapses
+
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+:::
+
+::: {.callout-note appearance="simple"}
+
+## Pay Attention Simple
+
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+:::
