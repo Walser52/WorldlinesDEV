@@ -1,0 +1,469 @@
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \frac{dx}{dt} = 2x + 3y \\ \frac{dy}{dt} = 2x + y $$
+
+
+This is a system of linear first-order differential equations with constant coefficients. We can solve it using the eigenvalue method.
+
+### Step 1: Write the System in Matrix Form
+
+The system can be written as $\mathbf{X}' = A\mathbf{X}$, where $\mathbf{X} = \begin{pmatrix} x \\ y \end{pmatrix}$ and $A$ is the coefficient matrix.
+$$
+A = \begin{pmatrix} 2 & 3 \\ 2 & 1 \end{pmatrix}
+$$
+
+### Step 2: Find the Eigenvalues of Matrix A
+
+To find the eigenvalues, we solve the characteristic equation $\det(A - \lambda I) = 0$, where $I$ is the identity matrix.
+$$
+A - \lambda I = \begin{pmatrix} 2-\lambda & 3 \\ 2 & 1-\lambda \end{pmatrix}
+$$
+Calculate the determinant:
+$$
+\det(A - \lambda I) = (2-\lambda)(1-\lambda) - (3)(2) = 0
+$$
+$$
+2 - 2\lambda - \lambda + \lambda^2 - 6 = 0
+$$
+$$
+\lambda^2 - 3\lambda - 4 = 0
+$$
+Factor the quadratic equation:
+$$
+(\lambda - 4)(\lambda + 1) = 0
+$$
+This gives two distinct real eigenvalues:
+$$
+\lambda_1 = 4 \quad \text{and} \quad \lambda_2 = -1
+$$
+
+### Step 3: Find the Eigenvectors for Each Eigenvalue
+
+**For $\lambda_1 = 4$:**
+We need to solve $(A - 4I)\mathbf{K} = \mathbf{0}$, where $\mathbf{K} = \begin{pmatrix} k_1 \\ k_2 \end{pmatrix}$.
+$$
+\begin{pmatrix} 2-4 & 3 \\ 2 & 1-4 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$
+$$
+\begin{pmatrix} -2 & 3 \\ 2 & -3 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$
+This gives the system of equations:
+$-2k_1 + 3k_2 = 0 \implies 2k_1 = 3k_2$
+$2k_1 - 3k_2 = 0 \implies 2k_1 = 3k_2$
+From $2k_1 = 3k_2$, we can choose $k_1 = 3$ and $k_2 = 2$.
+So, the eigenvector for $\lambda_1 = 4$ is $\mathbf{K}_1 = \begin{pmatrix} 3 \\ 2 \end{pmatrix}$.
+
+**For $\lambda_2 = -1$:**
+We need to solve $(A - (-1)I)\mathbf{K} = \mathbf{0}$, which is $(A + I)\mathbf{K} = \mathbf{0}$.
+$$
+\begin{pmatrix} 2+1 & 3 \\ 2 & 1+1 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$
+$$
+\begin{pmatrix} 3 & 3 \\ 2 & 2 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$
+This gives the system of equations:
+$3k_1 + 3k_2 = 0 \implies 3k_1 = -3k_2 \implies k_1 = -k_2$
+$2k_1 + 2k_2 = 0 \implies 2k_1 = -2k_2 \implies k_1 = -k_2$
+From $k_1 = -k_2$, we can choose $k_1 = 1$ and $k_2 = -1$.
+So, the eigenvector for $\lambda_2 = -1$ is $\mathbf{K}_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}$.
+
+### Step 4: Write the General Solution
+
+For a system with distinct real eigenvalues $\lambda_1, \lambda_2$ and corresponding eigenvectors $\mathbf{K}_1, \mathbf{K}_2$, the general solution is given by:
+$$
+\mathbf{X}(t) = c_1 \mathbf{K}_1 e^{\lambda_1 t} + c_2 \mathbf{K}_2 e^{\lambda_2 t}
+$$
+Substitute the eigenvalues and eigenvectors we found:
+$$
+\mathbf{X}(t) = c_1 \begin{pmatrix} 3 \\ 2 \end{pmatrix} e^{4t} + c_2 \begin{pmatrix} 1 \\ -1 \end{pmatrix} e^{-t}
+$$
+This means:
+$x(t) = 3c_1 e^{4t} + c_2 e^{-t}$
+$y(t) = 2c_1 e^{4t} - c_2 e^{-t}$
+
+Thus, the general solution to the system of differential equations is:
+$$
+x(t) = 3c_1 e^{4t} + c_2 e^{-t} \\
+y(t) = 2c_1 e^{4t} - c_2 e^{-t}
+$$
+where $c_1$ and $c_2$ are arbitrary constants.
+
+:::
+
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \frac{dx}{dt} = -4x + y + z \\ \frac{dy}{dt} = x + 5y - z \\ \frac{dz}{dt} = y - 3z $$
+
+This is a system of linear first-order differential equations with constant coefficients. We can solve it using the eigenvalue method.
+
+### Step 1: Write the System in Matrix Form
+
+The system can be written as $\mathbf{X}' = A\mathbf{X}$, where $\mathbf{X} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}$ and $A$ is the coefficient matrix.
+$$
+A = \begin{pmatrix} -4 & 1 & 1 \\ 1 & 5 & -1 \\ 0 & 1 & -3 \end{pmatrix}
+$$
+
+### Step 2: Find the Eigenvalues of Matrix A
+
+To find the eigenvalues, we solve the characteristic equation $\det(A - \lambda I) = 0$, where $I$ is the identity matrix.
+$$
+A - \lambda I = \begin{pmatrix} -4-\lambda & 1 & 1 \\ 1 & 5-\lambda & -1 \\ 0 & 1 & -3-\lambda \end{pmatrix}
+$$
+Calculate the determinant using cofactor expansion along the first column (or any row/column):
+$$
+\det(A - \lambda I) = (-4-\lambda) \begin{vmatrix} 5-\lambda & -1 \\ 1 & -3-\lambda \end{vmatrix} - 1 \begin{vmatrix} 1 & 1 \\ 1 & -3-\lambda \end{vmatrix} + 0 \begin{vmatrix} 1 & 1 \\ 5-\lambda & -1 \end{vmatrix} = 0
+$$
+$$
+(-4-\lambda)[(5-\lambda)(-3-\lambda) - (-1)(1)] - [1(-3-\lambda) - 1(1)] = 0
+$$
+$$
+(-4-\lambda)[-15 - 5\lambda + 3\lambda + \lambda^2 + 1] - [-3-\lambda - 1] = 0
+$$
+$$
+(-4-\lambda)[\lambda^2 - 2\lambda - 14] - [-\lambda - 4] = 0
+$$
+$$
+-(4+\lambda)(\lambda^2 - 2\lambda - 14) + (\lambda+4) = 0
+$$
+Factor out $(\lambda+4)$:
+$$
+(\lambda+4)[-(\lambda^2 - 2\lambda - 14) + 1] = 0
+$$
+$$
+(\lambda+4)[-\lambda^2 + 2\lambda + 14 + 1] = 0
+$$
+$$
+(\lambda+4)[-\lambda^2 + 2\lambda + 15] = 0
+$$
+Multiply the quadratic term by -1:
+$$
+-(\lambda+4)(\lambda^2 - 2\lambda - 15) = 0
+$$
+Factor the quadratic term:
+$$
+-(\lambda+4)(\lambda-5)(\lambda+3) = 0
+$$
+This gives three distinct real eigenvalues:
+$$
+\lambda_1 = -4, \quad \lambda_2 = 5, \quad \lambda_3 = -3
+$$
+
+### Step 3: Find the Eigenvectors for Each Eigenvalue
+
+**For $\lambda_1 = -4$:**
+We need to solve $(A - (-4)I)\mathbf{K} = \mathbf{0}$, which is $(A + 4I)\mathbf{K} = \mathbf{0}$.
+$$
+\begin{pmatrix} -4+4 & 1 & 1 \\ 1 & 5+4 & -1 \\ 0 & 1 & -3+4 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+$$
+\begin{pmatrix} 0 & 1 & 1 \\ 1 & 9 & -1 \\ 0 & 1 & 1 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+This gives the system of equations:
+1) $k_2 + k_3 = 0 \implies k_3 = -k_2$
+2) $k_1 + 9k_2 - k_3 = 0$
+3) $k_2 + k_3 = 0$ (redundant)
+
+Substitute (1) into (2):
+$k_1 + 9k_2 - (-k_2) = 0$
+$k_1 + 10k_2 = 0 \implies k_1 = -10k_2$
+
+Let $k_2 = 1$. Then $k_1 = -10$ and $k_3 = -1$.
+So, the eigenvector for $\lambda_1 = -4$ is $\mathbf{K}_1 = \begin{pmatrix} -10 \\ 1 \\ -1 \end{pmatrix}$.
+
+**For $\lambda_2 = 5$:**
+We need to solve $(A - 5I)\mathbf{K} = \mathbf{0}$.
+$$
+\begin{pmatrix} -4-5 & 1 & 1 \\ 1 & 5-5 & -1 \\ 0 & 1 & -3-5 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+$$
+\begin{pmatrix} -9 & 1 & 1 \\ 1 & 0 & -1 \\ 0 & 1 & -8 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+This gives the system of equations:
+1) $-9k_1 + k_2 + k_3 = 0$
+2) $k_1 - k_3 = 0 \implies k_1 = k_3$
+3) $k_2 - 8k_3 = 0 \implies k_2 = 8k_3$
+
+Let $k_3 = 1$. Then $k_1 = 1$ and $k_2 = 8$.
+Check with Eq. 1: $-9(1) + 8 + 1 = -9+9=0$. This is consistent.
+So, the eigenvector for $\lambda_2 = 5$ is $\mathbf{K}_2 = \begin{pmatrix} 1 \\ 8 \\ 1 \end{pmatrix}$.
+
+**For $\lambda_3 = -3$:**
+We need to solve $(A - (-3)I)\mathbf{K} = \mathbf{0}$, which is $(A + 3I)\mathbf{K} = \mathbf{0}$.
+$$
+\begin{pmatrix} -4+3 & 1 & 1 \\ 1 & 5+3 & -1 \\ 0 & 1 & -3+3 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+$$
+\begin{pmatrix} -1 & 1 & 1 \\ 1 & 8 & -1 \\ 0 & 1 & 0 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+This gives the system of equations:
+1) $-k_1 + k_2 + k_3 = 0$
+2) $k_1 + 8k_2 - k_3 = 0$
+3) $k_2 = 0$
+
+Substitute $k_2 = 0$ into (1) and (2):
+1) $-k_1 + 0 + k_3 = 0 \implies -k_1 + k_3 = 0 \implies k_1 = k_3$
+2) $k_1 + 8(0) - k_3 = 0 \implies k_1 - k_3 = 0 \implies k_1 = k_3$
+
+Let $k_1 = 1$. Then $k_3 = 1$.
+So, the eigenvector for $\lambda_3 = -3$ is $\mathbf{K}_3 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$.
+
+### Step 4: Write the General Solution
+
+For a system with distinct real eigenvalues $\lambda_1, \lambda_2, \lambda_3$ and corresponding eigenvectors $\mathbf{K}_1, \mathbf{K}_2, \mathbf{K}_3$, the general solution is given by:
+$$
+\mathbf{X}(t) = c_1 \mathbf{K}_1 e^{\lambda_1 t} + c_2 \mathbf{K}_2 e^{\lambda_2 t} + c_3 \mathbf{K}_3 e^{\lambda_3 t}
+$$
+Substitute the eigenvalues and eigenvectors we found:
+$$
+\mathbf{X}(t) = c_1 \begin{pmatrix} -10 \\ 1 \\ -1 \end{pmatrix} e^{-4t} + c_2 \begin{pmatrix} 1 \\ 8 \\ 1 \end{pmatrix} e^{5t} + c_3 \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} e^{-3t}
+$$
+This means:
+$x(t) = -10c_1 e^{-4t} + c_2 e^{5t} + c_3 e^{-3t}$
+$y(t) = c_1 e^{-4t} + 8c_2 e^{5t} + 0c_3 e^{-3t} = c_1 e^{-4t} + 8c_2 e^{5t}$
+$z(t) = -c_1 e^{-4t} + c_2 e^{5t} + c_3 e^{-3t}$
+
+Thus, the general solution to the system of differential equations is:
+$$
+x(t) = -10c_1 e^{-4t} + c_2 e^{5t} + c_3 e^{-3t} \\
+y(t) = c_1 e^{-4t} + 8c_2 e^{5t} \\
+z(t) = -c_1 e^{-4t} + c_2 e^{5t} + c_3 e^{-3t}
+$$
+where $c_1, c_2, c_3$ are arbitrary constants.
+
+:::
+
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \mathbf{X}' = \begin{pmatrix} 1 & -2 & 2 \\ -2 & 1 & -2 \\ 2 & -2 & 1 \end{pmatrix} \mathbf{X} $$
+
+This is a system of linear first-order differential equations with constant coefficients. We will solve it using the eigenvalue method, addressing the case of a repeated eigenvalue.
+
+### Step 1: Find the Eigenvalues of the Coefficient Matrix
+
+Let $A = \begin{pmatrix} 1 & -2 & 2 \\ -2 & 1 & -2 \\ 2 & -2 & 1 \end{pmatrix}$.
+To find the eigenvalues, we solve the characteristic equation $\det(A - \lambda I) = 0$.
+$$
+A - \lambda I = \begin{pmatrix} 1-\lambda & -2 & 2 \\ -2 & 1-\lambda & -2 \\ 2 & -2 & 1-\lambda \end{pmatrix}
+$$
+Calculate the determinant (e.g., using cofactor expansion along the first row):
+$$
+\det(A - \lambda I) = (1-\lambda) \begin{vmatrix} 1-\lambda & -2 \\ -2 & 1-\lambda \end{vmatrix} - (-2) \begin{vmatrix} -2 & -2 \\ 2 & 1-\lambda \end{vmatrix} + 2 \begin{vmatrix} -2 & 1-\lambda \\ 2 & -2 \end{vmatrix} = 0
+$$
+$$
+(1-\lambda)[(1-\lambda)^2 - 4] + 2[-2(1-\lambda) - (-4)] + 2[4 - 2(1-\lambda)] = 0
+$$
+$$
+(1-\lambda)[\lambda^2 - 2\lambda + 1 - 4] + 2[-2+2\lambda+4] + 2[4-2+2\lambda] = 0
+$$
+$$
+(1-\lambda)[\lambda^2 - 2\lambda - 3] + 2[2\lambda+2] + 2[2\lambda+2] = 0
+$$
+$$
+(1-\lambda)(\lambda-3)(\lambda+1) + 4(2\lambda+2) = 0
+$$
+$$
+(1-\lambda)(\lambda-3)(\lambda+1) + 8(\lambda+1) = 0
+$$
+Factor out $(\lambda+1)$:
+$$
+(\lambda+1)[(1-\lambda)(\lambda-3) + 8] = 0
+$$
+$$
+(\lambda+1)[\lambda - 3 - \lambda^2 + 3\lambda + 8] = 0
+$$
+$$
+(\lambda+1)[-\lambda^2 + 4\lambda + 5] = 0
+$$
+Multiply the quadratic term by -1:
+$$
+-(\lambda+1)(\lambda^2 - 4\lambda - 5) = 0
+$$
+Factor the quadratic term:
+$$
+-(\lambda+1)(\lambda-5)(\lambda+1) = 0
+$$
+$$
+-(\lambda+1)^2(\lambda-5) = 0
+$$
+This gives the eigenvalues:
+$$
+\lambda_1 = -1 \quad (\text{multiplicity 2}) \\
+\lambda_2 = 5 \quad (\text{multiplicity 1})
+$$
+
+### Step 2: Find the Eigenvectors for Each Eigenvalue
+
+**For $\lambda_1 = -1$ (Repeated Eigenvalue):**
+We need to solve $(A - (-1)I)\mathbf{K} = \mathbf{0}$, which is $(A + I)\mathbf{K} = \mathbf{0}$.
+$$
+\begin{pmatrix} 1+1 & -2 & 2 \\ -2 & 1+1 & -2 \\ 2 & -2 & 1+1 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+$$
+\begin{pmatrix} 2 & -2 & 2 \\ -2 & 2 & -2 \\ 2 & -2 & 2 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+Row operations: $R_2 \leftarrow R_2 + R_1$, $R_3 \leftarrow R_3 - R_1$.
+$$
+\begin{pmatrix} 2 & -2 & 2 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+The system reduces to $2k_1 - 2k_2 + 2k_3 = 0$, or $k_1 - k_2 + k_3 = 0$.
+We have only one independent equation, but a multiplicity of 2 for the eigenvalue. This means we will find two linearly independent eigenvectors.
+Let $k_2 = s$ and $k_3 = t$, where $s, t$ are independent parameters.
+Then $k_1 = k_2 - k_3 = s - t$.
+So, $\mathbf{K} = \begin{pmatrix} s-t \\ s \\ t \end{pmatrix} = s \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + t \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}$.
+Thus, we have two linearly independent eigenvectors for $\lambda_1 = -1$:
+$\mathbf{K}_{1a} = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}$ and $\mathbf{K}_{1b} = \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}$.
+
+**For $\lambda_2 = 5$ (Distinct Eigenvalue):**
+We need to solve $(A - 5I)\mathbf{K} = \mathbf{0}$.
+$$
+\begin{pmatrix} 1-5 & -2 & 2 \\ -2 & 1-5 & -2 \\ 2 & -2 & 1-5 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+$$
+\begin{pmatrix} -4 & -2 & 2 \\ -2 & -4 & -2 \\ 2 & -2 & -4 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+Row operations:
+$R_1 \leftarrow -\frac{1}{2}R_1$: $\begin{pmatrix} 2 & 1 & -1 \\ -2 & -4 & -2 \\ 2 & -2 & -4 \end{pmatrix}$
+$R_2 \leftarrow R_2 + R_1$, $R_3 \leftarrow R_3 - R_1$: $\begin{pmatrix} 2 & 1 & -1 \\ 0 & -3 & -3 \\ 0 & -3 & -3 \end{pmatrix}$
+$R_2 \leftarrow -\frac{1}{3}R_2$: $\begin{pmatrix} 2 & 1 & -1 \\ 0 & 1 & 1 \\ 0 & -3 & -3 \end{pmatrix}$
+$R_3 \leftarrow R_3 + 3R_2$: $\begin{pmatrix} 2 & 1 & -1 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}$
+This gives the system of equations:
+1) $2k_1 + k_2 - k_3 = 0$
+2) $k_2 + k_3 = 0 \implies k_2 = -k_3$
+
+Substitute $k_2 = -k_3$ into (1):
+$2k_1 + (-k_3) - k_3 = 0$
+$2k_1 - 2k_3 = 0 \implies k_1 = k_3$
+
+Let $k_3 = 1$. Then $k_1 = 1$ and $k_2 = -1$.
+So, the eigenvector for $\lambda_2 = 5$ is $\mathbf{K}_2 = \begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix}$.
+
+### Step 3: Write the General Solution
+
+For a system with a repeated eigenvalue $\lambda$ with multiplicity 2 (and two linearly independent eigenvectors $\mathbf{K}_{1a}, \mathbf{K}_{1b}$) and a distinct eigenvalue $\lambda_2$ with eigenvector $\mathbf{K}_2$, the general solution is:
+$$
+\mathbf{X}(t) = c_1 \mathbf{K}_{1a} e^{\lambda_1 t} + c_2 \mathbf{K}_{1b} e^{\lambda_1 t} + c_3 \mathbf{K}_2 e^{\lambda_2 t}
+$$
+Substitute the eigenvalues and eigenvectors we found:
+$$
+\mathbf{X}(t) = c_1 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} e^{-t} + c_2 \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix} e^{-t} + c_3 \begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} e^{5t}
+$$
+This means:
+$x(t) = c_1 e^{-t} - c_2 e^{-t} + c_3 e^{5t}$
+$y(t) = c_1 e^{-t} + 0c_2 e^{-t} - c_3 e^{5t} = c_1 e^{-t} - c_3 e^{5t}$
+$z(t) = 0c_1 e^{-t} + c_2 e^{-t} + c_3 e^{5t} = c_2 e^{-t} + c_3 e^{5t}$
+
+Thus, the general solution to the system of differential equations is:
+$$
+x(t) = (c_1 - c_2)e^{-t} + c_3 e^{5t} \\
+y(t) = c_1 e^{-t} - c_3 e^{5t} \\
+z(t) = c_2 e^{-t} + c_3 e^{5t}
+$$
+where $c_1, c_2, c_3$ are arbitrary constants. Note that $c_1 - c_2$ can be replaced by a single constant, say $C_1$, but keeping them separate explicitly shows the contribution from the two independent eigenvectors for the repeated eigenvalue.
+
+:::
+
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \mathbf{X}' = \begin{pmatrix} 2 & 1 & 6 \\ 0 & 2 & 5 \\ 0 & 0 & 2 \end{pmatrix} \mathbf{X} $$
+
+This is a system of linear first-order differential equations with constant coefficients. We will solve it using the eigenvalue method, specifically addressing a repeated eigenvalue where not enough linearly independent eigenvectors are found.
+
+### Step 1: Find the Eigenvalues of the Coefficient Matrix
+
+Let $A = \begin{pmatrix} 2 & 1 & 6 \\ 0 & 2 & 5 \\ 0 & 0 & 2 \end{pmatrix}$.
+Since $A$ is an upper triangular matrix, its eigenvalues are the entries on the main diagonal.
+Thus, the eigenvalues are:
+$$
+\lambda_1 = 2, \quad \lambda_2 = 2, \quad \lambda_3 = 2
+$$
+So, $\lambda = 2$ is an eigenvalue with multiplicity 3.
+
+### Step 2: Find the Eigenvectors for the Repeated Eigenvalue
+
+We need to solve $(A - \lambda I)\mathbf{K} = \mathbf{0}$, where $\lambda = 2$.
+$$
+(A - 2I)\mathbf{K} = \begin{pmatrix} 2-2 & 1 & 6 \\ 0 & 2-2 & 5 \\ 0 & 0 & 2-2 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+$$
+\begin{pmatrix} 0 & 1 & 6 \\ 0 & 0 & 5 \\ 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ k_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$
+This gives the system of equations:
+1) $k_2 + 6k_3 = 0$
+2) $5k_3 = 0 \implies k_3 = 0$
+3) $0 = 0$
+
+From (2), $k_3 = 0$. Substitute into (1):
+$k_2 + 6(0) = 0 \implies k_2 = 0$.
+The variable $k_1$ is free. Let $k_1 = C_1$, where $C_1$ is any non-zero constant. For simplicity, let $k_1=1$.
+So, we find only one linearly independent eigenvector:
+$$
+\mathbf{K}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
+$$
+Since the multiplicity of $\lambda = 2$ is 3, but we found only one eigenvector, we need to find generalized eigenvectors.
+
+### Step 3: Find Generalized Eigenvectors
+
+We need to find $\mathbf{P}$ such that $(A - 2I)\mathbf{P} = \mathbf{K}_1$.
+Let $\mathbf{P} = \begin{pmatrix} p_1 \\ p_2 \\ p_3 \end{pmatrix}$.
+$$
+\begin{pmatrix} 0 & 1 & 6 \\ 0 & 0 & 5 \\ 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} p_1 \\ p_2 \\ p_3 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
+$$
+This gives the system of equations:
+1) $p_2 + 6p_3 = 1$
+2) $5p_3 = 0 \implies p_3 = 0$
+3) $0 = 0$
+
+From (2), $p_3 = 0$. Substitute into (1):
+$p_2 + 6(0) = 1 \implies p_2 = 1$.
+The variable $p_1$ is free. Let $p_1 = 0$ for simplicity (any value works).
+So, the generalized eigenvector $\mathbf{P}$ is:
+$$
+\mathbf{P} = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
+$$
+
+Next, we need to find $\mathbf{Q}$ such that $(A - 2I)\mathbf{Q} = \mathbf{P}$.
+Let $\mathbf{Q} = \begin{pmatrix} q_1 \\ q_2 \\ q_3 \end{pmatrix}$.
+$$
+\begin{pmatrix} 0 & 1 & 6 \\ 0 & 0 & 5 \\ 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} q_1 \\ q_2 \\ q_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
+$$
+This gives the system of equations:
+1) $q_2 + 6q_3 = 0$
+2) $5q_3 = 1 \implies q_3 = \frac{1}{5}$
+3) $0 = 0$
+
+From (2), $q_3 = \frac{1}{5}$. Substitute into (1):
+$q_2 + 6\left(\frac{1}{5}\right) = 0 \implies q_2 = -\frac{6}{5}$.
+The variable $q_1$ is free. Let $q_1 = 0$ for simplicity.
+So, the generalized eigenvector $\mathbf{Q}$ is:
+$$
+\mathbf{Q} = \begin{pmatrix} 0 \\ -\frac{6}{5} \\ \frac{1}{5} \end{pmatrix}
+$$
+
+### Step 4: Write the General Solution
+
+For an eigenvalue $\lambda$ with multiplicity 3, and one eigenvector $\mathbf{K}$ and two generalized eigenvectors $\mathbf{P}$ and $\mathbf{Q}$ such that $(A - \lambda I)\mathbf{K} = \mathbf{0}$, $(A - \lambda I)\mathbf{P} = \mathbf{K}$, and $(A - \lambda I)\mathbf{Q} = \mathbf{P}$, the general solution is:
+$$
+\mathbf{X}(t) = c_1 \mathbf{K} e^{\lambda t} + c_2 (\mathbf{K}t + \mathbf{P}) e^{\lambda t} + c_3 \left( \mathbf{K}\frac{t^2}{2!} + \mathbf{P}t + \mathbf{Q} \right) e^{\lambda t}
+$$
+Substitute $\lambda = 2$, and the vectors $\mathbf{K}_1$, $\mathbf{P}$, and $\mathbf{Q}$:
+$$
+\mathbf{X}(t) = c_1 \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} e^{2t} + c_2 \left( \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}t + \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} \right) e^{2t} + c_3 \left( \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\frac{t^2}{2} + \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}t + \begin{pmatrix} 0 \\ -\frac{6}{5} \\ \frac{1}{5} \end{pmatrix} \right) e^{2t}
+$$
+Combine the terms within the parentheses:
+$$
+\mathbf{X}(t) = c_1 \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} e^{2t} + c_2 \begin{pmatrix} t \\ 1 \\ 0 \end{pmatrix} e^{2t} + c_3 \begin{pmatrix} \frac{t^2}{2} \\ t - \frac{6}{5} \\ \frac{1}{5} \end{pmatrix} e^{2t}
+$$
+This means:
+$x(t) = c_1 e^{2t} + c_2 t e^{2t} + c_3 \frac{t^2}{2} e^{2t}$
+$y(t) = c_2 e^{2t} + c_3 \left(t - \frac{6}{5}\right) e^{2t}$
+$z(t) = c_3 \frac{1}{5} e^{2t}$
+
+Thus, the general solution to the system of differential equations is:
+$$
+x(t) = e^{2t} \left( c_1 + c_2 t + \frac{c_3}{2} t^2 \right) \\
+y(t) = e^{2t} \left( c_2 + c_3 \left(t - \frac{6}{5}\right) \right) \\
+z(t) = \frac{c_3}{5} e^{2t}
+$$
+where $c_1, c_2, c_3$ are arbitrary constants.
+
+:::

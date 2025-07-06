@@ -1,19 +1,20 @@
 ---
 title: "Differential Equations Notes"
-format: html
-editor: visual
-theme: cosmo
 ---
 
 # System of Linear First Order Differential Equations
 
-General form: $$
+General form:
+$$
 \frac{dx_1}{dt} = a_{11}(t)x_1 + a_{12}(t)x_2 + \dots + a_{1n}(t)x_n + F_1(t)
-$$ $$
+$$
+$$
 \frac{dx_2}{dt} = a_{21}(t)x_1 + a_{22}(t)x_2 + \dots + a_{2n}(t)x_n + F_2(t)
-$$ $$
+$$
+$$
 \vdots
-$$ $$
+$$
+$$
 \frac{dx_n}{dt} = a_{n1}(t)x_1 + a_{n2}(t)x_2 + \dots + a_{nn}(t)x_n + F_n(t)
 $$
 
@@ -40,7 +41,8 @@ F_1(t) \\ F_2(t) \\ \vdots \\ F_n(t)
 \end{pmatrix}
 $$
 
-This can be written compactly as: $X' = AX + F$
+This can be written compactly as:
+$X' = AX + F$
 
 -   **Homogeneous System:** $X' = AX$
 -   **Non-homogeneous System:** $X' = AX + F$
@@ -59,7 +61,10 @@ If a vector cannot be expressed as a combination of the other vectors, $c_1 X_1 
 
 ### Wronskian for Systems:
 
-If you have $n$ vectors with $n$ elements: Place each vector as a column of a matrix. If $\det \ne 0$, they are independent. If $\det = 0$, they are dependent.
+If you have $n$ vectors with $n$ elements:
+Place each vector as a column of a matrix.
+If $\det \ne 0$, they are independent.
+If $\det = 0$, they are dependent.
 
 ### Fundamental Set:
 
@@ -67,31 +72,74 @@ Set of all linearly independent solution vectors.
 
 ### General Solution:
 
-Sum of fundamental set: $X = c_1 X_1 + c_2 X_2 + \dots + c_n X_n$ (must be linearly independent - check if they are using Wronskian if not mentioned).
+Sum of fundamental set:
+$X = c_1 X_1 + c_2 X_2 + \dots + c_n X_n$ (must be linearly independent - check if they are using Wronskian if not mentioned).
 
 ### Homogeneous Solutions:
 
-For $X' = AX$, assume a solution of the form $X = K e^{\lambda t}$ where $K$ is an eigenvector and $\lambda$ is an eigenvalue. Substitute into the equation: $\lambda K e^{\lambda t} = A K e^{\lambda t}$. Since $e^{\lambda t} \ne 0$, this simplifies to $AK = \lambda K$, or $AK - \lambda K = 0$, which is $(A - \lambda I)K = 0$. This is an **eigenvalue problem**. This has 3 types of roots (eigenvalues): - Real - distinct - Real - repeated - Complex conjugate
+For $X' = AX$, assume a solution of the form $X = K e^{\lambda t}$ where $K$ is an eigenvector and $\lambda$ is an eigenvalue.
+Substitute into the equation: $\lambda K e^{\lambda t} = A K e^{\lambda t}$.
+Since $e^{\lambda t} \ne 0$, this simplifies to $AK = \lambda K$, or $AK - \lambda K = 0$, which is $(A - \lambda I)K = 0$.
+This is an **eigenvalue problem**.
+This has 3 types of roots (eigenvalues):
+-   Real - distinct
+-   Real - repeated
+-   Complex conjugate
 
 #### Types of Roots / Eigenvalues:
 
--   **Distinct real eigenvalues** ($\lambda_1, \lambda_2, \dots, \lambda_n$): Solutions are $X_1 = K_1 e^{\lambda_1 t}$, $X_2 = K_2 e^{\lambda_2 t}$, etc.
+-   **Distinct real eigenvalues** ($\lambda_1, \lambda_2, \dots, \lambda_n$):
+    Solutions are $X_1 = K_1 e^{\lambda_1 t}$, $X_2 = K_2 e^{\lambda_2 t}$, etc.
 
 -   **Repeated eigenvalues**:
+    -   If more than one independent eigenvector for a value is possible:
+        Solution is $c_1 K_1 e^{\lambda t} + c_2 K_2 e^{\lambda t} + \dots + c_m K_m e^{\lambda t}$.
+    -   If only one eigenvector is possible (for multiplicity $k$):
+        The solutions are $X_1 = K e^{\lambda t}$ and $X_2 = (K t + P) e^{\lambda t}$ (for multiplicity 2).
+        Similarly progresses for multiplicity > 2.
+        For $X' = AX$, we solve $(A - \lambda I) K = 0$ for $K$, and $(A - \lambda I) P = K$ for $P$.
 
-    -   If more than one independent eigenvector for a value is possible: Solution is $c_1 K_1 e^{\lambda t} + c_2 K_2 e^{\lambda t} + \dots + c_m K_m e^{\lambda t}$.
-    -   If only one eigenvector is possible (for multiplicity $k$): The solutions are $X_1 = K e^{\lambda t}$ and $X_2 = (K t + P) e^{\lambda t}$ (for multiplicity 2). Similarly progresses for multiplicity \> 2. For $X' = AX$, we solve $(A - \lambda I) K = 0$ for $K$, and $(A - \lambda I) P = K$ for $P$.
+-   **Complex Eigenvalues ($\lambda = \alpha \pm i\beta$)**:
+    If $\lambda_1 = \alpha + i\beta$ and $\lambda_2 = \alpha - i\beta$ are complex conjugate eigenvalues, then the corresponding solutions derived from $X_1 = K e^{(\alpha + i\beta)t}$ can be written in real form.
+    $K = B_1 + iB_2$, where $B_1 = Re(K)$ and $B_2 = Im(K)$.
+    $e^{(\alpha + i\beta)t} = e^{\alpha t}(\cos(\beta t) + i\sin(\beta t))$.
+    The two linearly independent real solutions are:
+    $X_1 = e^{\alpha t}(B_1 \cos(\beta t) - B_2 \sin(\beta t))$
+    $X_2 = e^{\alpha t}(B_2 \cos(\beta t) + B_1 \sin(\beta t))$
 
--   **Complex Eigenvalues (**$\lambda = \alpha \pm i\beta$): If $\lambda_1 = \alpha + i\beta$ and $\lambda_2 = \alpha - i\beta$ are complex conjugate eigenvalues, then the corresponding solutions derived from $X_1 = K e^{(\alpha + i\beta)t}$ can be written in real form. $K = B_1 + iB_2$, where $B_1 = Re(K)$ and $B_2 = Im(K)$. $e^{(\alpha + i\beta)t} = e^{\alpha t}(\cos(\beta t) + i\sin(\beta t))$. The two linearly independent real solutions are: $X_1 = e^{\alpha t}(B_1 \cos(\beta t) - B_2 \sin(\beta t))$ $X_2 = e^{\alpha t}(B_2 \cos(\beta t) + B_1 \sin(\beta t))$
+{{< include _homogeneous_linear_system_examples.qmd >}}
 
 ### Non-homogeneous Linear Systems:
 
-$X' = AX + F$ First solve the homogeneous part, $X_c$. Then find $X_p$.
+$X' = AX + F$
+First solve the homogeneous part, $X_c$.
+Then find $X_p$.
 
 #### Methods to solve for $X_p$:
 
--   **Undetermined Coefficients:** Suppose $X_p$ on basis of $F$ and put in $A$ to solve. For other terms in $F$, split them into similar parts, as sum of particular solutions is a solution of a summed equation.
+-   **Undetermined Coefficients:**
+    Suppose $X_p$ on basis of $F$ and put in $A$ to solve.
+    For other terms in $F$, split them into similar parts, as sum of particular solutions is a solution of a summed equation.
 
--   **Variation of Parameters for Systems:** Given $X' = AX + F$. The general solution for the homogeneous system $X' = AX$ is $X_c = \Phi(t)C$, where $\Phi(t)$ is the **fundamental matrix**. The fundamental matrix $\Phi(t)$ is a matrix whose columns are the linearly independent solutions of the homogeneous system. We know $\Phi'(t) = A\Phi(t)$. Assume a particular solution of the form $X_p = \Phi(t)U(t)$. Then $X_p' = \Phi' U + \Phi U'$. Substitute into $X_p' = AX_p + F$: $\Phi' U + \Phi U' = A(\Phi U) + F$ Since $\Phi' = A\Phi$, this simplifies to: $A\Phi U + \Phi U' = A\Phi U + F$ $\Phi U' = F$ To solve for $U'$, multiply by $\Phi^{-1}$: $U' = \Phi^{-1} F$ Integrate to find $U$: $U = \int \Phi^{-1} F \,dt$ Finally, the particular solution is: $X_p = \Phi \int \Phi^{-1} F \,dt$
+-   **Variation of Parameters for Systems:**
+    Given $X' = AX + F$.
+    The general solution for the homogeneous system $X' = AX$ is $X_c = \Phi(t)C$, where $\Phi(t)$ is the **fundamental matrix**.
+    The fundamental matrix $\Phi(t)$ is a matrix whose columns are the linearly independent solutions of the homogeneous system.
+    We know $\Phi'(t) = A\Phi(t)$.
+    Assume a particular solution of the form $X_p = \Phi(t)U(t)$.
+    Then $X_p' = \Phi' U + \Phi U'$.
+    Substitute into $X_p' = AX_p + F$:
+    $\Phi' U + \Phi U' = A(\Phi U) + F$
+    Since $\Phi' = A\Phi$, this simplifies to:
+    $A\Phi U + \Phi U' = A\Phi U + F$
+    $\Phi U' = F$
+    To solve for $U'$, multiply by $\Phi^{-1}$:
+    $U' = \Phi^{-1} F$
+    Integrate to find $U$:
+    $U = \int \Phi^{-1} F \,dt$
+    Finally, the particular solution is:
+    $X_p = \Phi \int \Phi^{-1} F \,dt$
 
-------------------------------------------------------------------------
+{{< include _non_homogeneous_linear_system_examples.qmd >}}
+
+---

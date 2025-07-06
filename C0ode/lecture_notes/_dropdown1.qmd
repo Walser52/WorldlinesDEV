@@ -1,5 +1,4 @@
----
----
+
 
 ::::{.ddm}
 :::{.ddm-head onclick="toggleBox(this)"}

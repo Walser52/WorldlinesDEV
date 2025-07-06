@@ -131,6 +131,8 @@ where the variables can be separated.
 If $\frac{dy}{dx} = g(x)$, then the solution is given by:
 $$ y(x) = y_0 + \int_{x_0}^{x} g(t)\,dt $$
 
+{{< include _seperable_examples.qmd >}}
+
 #### 2. Solution by Integrating Factor Method (Linear First-Order ODEs)
 
 Applicable to all **linear first-order differential equations (FODE)**.
@@ -164,6 +166,8 @@ $$ \mu(x) y = \int \mu(x) f(x)\,dx + C $$
 **Step 5: Solve for $y(x)$**
 $$ y(x) = \frac{1}{\mu(x)} \left[\int \mu(x) f(x)\,dx + C \right] $$
 
+{{< include _integrating_factors_examples.qmd >}}
+
 #### 3. Exact Differential Equations
 
 General Form:
@@ -189,6 +193,8 @@ $$ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $$
 5.  Substitute the found $h(y)$ (or $k(x)$) back into $F(x, y)$.
 6.  The general solution is implicitly given by $F(x, y) = C$, where $C$ is an arbitrary constant.
 
+{{< include _exact_examples.qmd >}}
+
 #### 4. Integrating Factor for Non-Exact Equations (Special Cases)
 
 If $M(x, y)\,dx + N(x, y)\,dy = 0$ is not exact, we might be able to find an integrating factor $\mu(x, y)$ such that $\mu M\,dx + \mu N\,dy = 0$ is exact.
@@ -205,6 +211,8 @@ If $M(x, y)\,dx + N(x, y)\,dy = 0$ is not exact, we might be able to find an int
 
 -   **Other cases for finding $\mu$ (More advanced/specific)**:
     Sometimes an integrating factor can be found in forms like $\mu(x+y)$, $\mu(xy)$, or by inspection, but the formulas above are the most common general approaches for non-exact equations. The expressions $\frac{1}{M_x + N_y}$ or $\frac{1}{M_y - N_x}$ are not general integrating factors; they might appear in specific contexts or derivations for certain types of non-exact equations, but they are not universal formulas for $\mu$.
+
+{{< include _non_exact_examples.qmd >}}
 
 #### 5. Solution by Substitution
 
@@ -250,7 +258,9 @@ $$ \frac{dy}{dx} = F(Ax + By + C) $$
     $\frac{du}{dx} = B F(u) + A$
     This is a **separable equation** in terms of $u$ and $x$.
 
-**General Strategy for First-Order ODEs:**
+{{< include _substitutions_examples.qmd >}}
+
+## General Strategy for First-Order ODEs:
 
 -   When given $M(x,y) dx + N(x,y) dy = 0$:
     1.  **Check for Exactness:** Is $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$?
