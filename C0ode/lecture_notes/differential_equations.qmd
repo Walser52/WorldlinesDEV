@@ -131,7 +131,11 @@ where the variables can be separated.
 If $\frac{dy}{dx} = g(x)$, then the solution is given by:
 $$ y(x) = y_0 + \int_{x_0}^{x} g(t)\,dt $$
 
-{{< include _seperable_examples.qmd >}}
+{{< include examples/_seperable1.qmd >}}
+
+{{< include examples/_seperable2.qmd >}}
+
+{{< include examples/_seperable3.qmd >}}
 
 #### 2. Solution by Integrating Factor Method (Linear First-Order ODEs)
 

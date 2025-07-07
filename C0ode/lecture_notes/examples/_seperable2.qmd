@@ -1,0 +1,55 @@
+::: {#exm-separable2 style="background-color:rgb(221, 239, 255);"}
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \frac{dy}{dx} = \frac{x}{y} $$
+
+This is a separable differential equation. We can solve it by isolating the variables and then integrating both sides.
+
+First, separate the variables. Multiply both sides by $y$ and $dx$:
+$$
+y \, dy = x \, dx
+$$
+
+Next, integrate both sides of the equation:
+$$
+\int y \, dy = \int x \, dx
+$$
+
+Integrating the left side with respect to $y$:
+$$
+\int y \, dy = \frac{y^2}{2}
+$$
+
+Integrating the right side with respect to $x$:
+$$
+\int x \, dx = \frac{x^2}{2} + C
+$$
+where $C$ is the constant of integration.
+
+Now, set the two integrated parts equal to each other:
+$$
+\frac{y^2}{2} = \frac{x^2}{2} + C
+$$
+
+To simplify the equation, multiply the entire equation by 2:
+$$
+2 \left( \frac{y^2}{2} \right) = 2 \left( \frac{x^2}{2} + C \right)
+$$
+$$
+y^2 = x^2 + 2C
+$$
+
+Since $2C$ is just another arbitrary constant, we can denote it as $C_1$:
+$$
+y^2 = x^2 + C_1
+$$
+
+Finally, solve for $y(x)$ by taking the square root of both sides:
+$$
+y(x) = \pm \sqrt{x^2 + C_1}
+$$
+
+Thus, the general solution is $y(x) = \pm \sqrt{x^2 + C_1}$.
+
+:::
+:::
