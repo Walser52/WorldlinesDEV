@@ -1,4 +1,4 @@
-::: {#exm-separable2 style="background-color:rgb(221, 239, 255);"}
+::: {#exm-separable2}
 ::: {.callout-note icon=false collapse="true"}
 
 ## $$ \frac{dy}{dx} = \frac{x}{y} $$

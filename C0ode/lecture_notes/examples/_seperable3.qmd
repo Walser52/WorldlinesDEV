@@ -1,4 +1,4 @@
-::: {#exm-separable3 style="background-color:rgb(221, 239, 255);"}
+::: {#exm-separable3}
 ::: {.callout-note icon=false collapse="true"}
 
 ## $$ \frac{dy}{dx} = \frac{xy}{x^2+1} $$
