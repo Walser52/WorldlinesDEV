@@ -1,0 +1,204 @@
+---
+title: Differential Equations
+---
+
+# Differential Equations
+
+Equations in which rates and derivatives are mentioned.
+We use the **operator** $L$ in such equations.
+
+---
+
+## Reference Function
+
+A **reference function** is one **not directly involved** in the differentiability of an equation.
+
+---
+
+## Classifications of Differential Equations
+
+### 1. By Type
+
+-   **Ordinary Differential Equation (ODE)**: involves derivatives with respect to a single independent variable.
+-   **Partial Differential Equation (PDE)**: involves partial derivatives (i.e., with respect to multiple independent variables).
+
+### 2. By Order
+
+-   Refers to the **highest derivative** in the equation.
+-   Note: This is not the same as the **degree** (which refers to the power of the highest derivative term).
+
+### 3. By Linearity
+
+-   A differential equation is **linear** if it is of the form:
+
+    $$ a_n(x)\frac{d^n y}{dx^n} + a_{n-1}(x)\frac{d^{n-1} y}{dx^{n-1}} + \cdots + a_1(x)\frac{dy}{dx} + a_0(x)y = g(x) $$
+
+-   **Linearity conditions**:
+    -   The dependent variable $y$ and all its derivatives $y', y'', \ldots, y^{(n)}$ are of **first degree** (i.e., raised to the power of 1).
+    -   The coefficients $a_0(x), a_1(x), \ldots, a_n(x)$ depend **only on the independent variable** $x$ (or are constants).
+    -   The term $g(x)$ depends **only on the independent variable** $x$ (or is a constant).
+    -   No products of $y$ or its derivatives (e.g., $y \cdot y'$ or $(y'')^2$).
+
+---
+
+## Notation
+
+-   **Leibniz Notation**:
+    $$ \frac{dy}{dx} $$
+
+-   **Newton Notation**:
+    $$ y' $$
+
+---
+
+## Solutions of Differential Equations
+
+### General Solutions
+
+-   A **general solution** contains arbitrary constants (e.g., $C_1, C_2$).
+-   **Particular solutions** are derived from the general solution by assigning specific values to these constants, usually determined by initial or boundary conditions. Hence, there are infinitely many particular solutions.
+
+### Initial Value Problem (IVP)
+
+-   A differential equation where the conditions are specified at a **single point** (i.e., a specific value of the independent variable).
+    For an $n$-th order ODE, $n$ conditions are given at the same point $x_0$.
+
+### Boundary Value Problem (BVP)
+
+-   A differential equation where the conditions are specified at **two or more different points** (boundaries) of the independent variable.
+    For example, conditions might be given at $x=a$ and $x=b$.
+
+### Normal Form
+
+The general form of an $n$-th order differential equation, solved for the highest derivative:
+
+$$
+\frac{d^n y}{dx^n} = f(x, y, y', \dots, y^{(n-1)})
+$$
+
+### Family of Curves
+
+-   The **solution curves** for a general solution form a family, with each curve corresponding to a different combination of the arbitrary constants.
+
+---
+
+## First Order Differential Equations
+
+Given a first-order differential equation:
+
+$$
+\frac{dy}{dx} = f(x, y)
+$$
+
+This represents the **slope** of the tangent line to the solution curve at each point $(x, y)$.
+
+### Slope Conditions:
+
+-   $(\frac{dy}{dx} > 0)$: The function $y(x)$ is increasing.
+-   $(\frac{dy}{dx} < 0)$: The function $y(x)$ is decreasing.
+-   $(\frac{dy}{dx} = 0)$: The function $y(x)$ has a local extremum or a horizontal tangent; these points are often called **equilibrium points** or **critical points**.
+
+At an equilibrium point:
+$$ \frac{dy}{dx} = 0 \Rightarrow y = \text{constant} $$ (if $f$ depends only on $y$)
+
+---
+
+### Autonomous First-Order Equations
+
+An autonomous first-order differential equation is of the form:
+
+$$
+\frac{dy}{dx} = f(y)
+$$
+
+-   The derivative depends only on the dependent variable $y$, not directly on the independent variable $x$.
+-   By finding the **zeros** of the function $f(y)$ (i.e., $f(y)=0$), we can determine:
+    -   **Equilibrium points** (constant solutions)
+    -   Intervals where $y(x)$ is increasing ($f(y)>0$)
+    -   Intervals where $y(x)$ is decreasing ($f(y)<0$)
+
+---
+
+### Solution Methods for First-Order Differential Equations
+
+{{< include _seperable.qmd >}}
+
+{{< include _integrating_factor.qmd >}}
+
+{{< include _exact.qmd >}}
+
+{{< include _non_exact.qmd >}}
+
+{{< include _substitution.qmd >}}
+
+## General Strategy for First-Order ODEs:
+
+-   When given $M(x,y) dx + N(x,y) dy = 0$:
+    1.  **Check for Exactness:** Is $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$?
+        -   If **Yes**: Solve as an exact equation.
+        -   If **No**: Proceed.
+    2.  **Check for Homogeneity:** Are $M(x,y)$ and $N(x,y)$ homogeneous functions of the same degree?
+        -   If **Yes**: Use substitution ($y=ux$ or $x=vy$) to convert to a separable equation.
+        -   If **No**: Proceed.
+    3.  **Check if Linear:** Can it be written as $\frac{dy}{dx} + P(x)y = f(x)$?
+        -   If **Yes**: Use the integrating factor method.
+        -   If **No**: Proceed.
+    4.  **Check if Bernoulli:** Can it be written as $\frac{dy}{dx} + P(x)y = F(x)y^n$?
+        -   If **Yes**: Use the substitution $u = y^{1-n}$ to convert to a linear equation.
+        -   If **No**: Proceed.
+    5.  **Check for $F(Ax+By+C)$ form:** Can it be written as $\frac{dy}{dx} = F(Ax+By+C)$?
+        -   If **Yes**: Use the substitution $u = Ax+By+C$ to convert to a separable equation.
+        -   If **No**: Look for an appropriate integrating factor to make it exact (special cases) or it might be a more advanced type of equation.
+
+---
+
+## Error Function
+
+The **error function** is a special function often encountered in solutions of differential equations related to diffusion or probability.
+It is defined as:
+$$
+\text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
+$$
+Its **complementary form** is:
+$$
+\text{erfc}(x) = 1 - \text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_x^{\infty} e^{-t^2} dt
+$$
+-   The denominator usually includes $\sqrt{\pi}$.
+
+---
+
+## Flowcharts for Solution Strategies
+
+### Flowchart 1: Solving Bernoulli's Equation
+
+
+```{mermaid}
+%%| label: fig-mermaid
+%%| fig-width: 6
+%%| fig-cap: |
+%%|   How Quarto orchestrates rendering of documents: start with 
+%%|   a qmd file, use the Knitr or Jupyter engine to perform the 
+%%|   computations and convert it to an md file, then use Pandoc 
+%%|   to convert to various file formats including HTML, PDF, 
+%%|   and Word.
+flowchart TD
+    A["dy/dx + P(x)y = F(x)yⁿ"] --> B["If n ≥ 2"]
+    A --> C["If n = 0 or 1"]
+    
+    B --> D["Substitute u = y¹⁻ⁿ"]
+    D --> E["Then use integrating factor method"]
+    
+    C --> F["Integrating factor method"]
+```
+
+```{mermaid}
+
+flowchart TD
+    A["M(x,y)dx + N(x,y)dy"] --> B["If it is not Homogeneous"]
+    A --> C["Check if it is Homogeneous"]
+    
+    B --> D["Then it must be exact"]
+    D --> E["Otherwise make exact"]
+    
+    C --> F["If so substitute y=vx then solve as seperable equations"]
+```
