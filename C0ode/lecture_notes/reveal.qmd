@@ -1,0 +1,15 @@
+---
+title: Example
+author: "John Doe"
+format: revealjs
+---
+
+## Example
+
+$$
+\frac{dy}{dx} = y
+$$
+
+## Separation of variables
+
+Solution

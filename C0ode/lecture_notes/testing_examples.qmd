@@ -11,7 +11,8 @@ format:
 Equations in which rates and derivatives are mentioned.
 We use the **operator** $L$ in such equations.
 
----
+<iframe src="reveal.html" width="100%" height="600px" style="border:none;"></iframe>
+
 
 ## Reference Function
 
