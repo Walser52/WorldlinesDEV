@@ -1,0 +1,34 @@
+### Non-homogeneous Linear Systems:
+
+$X' = AX + F$
+First solve the homogeneous part, $X_c$.
+Then find $X_p$.
+
+#### Methods to solve for $X_p$:
+
+-   **Undetermined Coefficients:**
+    Suppose $X_p$ on basis of $F$ and put in $A$ to solve.
+    For other terms in $F$, split them into similar parts, as sum of particular solutions is a solution of a summed equation.
+  
+-   **Variation of Parameters for Systems:**
+    Given $X' = AX + F$.
+    The general solution for the homogeneous system $X' = AX$ is $X_c = \Phi(t)C$, where $\Phi(t)$ is the **fundamental matrix**.
+    The fundamental matrix $\Phi(t)$ is a matrix whose columns are the linearly independent solutions of the homogeneous system.
+    We know $\Phi'(t) = A\Phi(t)$.
+    Assume a particular solution of the form $X_p = \Phi(t)U(t)$.
+    Then $X_p' = \Phi' U + \Phi U'$.
+    Substitute into $X_p' = AX_p + F$:
+    $\Phi' U + \Phi U' = A(\Phi U) + F$
+    Since $\Phi' = A\Phi$, this simplifies to:
+    $A\Phi U + \Phi U' = A\Phi U + F$
+    $\Phi U' = F$
+    To solve for $U'$, multiply by $\Phi^{-1}$:
+    $U' = \Phi^{-1} F$
+    Integrate to find $U$:
+    $U = \int \Phi^{-1} F \,dt$
+    Finally, the particular solution is:
+    $X_p = \Phi \int \Phi^{-1} F \,dt$
+
+{{< include _non_homogeneous_linear_system_examples.qmd >}}
+
+---

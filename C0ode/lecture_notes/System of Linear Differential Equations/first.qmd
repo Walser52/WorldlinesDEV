@@ -1,0 +1,76 @@
+---
+title: "Differential Equations Notes"
+---
+
+# System of Linear First Order Differential Equations
+
+General form:
+$$
+\frac{dx_1}{dt} = a_{11}(t)x_1 + a_{12}(t)x_2 + \dots + a_{1n}(t)x_n + F_1(t)
+$$
+$$
+\frac{dx_2}{dt} = a_{21}(t)x_1 + a_{22}(t)x_2 + \dots + a_{2n}(t)x_n + F_2(t)
+$$
+$$
+\vdots
+$$
+$$
+\frac{dx_n}{dt} = a_{n1}(t)x_1 + a_{n2}(t)x_2 + \dots + a_{nn}(t)x_n + F_n(t)
+$$
+
+### Matrix Form:
+   
+$$
+\frac{d}{dt}
+\begin{pmatrix}
+x_1 \\ x_2 \\ \vdots \\ x_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_{11}(t) & a_{12}(t) & \cdots & a_{1n}(t) \\
+a_{21}(t) & a_{22}(t) & \cdots & a_{2n}(t) \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1}(t) & a_{n2}(t) & \cdots & a_{nn}(t)
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\ x_2 \\ \vdots \\ x_n
+\end{pmatrix}
++
+\begin{pmatrix}
+F_1(t) \\ F_2(t) \\ \vdots \\ F_n(t)
+\end{pmatrix}
+$$
+
+This can be written compactly as:
+$X' = AX + F$
+
+-   **Homogeneous System:** $X' = AX$
+-   **Non-homogeneous System:** $X' = AX + F$
+
+### Solution Vector:
+
+A solution vector is one whose entries are differentiable functions satisfying the system on the interval.
+
+### Superposition Principle:
+
+Same as that for $n^\text{th}$ order differential equations, but now $X$ is a solution vector.
+
+### Linear Dependence / Independence:
+
+If a vector cannot be expressed as a combination of the other vectors, $c_1 X_1 + c_2 X_2 + \dots + c_k X_k = 0$, then they are linearly independent.
+
+### Wronskian for Systems:
+
+If you have $n$ vectors with $n$ elements:
+Place each vector as a column of a matrix.
+If $\det \ne 0$, they are independent.
+If $\det = 0$, they are dependent.
+
+### Fundamental Set:
+
+Set of all linearly independent solution vectors.
+
+### General Solution:
+
+Sum of fundamental set:
+$X = c_1 X_1 + c_2 X_2 + \dots + c_n X_n$ (must be linearly independent - check if they are using Wronskian if not mentioned).

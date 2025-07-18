@@ -1,0 +1,97 @@
+## Cauchy-Euler Equation
+  
+General form:
+$a_n x^n \frac{d^n y}{dx^n} + a_{n-1} x^{n-1} \frac{d^{n-1} y}{dx^{n-1}} + \cdots + a_1 x \frac{dy}{dx} + a_0 y = g(x)$
+
+This is a linear differential equation with variable coefficients, specifically, the power of $x$ matches the order of the derivative.
+
+### Method of Solution (Homogeneous Case):
+
+For the homogeneous second-order Cauchy-Euler equation:
+$ax^2 \frac{d^2 y}{dx^2} + bx \frac{dy}{dx} + cy = 0$
+
+1.  **Assume a solution of the form $y = x^m$.**
+2.  **Find the derivatives:**
+    $y' = m x^{m-1}$
+    $y'' = m(m-1) x^{m-2}$
+3.  **Substitute into the differential equation:**
+    $a x^2 [m(m-1) x^{m-2}] + b x [m x^{m-1}] + c x^m = 0$
+    $a m(m-1) x^m + b m x^m + c x^m = 0$
+4.  **Factor out $x^m$:**
+    $x^m [a m(m-1) + b m + c] = 0$
+5.  **Form the Auxiliary (Indicial) Equation:**
+    Since $x^m \ne 0$ (for the relevant interval $x > 0$), we must have:
+    $a m(m-1) + b m + c = 0$
+    $am^2 - am + bm + c = 0$
+    $am^2 + (b-a)m + c = 0$
+    This is a quadratic equation in $m$. Solve for $m$ to find the roots $m_1$ and $m_2$.
+
+### Types of Roots and Corresponding Solutions (for Second Order):
+
+1.  **Real and Distinct Roots ($m_1 \ne m_2$)**:
+    The general solution is $y = c_1 x^{m_1} + c_2 x^{m_2}$.
+
+2.  **Real and Equal Roots ($m_1 = m_2 = m$)**:
+    The general solution is $y = c_1 x^m + c_2 x^m \ln|x|$.
+
+    *Derivation of second solution using Reduction of Order:*
+    Given $y_1 = x^m$, and for the standard form $y'' + P(x)y' + Q(x)y = 0$:
+    $P(x) = \frac{bx}{ax^2} = \frac{b}{ax}$.
+    We use the shortcut formula:
+    $$
+    y_2 = y_1(x) \int \frac{e^{-\int P(x)\,dx}}{[y_1(x)]^2}\,dx
+    $$
+    First, calculate $-\int P(x)\,dx = -\int \frac{b}{ax}\,dx = -\frac{b}{a} \ln|x| = \ln(|x|^{-b/a})$.
+    Then, $e^{-\int P(x)\,dx} = e^{\ln(|x|^{-b/a})} = |x|^{-b/a}$.
+    So,
+    $$
+    y_2 = x^m \int \frac{|x|^{-b/a}}{(x^m)^2}\,dx = x^m \int \frac{x^{-b/a}}{x^{2m}}\,dx = x^m \int x^{-b/a - 2m}\,dx
+    $$
+    Since $m = -\frac{(b-a)}{2a}$ for repeated roots, we have $2m = -\frac{b-a}{a} = \frac{a-b}{a} = 1 - \frac{b}{a}$.
+    So, $-b/a - 2m = -b/a - (1 - b/a) = -b/a - 1 + b/a = -1$.
+    Therefore,
+    $$
+    y_2 = x^m \int x^{-1}\,dx = x^m \int \frac{1}{x}\,dx = x^m \ln|x|
+    $$
+    Thus, the general solution for repeated roots is $y = c_1 x^m + c_2 x^m \ln|x|$.
+
+3.  **Complex Conjugate Roots ($m_1 = \alpha + i\beta$, $m_2 = \alpha - i\beta$)**:
+    Using $x^m = x^{\alpha + i\beta} = x^\alpha x^{i\beta} = x^\alpha e^{i\beta \ln|x|}$ (since $x^A = e^{A \ln x}$)
+    Applying Euler's Formula, $e^{i\theta} = \cos\theta + i\sin\theta$:
+    $x^{i\beta} = \cos(\beta \ln|x|) + i\sin(\beta \ln|x|)$
+    So, $x^m = x^\alpha [\cos(\beta \ln|x|) + i\sin(\beta \ln|x|)]$.
+    The two linearly independent real solutions are obtained from the real and imaginary parts:
+    $y_1 = x^\alpha \cos(\beta \ln|x|)$
+    $y_2 = x^\alpha \sin(\beta \ln|x|)$
+    The general solution is $y = x^\alpha [c_1 \cos(\beta \ln|x|) + c_2 \sin(\beta \ln|x|)]$.
+
+{{< include _cauchy_examples.qmd >}}
+
+### For Repeated Roots of Multiplicity K:
+
+If an auxiliary equation has a root $m$ with multiplicity $K$, then the corresponding linearly independent solutions are:
+$x^m, x^m \ln|x|, x^m (\ln|x|)^2, \ldots, x^m (\ln|x|)^{K-1}$.
+
+### Reduction to Constant Coefficients:
+
+For a Cauchy-Euler equation, it can be transformed into a linear differential equation with constant coefficients by the substitution:
+Let $x = e^t$ (so $t = \ln|x|$).
+Then solve the transformed equation for $y(t)$, and finally substitute $t = \ln|x|$ back to get $y(x)$.
+
+### Different Form of Cauchy-Euler Equation:
+
+A generalized form of the Cauchy-Euler equation is:
+$a(x-x_0)^2 \frac{d^2 y}{dx^2} + b(x-x_0) \frac{dy}{dx} + c y = 0$
+
+**Method of Solution:**
+
+1.  **Substitution:** Let $t = x-x_0$. Then $dt = dx$.
+    The derivatives transform as:
+    $\frac{dy}{dx} = \frac{dy}{dt} \frac{dt}{dx} = \frac{dy}{dt}$
+    $\frac{d^2 y}{dx^2} = \frac{d}{dx}\left(\frac{dy}{dt}\right) = \frac{d}{dt}\left(\frac{dy}{dt}\right)\frac{dt}{dx} = \frac{d^2 y}{dt^2}$
+    The equation becomes: $a t^2 \frac{d^2 y}{dt^2} + b t \frac{dy}{dt} + c y = 0$, which is a standard Cauchy-Euler equation in terms of $t$.
+2.  **Directly solve:** Assume a solution of the form $y = (x-x_0)^m$.
+    Then:
+    $y' = m(x-x_0)^{m-1}$
+    $y'' = m(m-1)(x-x_0)^{m-2}$
+    Substitute these into the equation to obtain the auxiliary equation $am(m-1) + bm + c = 0$, just like the standard form. The solutions will then be in terms of $(x-x_0)$.
