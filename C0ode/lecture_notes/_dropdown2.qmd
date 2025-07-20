@@ -25,9 +25,36 @@ Using callouts is an effective way to highlight content that your reader give sp
 
 ## Pay Attention Collapses
 
-Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+Details of the question go here. 
+
+::: {.panel-tabset style="color:red"}
+
+## Plot
+
+Solution could go here
+
+## Video
+
+We could embed a video here. 
+
+<div style="position: relative; width: 100%; padding-top: 36.6%;">
+  <iframe
+    src="https://www.youtube.com/embed/DL-ozRGDlkY"
+    title="Separable differential equations introduction | First order differential equations | Khan Academy"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+    referrerpolicy="strict-origin-when-cross-origin"
+  ></iframe>
+</div>
+
 
 :::
+
+:::
+
+
 
 ::: {.callout-note appearance="simple"}
 
