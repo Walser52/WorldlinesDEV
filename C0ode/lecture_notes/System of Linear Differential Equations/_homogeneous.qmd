@@ -1,3 +1,35 @@
+### Homogeneous Solutions:
+
+For $X' = AX$, assume a solution of the form $X = K e^{\lambda t}$ where $K$ is an eigenvector and $\lambda$ is an eigenvalue.
+Substitute into the equation: $\lambda K e^{\lambda t} = A K e^{\lambda t}$.
+Since $e^{\lambda t} \ne 0$, this simplifies to $AK = \lambda K$, or $AK - \lambda K = 0$, which is $(A - \lambda I)K = 0$.
+This is an **eigenvalue problem**.
+This has 3 types of roots (eigenvalues):
+-   Real - distinct
+-   Real - repeated
+-   Complex conjugate
+
+#### Types of Roots / Eigenvalues:
+
+-   **Distinct real eigenvalues** ($\lambda_1, \lambda_2, \dots, \lambda_n$):
+    Solutions are $X_1 = K_1 e^{\lambda_1 t}$, $X_2 = K_2 e^{\lambda_2 t}$, etc.
+
+-   **Repeated eigenvalues**:
+    -   If more than one independent eigenvector for a value is possible:
+        Solution is $c_1 K_1 e^{\lambda t} + c_2 K_2 e^{\lambda t} + \dots + c_m K_m e^{\lambda t}$.
+    -   If only one eigenvector is possible (for multiplicity $k$):
+        The solutions are $X_1 = K e^{\lambda t}$ and $X_2 = (K t + P) e^{\lambda t}$ (for multiplicity 2).
+        Similarly progresses for multiplicity > 2.
+        For $X' = AX$, we solve $(A - \lambda I) K = 0$ for $K$, and $(A - \lambda I) P = K$ for $P$.
+
+-   **Complex Eigenvalues ($\lambda = \alpha \pm i\beta$)**:
+    If $\lambda_1 = \alpha + i\beta$ and $\lambda_2 = \alpha - i\beta$ are complex conjugate eigenvalues, then the corresponding solutions derived from $X_1 = K e^{(\alpha + i\beta)t}$ can be written in real form.
+    $K = B_1 + iB_2$, where $B_1 = Re(K)$ and $B_2 = Im(K)$.
+    $e^{(\alpha + i\beta)t} = e^{\alpha t}(\cos(\beta t) + i\sin(\beta t))$.
+    The two linearly independent real solutions are:
+    $X_1 = e^{\alpha t}(B_1 \cos(\beta t) - B_2 \sin(\beta t))$
+    $X_2 = e^{\alpha t}(B_2 \cos(\beta t) + B_1 \sin(\beta t))$
+
 ::: {.callout-note icon=false collapse="true"}
 
 ## $$ \frac{dx}{dt} = 2x + 3y \\ \frac{dy}{dt} = 2x + y $$
@@ -467,3 +499,4 @@ $$
 where $c_1, c_2, c_3$ are arbitrary constants.
 
 :::
+   

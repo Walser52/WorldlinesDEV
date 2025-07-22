@@ -1,3 +1,40 @@
+## Homogeneous Linear Equations with Constant Coefficients
+
+General form:
+$ay'' + by' + cy = 0$
+
+### Method of Solution: Auxiliary Equation
+
+Assume a solution of the form $y = e^{mx}$.
+Then $y' = me^{mx}$ and $y'' = m^2 e^{mx}$.
+
+Substituting these into the differential equation:
+$am^2 e^{mx} + bm e^{mx} + c e^{mx} = 0$
+Factor out $e^{mx}$:
+$e^{mx}(am^2 + bm + c) = 0$
+
+Since $e^{mx} \ne 0$, we must have:
+$am^2 + bm + c = 0$
+This is called the **auxiliary equation** (or characteristic equation).
+Solving this quadratic equation for $m$ yields two roots, $m_1$ and $m_2$.
+
+### Types of Roots and Corresponding Solutions:
+
+1.  **Real and Distinct Roots ($m_1 \ne m_2$)**:
+    Discriminant $\Delta = b^2 - 4ac > 0$.
+    The general solution is $y = c_1 e^{m_1 x} + c_2 e^{m_2 x}$.
+
+2.  **Real and Equal Roots ($m_1 = m_2 = m$)**:
+    Discriminant $\Delta = b^2 - 4ac = 0$.
+    The general solution is $y = c_1 e^{mx} + c_2 x e^{mx}$.
+
+3.  **Complex Conjugate Roots ($m_1 = \alpha + i\beta$, $m_2 = \alpha - i\beta$)**:
+    Discriminant $\Delta = b^2 - 4ac < 0$.
+    Using Euler's Formula ($e^{i\theta} = \cos\theta + i\sin\theta$):
+    The general solution is $y = e^{\alpha x}(c_1 \cos(\beta x) + c_2 \sin(\beta x))$.
+
+*Check/verify solutions after finding them.*
+
 ::: {.callout-note icon=false collapse="true"}
 
 ## $$ 2y'' - 5y' - 3y = 0 $$
@@ -183,3 +220,18 @@ where $c_1$ and $c_2$ are arbitrary constants.
 Thus, the general solution to the differential equation is $y = e^{-2x}(c_1 \cos(\sqrt{3}x) + c_2 \sin(\sqrt{3}x))$.
 
 :::
+
+### Behavior of Solutions based on Roots:
+
+-   $y = c_1 e^{m_1 x} + c_2 e^{m_2 x}$: This solution generally does not pass through zero multiple times (at most once).
+-   $y = c_1 e^{mx} + c_2 x e^{mx}$: This solution may pass through zero.
+-   $y = e^{\alpha x}(c_1 \cos(\beta x) + c_2 \sin(\beta x))$: This solution oscillates.
+    -   If $\alpha < 0$, it is a **damped oscillation**.
+    -   If $\alpha = 0$, it is an **undamped oscillation** (occurs when the $y'$ term is not present in the original equation, i.e., $b=0$).
+     
+### For Equal Roots of Multiplicity R:
+
+If an auxiliary equation has a root $m$ with multiplicity $R$, then the corresponding linearly independent solutions are:
+$e^{mx}, x e^{mx}, x^2 e^{mx}, \ldots, x^{R-1} e^{mx}$.
+
+---

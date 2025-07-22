@@ -19,7 +19,7 @@ $$
 $$
 
 ### Matrix Form:
-   
+
 $$
 \frac{d}{dt}
 \begin{pmatrix}
@@ -74,3 +74,7 @@ Set of all linearly independent solution vectors.
 
 Sum of fundamental set:
 $X = c_1 X_1 + c_2 X_2 + \dots + c_n X_n$ (must be linearly independent - check if they are using Wronskian if not mentioned).
+
+{{< include _homogeneous.qmd >}}
+
+{{< include _non_homogeneous.qmd >}}
