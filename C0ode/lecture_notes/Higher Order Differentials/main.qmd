@@ -176,4 +176,10 @@ If $g(x)$ can be written as a sum of functions, say $g(x) = g_1(x) + g_2(x) + \d
 
 $y_p = y_{p_1} + y_{p_2} + \dots + y_{p_k}$.
 
+{{< include _homogeneous_equations.qmd >}}
 
+{{< include _underdetermined_coefficents.qmd >}}
+
+{{< include _variation_of_parameters.qmd >}}
+
+{{< include _cauthcy_euler.qmd >}}
