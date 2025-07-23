@@ -77,4 +77,4 @@ $X = c_1 X_1 + c_2 X_2 + \dots + c_n X_n$ (must be linearly independent - check 
 
 {{< include _homogeneous.qmd >}}
 
-{{< include _non_homogeneous.qmd >}}
+{{< include _non_homogeneous.qmd >}} 
