@@ -1,0 +1,52 @@
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \frac{dy}{dx} = 3x^2 $$
+
+::: {.panel-tabset}
+
+## Solution
+
+This is a separable differential equation. We can solve it by isolating the variables and then integrating both sides.
+
+First, separate the variables by multiplying both sides by $dx$:
+$$
+dy = 3x^2 \, dx
+$$
+
+Next, integrate both sides of the equation:
+$$
+\int dy = \int 3x^2 \, dx
+$$
+
+Integrating the left side with respect to $y$:
+$$
+\int dy = y
+$$
+
+Integrating the right side with respect to $x$:
+$$
+\int 3x^2 \, dx = 3 \int x^2 \, dx = 3 \left( \frac{x^{2+1}}{2+1} \right) + C
+$$
+$$
+= 3 \left( \frac{x^3}{3} \right) + C
+$$
+$$
+= x^3 + C
+$$
+
+Combining the results from both sides, we get the general solution:
+$$
+y = x^3 + C
+$$
+where $C$ is the constant of integration.
+
+
+## Step-by-Step
+
+{{< include _examples/_ex1_separableREV.qmd >}}
+
+## Video
+
+:::
+
+:::

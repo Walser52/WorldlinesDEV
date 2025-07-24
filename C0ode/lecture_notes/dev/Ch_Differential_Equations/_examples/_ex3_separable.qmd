@@ -1,0 +1,74 @@
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \frac{dy}{dx} = \frac{xy}{x^2+1} $$
+
+This is a separable differential equation. We can solve it by isolating the variables and then integrating both sides.
+
+First, separate the variables. To do this, divide both sides by $y$ and multiply both sides by $dx$:
+$$
+\frac{1}{y} \, dy = \frac{x}{x^2+1} \, dx
+$$
+
+Next, integrate both sides of the equation:
+$$
+\int \frac{1}{y} \, dy = \int \frac{x}{x^2+1} \, dx
+$$
+
+### Integrating the Left Side
+
+The integral of $\frac{1}{y}$ with respect to $y$ is:
+$$
+\int \frac{1}{y} \, dy = \ln|y|
+$$
+
+### Integrating the Right Side
+
+For the right side, we use a substitution method.
+Let $u = x^2+1$.
+Then, differentiate $u$ with respect to $x$: $du = 2x \, dx$.
+From this, we can write $x \, dx = \frac{1}{2} \, du$.
+
+Now substitute these into the integral:
+$$
+\int \frac{x}{x^2+1} \, dx = \int \frac{1}{u} \left( \frac{1}{2} \, du \right) = \frac{1}{2} \int \frac{1}{u} \, du
+$$
+$$
+= \frac{1}{2} \ln|u| + C
+$$
+Substitute back $u = x^2+1$:
+$$
+= \frac{1}{2} \ln(x^2+1) + C
+$$
+Note that we can omit the absolute value for $x^2+1$ since $x^2+1$ is always positive.
+
+### Combining the Integrals
+
+Now, equate the results from both integrations:
+$$
+\ln|y| = \frac{1}{2} \ln(x^2+1) + C
+$$
+
+### Exponentiate Both Sides
+
+To solve for $y$, exponentiate both sides with base $e$:
+$$
+e^{\ln|y|} = e^{\frac{1}{2} \ln(x^2+1) + C}
+$$
+$$
+|y| = e^{\frac{1}{2} \ln(x^2+1)} \cdot e^C
+$$
+Using logarithm properties, $\frac{1}{2} \ln(x^2+1) = \ln((x^2+1)^{1/2}) = \ln(\sqrt{x^2+1})$:
+$$
+|y| = e^{\ln(\sqrt{x^2+1})} \cdot e^C
+$$
+$$
+|y| = \sqrt{x^2+1} \cdot e^C
+$$
+Let $C_1 = \pm e^C$. Since $e^C$ is always positive, $C_1$ can be any non-zero real number. If we also consider the case where $y=0$ (which would make $\ln|y|$ undefined but is a valid solution if $x=0$), $C_1$ can be any real number.
+$$
+y = C_1 \sqrt{x^2+1}
+$$
+
+Thus, the general solution is $y = C_1 \sqrt{x^2+1}$.
+
+:::

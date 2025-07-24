@@ -99,11 +99,7 @@ This represents the **slope** of the tangent line to the solution curve at each 
 -   $(\frac{dy}{dx} = 0)$: The function $y(x)$ has a local extremum or a horizontal tangent; these points are often called **equilibrium points** or **critical points**.
 
 At an equilibrium point:
-$$ 
-\frac{dy}{dx} = 0 \Rightarrow y = \text{constant} 
-$$ 
-
-(if $f$ depends only on $y$)
+$$ \frac{dy}{dx} = 0 \Rightarrow y = \text{constant} $$ (if $f$ depends only on $y$)
 
 ---
 

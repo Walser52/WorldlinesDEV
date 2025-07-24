@@ -1,0 +1,16 @@
+#### 1. Solution by Direct Integration (Separable Equations)
+
+A first-order ODE is **separable** if it can be written in the form $dy/dx = G(x)H(y)$, or equivalently:
+$$ M(x)dx + N(y)dy = 0 $$
+where the variables can be separated.
+
+**Fundamental Theorem of Calculus (as applied to solutions):**
+If $\frac{dy}{dx} = g(x)$, then the solution is given by:
+$$ y(x) = y_0 + \int_{x_0}^{x} g(t)\,dt $$
+
+
+{{< include _examples/_ex1_separable.qmd >}}
+
+{{< include _examples/_ex1_separable.qmd >}}
+
+{{< include _examples/_ex1_separable.qmd >}}

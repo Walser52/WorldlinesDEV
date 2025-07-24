@@ -1,0 +1,303 @@
+#### 2. Solution by Integrating Factor Method (Linear First-Order ODEs)
+
+Applicable to all **linear first-order differential equations (FODE)**.
+
+Given the general linear first-order ODE:
+$$ a_1(x)\frac{dy}{dx} + a_0(x)y = g(x) $$
+
+**Step 1: Convert to Standard Form**
+Divide by $a_1(x)$ (assuming $a_1(x) \ne 0$):
+$$ \frac{dy}{dx} + \frac{a_0(x)}{a_1(x)}y = \frac{g(x)}{a_1(x)} $$
+This is the **standard form**:
+$$ \frac{dy}{dx} + P(x)y = f(x) $$
+where $P(x) = \frac{a_0(x)}{a_1(x)}$ and $f(x) = \frac{g(x)}{a_1(x)}$.
+
+**Step 2: Find the Integrating Factor** $\mu(x)$
+The integrating factor $\mu(x)$ is defined as:
+$$ \mu(x) = e^{\int P(x)\,dx} $$
+(Note: we typically choose the constant of integration to be zero for simplicity, as any constant factor will cancel out).
+
+**Step 3: Multiply by Integrating Factor**
+Multiply both sides of the standard form equation by $\mu(x)$:
+$$ \mu(x) \frac{dy}{dx} + \mu(x) P(x)y = \mu(x) f(x) $$
+The left-hand side is now the derivative of a product:
+$$ \frac{d}{dx}[\mu(x) y] = \mu(x) f(x) $$
+
+**Step 4: Integrate Both Sides**
+Integrate with respect to $x$:
+$$ \int \frac{d}{dx}[\mu(x) y]\,dx = \int \mu(x) f(x)\,dx $$
+$$ \mu(x) y = \int \mu(x) f(x)\,dx + C $$
+
+**Step 5: Solve for $y(x)$**
+$$ y(x) = \frac{1}{\mu(x)} \left[\int \mu(x) f(x)\,dx + C \right] $$
+
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \frac{dy}{dx} + y = e^x $$
+
+This is a first-order linear differential equation, which is in the standard form:
+$$
+\frac{dy}{dx} + P(x)y = f(x)
+$$
+By comparing our given equation with the standard form, we can identify $P(x)$ and $f(x)$:
+$P(x) = 1$
+$f(x) = e^x$
+
+We will solve this using the method of integrating factors.
+
+### Step 1: Find the Integrating Factor
+
+The integrating factor, denoted by $\mu(x)$, is given by the formula:
+$$
+\mu(x) = e^{\int P(x) \, dx}
+$$
+Substitute $P(x) = 1$:
+$$
+\mu(x) = e^{\int 1 \, dx}
+$$
+$$
+\mu(x) = e^x
+$$
+
+### Step 2: Multiply the Entire Equation by the Integrating Factor
+
+Multiply every term in the original differential equation by the integrating factor $\mu(x) = e^x$:
+$$
+e^x \frac{dy}{dx} + e^x y = e^x \cdot e^x
+$$
+$$
+e^x \frac{dy}{dx} + e^x y = e^{2x}
+$$
+The left-hand side of this equation is now the derivative of the product of $y$ and the integrating factor, i.e., $\frac{d}{dx}(\mu(x)y)$:
+$$
+\frac{d}{dx}(e^x y) = e^{2x}
+$$
+
+### Step 3: Integrate Both Sides
+
+Now, integrate both sides with respect to $x$:
+$$
+\int \frac{d}{dx}(e^x y) \, dx = \int e^{2x} \, dx
+$$
+Integrating the left side simply yields $e^x y$:
+$$
+e^x y = \int e^{2x} \, dx
+$$
+For the right side, we integrate $e^{2x}$. This requires a simple substitution (e.g., $u=2x$, $du=2dx$):
+$$
+\int e^{2x} \, dx = \frac{1}{2} e^{2x} + C
+$$
+So, we have:
+$$
+e^x y = \frac{1}{2} e^{2x} + C
+$$
+
+### Step 4: Solve for $y$
+
+Finally, divide both sides by $e^x$ to isolate $y$:
+$$
+y = \frac{1}{e^x} \left( \frac{1}{2} e^{2x} + C \right)
+$$
+$$
+y = \frac{1}{2} \frac{e^{2x}}{e^x} + \frac{C}{e^x}
+$$
+$$
+y = \frac{1}{2} e^{2x-x} + C e^{-x}
+$$
+$$
+y = \frac{1}{2} e^x + C e^{-x}
+$$
+
+Thus, the general solution to the differential equation is $y = \frac{1}{2} e^x + C e^{-x}$.
+
+:::
+
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \frac{dy}{dx} - \frac{2}{x} y = x^2 \quad \text{for } x > 0 $$
+
+This is a first-order linear differential equation, which is in the standard form:
+$$
+\frac{dy}{dx} + P(x)y = f(x)
+$$
+By comparing our given equation with the standard form, we can identify $P(x)$ and $f(x)$:
+$P(x) = -\frac{2}{x}$
+$f(x) = x^2$
+
+We will solve this using the method of integrating factors.
+
+### Step 1: Find the Integrating Factor
+
+The integrating factor, denoted by $\mu(x)$, is given by the formula:
+$$
+\mu(x) = e^{\int P(x) \, dx}
+$$
+Substitute $P(x) = -\frac{2}{x}$:
+$$
+\mu(x) = e^{\int -\frac{2}{x} \, dx}
+$$
+$$
+\mu(x) = e^{-2 \int \frac{1}{x} \, dx}
+$$
+$$
+\mu(x) = e^{-2 \ln|x|}
+$$
+Since $x > 0$, we can remove the absolute value:
+$$
+\mu(x) = e^{-2 \ln x}
+$$
+Using logarithm properties, $a \ln b = \ln(b^a)$:
+$$
+\mu(x) = e^{\ln(x^{-2})}
+$$
+$$
+\mu(x) = x^{-2}
+$$
+
+### Step 2: Multiply the Entire Equation by the Integrating Factor
+
+Multiply every term in the original differential equation by the integrating factor $\mu(x) = x^{-2}$:
+$$
+x^{-2} \left( \frac{dy}{dx} - \frac{2}{x} y \right) = x^{-2} \cdot x^2
+$$
+$$
+x^{-2} \frac{dy}{dx} - 2x^{-3} y = x^0
+$$
+$$
+x^{-2} \frac{dy}{dx} - 2x^{-3} y = 1
+$$
+The left-hand side of this equation is now the derivative of the product of $y$ and the integrating factor, i.e., $\frac{d}{dx}(\mu(x)y)$:
+$$
+\frac{d}{dx}(x^{-2} y) = 1
+$$
+
+### Step 3: Integrate Both Sides
+
+Now, integrate both sides with respect to $x$:
+$$
+\int \frac{d}{dx}(x^{-2} y) \, dx = \int 1 \, dx
+$$
+Integrating the left side simply yields $x^{-2} y$:
+$$
+x^{-2} y = \int 1 \, dx
+$$
+Integrating the right side:
+$$
+\int 1 \, dx = x + C
+$$
+So, we have:
+$$
+x^{-2} y = x + C
+$$
+
+### Step 4: Solve for $y$
+
+Finally, multiply both sides by $x^2$ (which is $1/x^{-2}$) to isolate $y$:
+$$
+y = x^2 (x + C)
+$$
+Distribute $x^2$:
+$$
+y = x^3 + Cx^2
+$$
+
+Thus, the general solution to the differential equation is $y = x^3 + Cx^2$.
+
+:::
+
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \frac{dy}{dx} + \tan(x)y = \sec(x) $$
+
+This is a first-order linear differential equation, which is in the standard form:
+$$
+\frac{dy}{dx} + P(x)y = f(x)
+$$
+By comparing our given equation with the standard form, we can identify $P(x)$ and $f(x)$:
+$P(x) = \tan(x)$
+$f(x) = \sec(x)$
+
+We will solve this using the method of integrating factors.
+
+### Step 1: Find the Integrating Factor
+
+The integrating factor, denoted by $\mu(x)$, is given by the formula:
+$$
+\mu(x) = e^{\int P(x) \, dx}
+$$
+Substitute $P(x) = \tan(x)$:
+$$
+\mu(x) = e^{\int \tan(x) \, dx}
+$$
+The integral of $\tan(x)$ is $\ln|\sec(x)|$ or $-\ln|\cos(x)|$. Using $-\ln|\cos(x)|$:
+$$
+\mu(x) = e^{-\ln|\cos(x)|}
+$$
+Using logarithm properties, $a \ln b = \ln(b^a)$:
+$$
+\mu(x) = e^{\ln(|\cos(x)|^{-1})}
+$$
+$$
+\mu(x) = |\cos(x)|^{-1} = \frac{1}{|\cos(x)|} = |\sec(x)|
+$$
+For simplicity and assuming a domain where $\sec(x)$ maintains a consistent sign, we typically use $\mu(x) = \sec(x)$ (or $\frac{1}{\cos(x)}$).
+
+### Step 2: Multiply the Entire Equation by the Integrating Factor
+
+Multiply every term in the original differential equation by the integrating factor $\mu(x) = \sec(x)$:
+$$
+\sec(x) \frac{dy}{dx} + \sec(x) \tan(x) y = \sec(x) \cdot \sec(x)
+$$
+$$
+\sec(x) \frac{dy}{dx} + \sec(x) \tan(x) y = \sec^2(x)
+$$
+The left-hand side of this equation is now the derivative of the product of $y$ and the integrating factor, i.e., $\frac{d}{dx}(\mu(x)y)$:
+$$
+\frac{d}{dx}[\sec(x)y] = \sec^2(x)
+$$
+
+### Step 3: Integrate Both Sides
+
+Now, integrate both sides with respect to $x$:
+$$
+\int \frac{d}{dx}[\sec(x)y] \, dx = \int \sec^2(x) \, dx
+$$
+Integrating the left side simply yields $\sec(x)y$:
+$$
+\sec(x)y = \int \sec^2(x) \, dx
+$$
+The integral of $\sec^2(x)$ is $\tan(x)$:
+$$
+\int \sec^2(x) \, dx = \tan(x) + C
+$$
+So, we have:
+$$
+\sec(x)y = \tan(x) + C
+$$
+
+### Step 4: Solve for $y$
+
+Finally, divide both sides by $\sec(x)$ (or multiply by $\cos(x)$) to isolate $y$:
+$$
+y = \frac{\tan(x) + C}{\sec(x)}
+$$
+We can simplify this expression using trigonometric identities ($\tan(x) = \frac{\sin(x)}{\cos(x)}$ and $\sec(x) = \frac{1}{\cos(x)}$):
+$$
+y = \cos(x) (\tan(x) + C)
+$$
+Distributing $\cos(x)$:
+$$
+y = \cos(x) \tan(x) + C \cos(x)
+$$
+$$
+y = \cos(x) \frac{\sin(x)}{\cos(x)} + C \cos(x)
+$$
+$$
+y = \sin(x) + C \cos(x)
+$$
+
+Thus, the general solution to the differential equation is $y = \sin(x) + C \cos(x)$.
+
+**Note:** While $\mu(x) = \sec(x)$ is commonly used for simplicity, strictly speaking, the absolute value in the integral of $\tan(x)$ means $\mu(x)$ could be $|\sec(x)|$. However, for linear differential equations, using a positive integrating factor is sufficient, as the constant of integration $C$ accounts for all possible solutions.
+
+:::

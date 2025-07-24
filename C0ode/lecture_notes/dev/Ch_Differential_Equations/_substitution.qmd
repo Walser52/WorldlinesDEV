@@ -1,0 +1,303 @@
+#### 5. Solution by Substitution
+
+##### a. Homogeneous Equations
+
+A first-order differential equation $M(x, y) dx + N(x, y) dy = 0$ (or $dy/dx = f(x,y)$) is **homogeneous** if $M(x,y)$ and $N(x,y)$ are homogeneous functions of the same degree.
+A function $F(x,y)$ is homogeneous of degree $k$ if $F(tx, ty) = t^k F(x, y)$ for some constant $k$.
+
+**Substitutions for Homogeneous Equations:**
+-   If $N(x,y)$ is simpler or $dy/dx = f(x,y)$ is easier to express as $f(y/x)$:
+    Let $y = ux \Rightarrow dy = u\,dx + x\,du$.
+-   If $M(x,y)$ is simpler or $dx/dy = g(x,y)$ is easier to express as $g(x/y)$:
+    Let $x = vy \Rightarrow dx = v\,dy + y\,dv$.
+
+These substitutions transform the homogeneous equation into a **separable equation** in terms of $u$ (or $v$) and $x$ (or $y$).
+
+##### b. Bernoulli’s Equation
+
+General form:
+$$ \frac{dy}{dx} + P(x)y = F(x)y^n $$
+This is a non-linear first-order ODE.
+
+-   **If $n=0$**: The equation becomes $\frac{dy}{dx} + P(x)y = F(x)$, which is a **linear first-order ODE** solvable by the integrating factor method.
+-   **If $n=1$**: The equation becomes $\frac{dy}{dx} + P(x)y = F(x)y \Rightarrow \frac{dy}{dx} = (F(x)-P(x))y$, which is a **separable equation**.
+-   **If $n \neq 0$ and $n \neq 1$**:
+    **Substitution:** Let $u = y^{1-n}$.
+    Then $\frac{du}{dx} = (1-n)y^{-n}\frac{dy}{dx}$.
+    From the original equation, $\frac{dy}{dx} = F(x)y^n - P(x)y$.
+    Substitute $\frac{dy}{dx}$ and $y = u^{1/(1-n)}$ into the expression for $\frac{du}{dx}$.
+    This substitution transforms Bernoulli's equation into a **linear first-order ODE in terms of $u$**, which can then be solved using the integrating factor method.
+
+##### c. Reduction to Separation of Variables (for $dy/dx = F(Ax + By + C)$)
+
+Given an equation of the form:
+$$ \frac{dy}{dx} = F(Ax + By + C) $$
+
+-   **If $B \neq 0$**:
+    **Substitution:** Let $u = Ax + By + C$.
+    Then $\frac{du}{dx} = A + B\frac{dy}{dx}$.
+    So, $\frac{dy}{dx} = \frac{1}{B}\left(\frac{du}{dx} - A\right)$.
+    Substitute these into the original equation:
+    $\frac{1}{B}\left(\frac{du}{dx} - A\right) = F(u)$
+    $\frac{du}{dx} = B F(u) + A$
+    This is a **separable equation** in terms of $u$ and $x$.
+
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \frac{dy}{dx} = \frac{x+y}{x} $$
+
+This is a homogeneous differential equation because all terms in the numerator and denominator have the same degree (degree 1).
+We can rewrite the equation as:
+$$
+\frac{dy}{dx} = 1 + \frac{y}{x}
+$$
+
+### Step 1: Apply the Homogeneous Substitution
+
+For homogeneous equations, we use the substitution $y = vx$, where $v$ is a function of $x$.
+From $y = vx$, we can find $\frac{dy}{dx}$ using the product rule:
+$$
+\frac{dy}{dx} = v \cdot \frac{d}{dx}(x) + x \cdot \frac{dv}{dx}
+$$
+$$
+\frac{dy}{dx} = v + x \frac{dv}{dx}
+$$
+
+### Step 2: Substitute into the Original Equation
+
+Substitute $y = vx$ and $\frac{dy}{dx} = v + x \frac{dv}{dx}$ into the rewritten differential equation $\frac{dy}{dx} = 1 + \frac{y}{x}$:
+$$
+v + x \frac{dv}{dx} = 1 + \frac{vx}{x}
+$$
+$$
+v + x \frac{dv}{dx} = 1 + v
+$$
+Subtract $v$ from both sides:
+$$
+x \frac{dv}{dx} = 1
+$$
+
+### Step 3: Separate Variables
+
+Now, the equation is separable. Separate the variables $v$ and $x$:
+$$
+dv = \frac{1}{x} \, dx
+$$
+
+### Step 4: Integrate Both Sides
+
+Integrate both sides of the separated equation:
+$$
+\int dv = \int \frac{1}{x} \, dx
+$$
+Integrating the left side:
+$$
+\int dv = v
+$$
+Integrating the right side:
+$$
+\int \frac{1}{x} \, dx = \ln|x| + C
+$$
+So, we have:
+$$
+v = \ln|x| + C
+$$
+
+### Step 5: Back-Substitute to Express Solution in Terms of $y$ and $x$
+
+Recall our substitution $y = vx$, which means $v = \frac{y}{x}$. Substitute this back into the solution for $v$:
+$$
+\frac{y}{x} = \ln|x| + C
+$$
+Finally, solve for $y$:
+$$
+y = x(\ln|x| + C)
+$$
+$$
+y = x \ln|x| + Cx
+$$
+
+Thus, the general solution to the differential equation is $y = x \ln|x| + Cx$.
+
+:::
+
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \frac{dy}{dx} + y = y^2 \sin x $$
+
+This is a Bernoulli differential equation, which has the general form:
+$$
+\frac{dy}{dx} + P(x)y = Q(x)y^n
+$$
+By comparing our given equation with the standard form:
+$P(x) = 1$
+$Q(x) = \sin x$
+$n = 2$
+
+Since $n=2$ (and $n \neq 0, 1$), we use a substitution to transform it into a linear first-order differential equation.
+
+### Step 1: Divide by $y^n$
+
+Divide the entire equation by $y^2$:
+$$
+\frac{1}{y^2} \frac{dy}{dx} + \frac{y}{y^2} = \sin x
+$$
+$$
+y^{-2} \frac{dy}{dx} + y^{-1} = \sin x
+$$
+
+### Step 2: Apply the Bernoulli Substitution
+
+Let $u = y^{1-n}$. In this case, $n=2$, so:
+$$
+u = y^{1-2} = y^{-1}
+$$
+Now, find $\frac{du}{dx}$ by differentiating $u = y^{-1}$ with respect to $x$ using the chain rule:
+$$
+\frac{du}{dx} = -1 \cdot y^{-2} \frac{dy}{dx} = -y^{-2} \frac{dy}{dx}
+$$
+From this, we can see that $y^{-2} \frac{dy}{dx} = -\frac{du}{dx}$.
+
+Substitute $u$ and $\frac{du}{dx}$ into the transformed equation ($y^{-2} \frac{dy}{dx} + y^{-1} = \sin x$):
+$$
+-\frac{du}{dx} + u = \sin x
+$$
+To get it into standard linear form ($\frac{du}{dx} + P(x)u = Q(x)$), multiply by $-1$:
+$$
+\frac{du}{dx} - u = -\sin x
+$$
+This is now a linear first-order differential equation in terms of $u$. Here, $P(x) = -1$ and $Q(x) = -\sin x$.
+
+### Step 3: Solve the Linear ODE using an Integrating Factor
+
+Find the integrating factor $\mu(x)$:
+$$
+\mu(x) = e^{\int P(x) \, dx} = e^{\int -1 \, dx} = e^{-x}
+$$
+
+Multiply the linear ODE ($\frac{du}{dx} - u = -\sin x$) by the integrating factor $e^{-x}$:
+$$
+e^{-x} \frac{du}{dx} - e^{-x} u = -e^{-x} \sin x
+$$
+The left-hand side is the derivative of the product $(u \cdot e^{-x})$:
+$$
+\frac{d}{dx}(u e^{-x}) = -e^{-x} \sin x
+$$
+
+Integrate both sides with respect to $x$:
+$$
+\int \frac{d}{dx}(u e^{-x}) \, dx = \int -e^{-x} \sin x \, dx
+$$
+$$
+u e^{-x} = -\int e^{-x} \sin x \, dx
+$$
+The integral $\int e^{ax} \sin(bx) \, dx = \frac{e^{ax}}{a^2+b^2}(a \sin(bx) - b \cos(bx))$.
+Here, $a=-1$ and $b=1$:
+$$
+\int e^{-x} \sin x \, dx = \frac{e^{-x}}{(-1)^2+1^2}((-1) \sin x - (1) \cos x)
+$$
+$$
+= \frac{e^{-x}}{2}(-\sin x - \cos x) = -\frac{1}{2}e^{-x}(\sin x + \cos x)
+$$
+So, for $-\int e^{-x} \sin x \, dx$:
+$$
+-\left( -\frac{1}{2}e^{-x}(\sin x + \cos x) \right) + C = \frac{1}{2}e^{-x}(\sin x + \cos x) + C
+$$
+Therefore:
+$$
+u e^{-x} = \frac{1}{2}e^{-x}(\sin x + \cos x) + C
+$$
+
+### Step 4: Solve for $u$
+
+Divide both sides by $e^{-x}$:
+$$
+u = \frac{1}{2}(\sin x + \cos x) + C e^{x}
+$$
+
+### Step 5: Back-Substitute to Express Solution in Terms of $y$ and $x$
+
+Recall our substitution $u = y^{-1} = \frac{1}{y}$. Substitute this back into the solution for $u$:
+$$
+\frac{1}{y} = \frac{1}{2}(\sin x + \cos x) + C e^{x}
+$$
+To solve for $y$, take the reciprocal of both sides:
+$$
+y = \frac{1}{\frac{1}{2}(\sin x + \cos x) + C e^{x}}
+$$
+
+Thus, the general solution to the differential equation is $y = \frac{1}{\frac{1}{2}(\sin x + \cos x) + C e^{x}}$.
+
+:::
+
+::: {.callout-note icon=false collapse="true"}
+
+## $$ \frac{dy}{dx} = (x+y)^2 $$
+
+This differential equation is not immediately separable, linear, exact, or homogeneous. However, it has the form $f(ax+by+c)$, which suggests a substitution.
+
+### Step 1: Apply the Substitution
+
+Let $u = x+y$.
+Now, differentiate $u$ with respect to $x$:
+$$
+\frac{du}{dx} = \frac{d}{dx}(x+y)
+$$
+$$
+\frac{du}{dx} = 1 + \frac{dy}{dx}
+$$
+From this, we can express $\frac{dy}{dx}$ in terms of $u$ and $x$:
+$$
+\frac{dy}{dx} = \frac{du}{dx} - 1
+$$
+
+### Step 2: Substitute into the Original Equation
+
+Substitute $u = x+y$ and $\frac{dy}{dx} = \frac{du}{dx} - 1$ into the original differential equation $\frac{dy}{dx} = (x+y)^2$:
+$$
+\frac{du}{dx} - 1 = u^2
+$$
+Now, rearrange this to make it a separable equation:
+$$
+\frac{du}{dx} = 1 + u^2
+$$
+
+### Step 3: Separate Variables
+
+Separate the variables $u$ and $x$:
+$$
+\frac{du}{1+u^2} = dx
+$$
+
+### Step 4: Integrate Both Sides
+
+Integrate both sides of the separated equation:
+$$
+\int \frac{1}{1+u^2} \, du = \int 1 \, dx
+$$
+The integral of $\frac{1}{1+u^2}$ is $\arctan(u)$ (or $\tan^{-1}(u)$):
+$$
+\arctan(u) = x + C
+$$
+where $C$ is the constant of integration.
+
+### Step 5: Back-Substitute to Express Solution in Terms of $y$ and $x$
+
+Recall our substitution $u = x+y$. Substitute this back into the solution:
+$$
+\arctan(x+y) = x + C
+$$
+
+This is the implicit general solution to the differential equation.
+
+If an explicit solution for $y$ is desired, we can take the tangent of both sides:
+$$
+x+y = \tan(x+C)
+$$
+$$
+y = \tan(x+C) - x
+$$
+
+Thus, the general solution is $\arctan(x+y) = x + C$ (implicit form) or $y = \tan(x+C) - x$ (explicit form).
+
+:::
