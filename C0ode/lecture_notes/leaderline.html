@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Course Hub Developer Version – Worldlines</title>
+<title>Solution by substitution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,412 +23,30 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-a6bf82afa94d109b5b09dc08c588be60.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b997843291aaa240faa303e0f20d4f80.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="leaderline_files/libs/clipboard/clipboard.min.js"></script>
+<script src="leaderline_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="leaderline_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="leaderline_files/libs/quarto-html/popper.min.js"></script>
+<script src="leaderline_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="leaderline_files/libs/quarto-html/anchor.min.js"></script>
+<link href="leaderline_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="leaderline_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="leaderline_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="leaderline_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="leaderline_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
-
-<script>
-
-function toggleBox(header) {
-
-  // Use jQuery to find the associated container and toggle its visibility
-
-  $(header).next('.dd-box').slideToggle();
-
-  $(header).next('.ddm-box').slideToggle();
-
-}
-
-</script>
-
-
-
-
-
-<script>
-
-function openCity(evt, cityName) {
-
-  var i, x, tablinks;
-
-  x = document.getElementsByClassName("city");
-
-  for (i = 0; i < x.length; i++) {
-
-    x[i].style.display = "none";
-
-  }
-
-  tablinks = document.getElementsByClassName("tablink");
-
-  for (i = 0; i < x.length; i++) {
-
-    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-
-  }
-
-  document.getElementById(cityName).style.display = "block";
-
-  evt.currentTarget.className += " w3-red";
-
-}
-
-
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-
-//Draws leader between 'from' and 'to' on 'stage'. Uses existing objects if ids exist, otherwise creates them according to given style parameter.
-
-//lineOptions to stylize.
-
-//Issues. May need to create id via html if container is to keep equations.
-
-function drawLeader({
-
-  
-
-  containerId = 'stage',
-
-  from = { id: 'from', text: '', className: '', style: {} },
-
-  to = { id: 'to', text: '', className: '', style: {} },
-
-  lineOptions = {}
-
-}) {
-
-  // Creates 'from' and 'to' in 'containerId'. Ignores creation if ids already exist and draws a leaderline between them.
-
-  window.addEventListener('load', () => {
-
-    const container = document.getElementById(containerId);
-
-    const elements = { from, to };
-
-    const createdDivs = {};
-
-
-
-    for (const key in elements) {
-
-      const { id, text, className, style } = elements[key];
-
-      let el = document.getElementById(id);
-
-
-
-      if (!el || !container.contains(el)) {
-
-        el = document.createElement('div');
-
-        el.id = id;
-
-        el.textContent = text;
-
-        el.className = className || 'anchor80-line';
-
-        Object.assign(el.style, {
-
-          position: 'relative',
-
-          ...style
-
-        });
-
-        container.appendChild(el);
-
-      }
-
-
-
-      createdDivs[key] = el;
-
-    }
-
-
-
-    new LeaderLine(createdDivs.from, createdDivs.to, lineOptions);
-
-  });
-
-}
-
-
-
-</script>
-
-
-
-<link rel="stylesheet" href="css/buttons.css">
-<link rel="stylesheet" href="css/tabs.css">
-<link rel="stylesheet" href="css/callouts.css">
-<link rel="stylesheet" href="css/fonts-ebgaramond.css">
-<link rel="stylesheet" href="css/shapes.css">
-<link rel="stylesheet" href="css/leaders.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed slimcontent quarto-light">
+<body class="fullcontent quarto-light">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Worldlines</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-courses" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Courses</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-courses">    
-        <li>
-    <a class="dropdown-item" href="./C0calculusI/home_calculusI.html">
- <span class="dropdown-text">Calculus I</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./C0calculusII/home_calculusII.html">
- <span class="dropdown-text">Calculus II</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./C0ode/home_ode.html">
- <span class="dropdown-text">Diff. Eqs. &amp; Lin. Alg.</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./C0noneqthermo/home_noneqthermo.qmd">
- <span class="dropdown-text">Non-equilibrium Thermodynamics</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-guides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Guides</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-guides">    
-        <li>
-    <a class="dropdown-item" href="./D0abinit/home_abinit.html">
- <span class="dropdown-text">Ab initio calculation</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Course Hub Developer Version</li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./_figs/hugorheinholdchimp.png" alt="Undergraduate ponders mysteries of physics, mathematics, and life" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Courses</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./C0calculusI/home_calculusI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Calculus I</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./C0calculusII/home_calculusII.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Calculus II</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./C0ode/home_ode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ODEs &amp; Lin. Alg.</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./C0noneqthermo/home_noneqthermo.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Non-equilibrium Thermodynamics</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Under development</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./C0manybody/home_manybody.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Many-Body Systems</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./C0probtheory/home_probabilitytheory.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probability Theory</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./C0stochastic/home_stoch.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Stochastic Processes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./C0statmech/home_statmech.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Mechanics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./C0topology/home_topology.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Topology</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./C0diffgeom/home_diffgeom.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Differential Geometry</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#notes" id="toc-notes" class="nav-link active" data-scroll-target="#notes">Notes</a></li>
-  <li><a href="#undergraduate" id="toc-undergraduate" class="nav-link" data-scroll-target="#undergraduate">Undergraduate</a></li>
-  <li><a href="#graduate" id="toc-graduate" class="nav-link" data-scroll-target="#graduate">Graduate</a></li>
-  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Course Hub Developer Version</h1>
+<h1 class="title">Solution by substitution</h1>
 </div>
 
 
@@ -445,40 +63,122 @@ function drawLeader({
 </header>
 
 
-<p>This is the developer version of the website.</p>
-<section id="notes" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<p>Folders starting with C0 are for courses. Folders starting with D0 are for guides.</p>
-<p>All bibliography goesto /_bibliography</p>
-<p>Content relevant to your course will be posted on the corresponding course pages which you can access from the list below or using side panel.</p>
-<p>Note that <s> it is your responsiblity to keep yourself updated </s> with any new developments and/or announcements.</p>
+<style>
+/* Base box style */
+.box {
+  position: absolute;
+  width: 220px;
+  padding: 16px;
+  background-color: #e3f2fd;
+  border-left: 5px solid #1565c0;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); /* general shadow */
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  color: #2c3e50;
+}
 
-<div class="no-row-height column-margin column-container"><div class="">
-<p><img src="_figs/calvin.webp" class="img-fluid"></p>
-</div></div></section>
-<section id="undergraduate" class="level2">
-<h2 class="anchored" data-anchor-id="undergraduate">Undergraduate</h2>
-<p><a href="./C0calculusI/home_calculusI.html">Calculus I - MT101</a><br>
-<a href="./C0ode/home_ode.html">Differential Equations &amp; Linear Algebra - MT102</a><br>
-<a href="./C0calculusII/home_calculusII.html">Calculus II - MT202</a><br>
-</p>
-</section>
-<section id="graduate" class="level2">
-<h2 class="anchored" data-anchor-id="graduate">Graduate</h2>
-<p><a href="C0noneqthermo/home_noneqthermo.qmd">Non-equilibrium Thermodynamics - ES696</a><br>
-</p>
-<!-- [Courses](0courses.qmd) -->
-</section>
-<section id="contact" class="level2">
-<h2 class="anchored" data-anchor-id="contact">Contact</h2>
-<p>sheharyar [at] giki.edu.pk<br>
-Office (G-27, FES)<br>
-Consultation hours (9 to 10 am, Mon to Fri)</p>
+/* Optional: stronger shadow only on the left border side */
+.box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  bottom: 5px;
+  width: 5px;
+  background-color: inherit;
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.3); /* left-edge shadow */
+  border-radius: 5px;
+  z-index: -1;
+}
 
+/* Example: title node */
+#eq {
+  top: 80px;
+  left: 400px;
+  background-color: #fff8e1;
+  border-left-color: #fbc02d;
+  font-weight: bold;
+  font-size: 18px;
+}
 
-</section>
+/* Branches */
+#n2 {
+  top: 220px;
+  left: 280px;
+ background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+}
 
-</main> <!-- /main -->
+#n01 {
+  top: 220px;
+  left: 520px;
+ background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+}
+
+/* Methods */
+#method1 {
+  top: 340px;
+  left: 260px;
+  background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+  font-size: 14px;
+}
+
+#method2 {
+  top: 340px;
+  left: 500px;
+  background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+  font-size: 14px;
+}
+</style>
+<div id="eq" class="box">
+dy/dx + P(x)y = f(x)yⁿ
+</div>
+<div id="n2" class="box">
+if n ≥ 2
+</div>
+<div id="n01" class="box">
+if n = 0 or 1
+</div>
+<div id="method1" class="box">
+Substitute u = y<sup>1–n</sup><br>Then I.F. method
+</div>
+<div id="method2" class="box">
+Integrating Factor Method
+</div>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    new LeaderLine(
+      document.getElementById('eq'),
+      document.getElementById('n2'),
+      { color: '#555', path: 'straight', size: 2 }
+    );
+    new LeaderLine(
+      document.getElementById('eq'),
+      document.getElementById('n01'),
+      { color: '#555', path: 'straight', size: 2 }
+    );
+    new LeaderLine(
+      document.getElementById('n2'),
+      document.getElementById('method1'),
+      { color: '#777', path: 'straight', size: 2 }
+    );
+    new LeaderLine(
+      document.getElementById('n01'),
+      document.getElementById('method2'),
+      { color: '#777', path: 'straight', size: 2 }
+    );
+  });
+</script>
+
+</main>
+<!-- /main column -->
+<script src="https://cdn.jsdelivr.net/npm/leader-line@1.0.7/leader-line.min.js"></script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -879,7 +579,6 @@ Consultation hours (9 to 10 am, Mon to Fri)</p>
   });
   </script>
 </div> <!-- /content -->
-<script src="./scripts/leader-line-master/leader-line.min.js"></script>
 
 
 

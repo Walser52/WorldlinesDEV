@@ -1,0 +1,130 @@
+---
+title: "Solving a Non-Homogeneous Differential Equation"
+format: html
+include-after-body: leaderline-cdn.html
+---
+
+<style>
+.box {
+  position: absolute;
+  width: 280px;
+  padding: 14px;
+  background-color: #f1f8e9;
+  border-left: 5px solid #558b2f;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+  color: #2e7d32;
+}
+
+/* Specific boxes */
+#step1 {
+  top: 80px;
+  left: 420px;
+  background-color: #fff3e0;
+  border-left-color: #ef6c00;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+#step2 {
+  top: 180px;
+  left: 420px;
+ background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+}
+
+#step3 {
+  top: 280px;
+  left: 150px;
+background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+  font-size: 14px;
+}
+
+#step4 {
+  top: 280px;
+  left: 700px;
+background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+  font-size: 14px;
+}
+
+#step5 {
+  top: 400px;
+  left: 420px;
+background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+}
+
+#step6 {
+  top: 500px;
+  left: 420px;
+  background-color: #e0f7fa;
+  border-left-color: #00838f;
+  font-weight: bold;
+}
+</style>
+
+<!-- Steps -->
+<div id="step1" class="box">✅ Step 1: Solve auxiliary eq. for complementary solution</div>
+
+<div id="step2" class="box"> Step 2: A)Use annihilator or B)substitution method</div>
+<div id="step3" class="box">📌 Step 3A: Find annihilator and solve it</div>
+<div id="step4" class="box">📌 Step 3B: Assume a particular solution based on RHS rules</div>
+<div id="step5" class="box">🧠 Step 4–5: Differentiate yₚ and substitute → compare coefficients</div>
+<div id="step6" class="box">✅ Final Step: General Solution → y = y_c + y_p</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    // Main downward flow
+    new LeaderLine(document.getElementById('step1'), document.getElementById('step2'), {
+      color: '#888',
+      path: 'grid',
+      startPlug: 'behind',
+      endPlug: 'arrow3',
+      size: 2
+    });
+
+    // Branch step 3A
+    new LeaderLine(document.getElementById('step2'), document.getElementById('step3'), {
+      color: '#2196f3',
+      path: 'grid',
+      startPlug: 'behind',
+      endPlug: 'arrow3',
+      size: 2
+    });
+
+    // Branch step 3B
+    new LeaderLine(document.getElementById('step2'), document.getElementById('step4'), {
+      color: '#2196f3',
+      path: 'grid',
+      startPlug: 'behind',
+      endPlug: 'arrow3',
+      size: 2
+    });
+
+    // Merge to step 5
+    new LeaderLine(document.getElementById('step3'), document.getElementById('step5'), {
+      color: '#888',
+      path: 'arc',
+      size: 2
+    });
+
+    new LeaderLine(document.getElementById('step4'), document.getElementById('step5'), {
+      color: '#888',
+      path: 'arc',
+      size: 2
+    });
+
+    // Final arrow
+    new LeaderLine(document.getElementById('step5'), document.getElementById('step6'), {
+      color: '#4db6ac',
+      path: 'grid',
+      endPlug: 'arrow3',
+      size: 2
+    });
+  });
+</script>

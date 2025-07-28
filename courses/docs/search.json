@@ -179,21 +179,36 @@
     "href": "C0calculusI/home_calculusI.html",
     "title": "Calculus I",
     "section": "",
-    "text": "This is the home page for calculus I (MT-101). All assignments, announcements, and other relevant materials will be posted here."
+    "text": "This is the home page for calculus I (MT-101). All assignments, announcements, and other relevant materials will be posted here.",
+    "crumbs": [
+      "Home",
+      "Courses",
+      "Calculus I"
+    ]
   },
   {
     "objectID": "C0calculusI/home_calculusI.html#announcements",
     "href": "C0calculusI/home_calculusI.html#announcements",
     "title": "Calculus I",
     "section": "Announcements",
-    "text": "Announcements"
+    "text": "Announcements",
+    "crumbs": [
+      "Home",
+      "Courses",
+      "Calculus I"
+    ]
   },
   {
     "objectID": "C0calculusI/home_calculusI.html#other-resources",
     "href": "C0calculusI/home_calculusI.html#other-resources",
     "title": "Calculus I",
     "section": "Other Resources",
-    "text": "Other Resources\n\nPython related\n\nCalculus I in python"
+    "text": "Other Resources\n\nPython related\n\nCalculus I in python",
+    "crumbs": [
+      "Home",
+      "Courses",
+      "Calculus I"
+    ]
   },
   {
     "objectID": "C0calculusII/home_calculusII.html",
@@ -627,14 +642,24 @@
     "href": "C0calculusI/home_calculusI.html#course-outline",
     "title": "Calculus I",
     "section": "Course Outline",
-    "text": "Course Outline\nOutline (pdf)"
+    "text": "Course Outline\nOutline (pdf)",
+    "crumbs": [
+      "Home",
+      "Courses",
+      "Calculus I"
+    ]
   },
   {
     "objectID": "C0calculusI/home_calculusI.html#slides-and-notebooks",
     "href": "C0calculusI/home_calculusI.html#slides-and-notebooks",
     "title": "Calculus I",
     "section": "Slides and Notebooks",
-    "text": "Slides and Notebooks\nNote: You may need to setup python and sympy. You can either see an online tutorial for that, or consult me.\nIf you want a quick solution, then you can use sympy on Google colab as shown here\n\n\nFunctions\nLimits and Continuity"
+    "text": "Slides and Notebooks\nNote: You may need to setup python and sympy. You can either see an online tutorial for that, or consult me.\nIf you want a quick solution, then you can use sympy on Google colab as shown here\n\n\nFunctions\nLimits and Continuity",
+    "crumbs": [
+      "Home",
+      "Courses",
+      "Calculus I"
+    ]
   },
   {
     "objectID": "C0calculusI/lectures/test.html",
@@ -725,7 +750,12 @@
     "href": "C0calculusI/home_calculusI.html#contacts",
     "title": "Calculus I",
     "section": "Contacts",
-    "text": "Contacts\nIn case of queries regarding attendance, quizzes, and assignments contact:\nMr. Hassan Ali\nEmail: hassan.ali@giki.edu.pk\nMr. Aamir Shehzad\nEmail: aamir.shehzad@giki.edu.pk"
+    "text": "Contacts\nIn case of queries regarding attendance, quizzes, and assignments contact:\nMr. Hassan Ali\nEmail: hassan.ali@giki.edu.pk\nMr. Aamir Shehzad\nEmail: aamir.shehzad@giki.edu.pk",
+    "crumbs": [
+      "Home",
+      "Courses",
+      "Calculus I"
+    ]
   },
   {
     "objectID": "C0calculusI/lectures/1functions.html#plotting-functions",
@@ -872,14 +902,24 @@
     "href": "C0calculusI/home_calculusI.html#quizzes",
     "title": "Calculus I",
     "section": "Quizzes",
-    "text": "Quizzes\nWe will most likely have three quizzes. Tentatively:\n\nQuiz 1 [5 Marks]\nQuiz 2 (10 marks, 8th week)\nQuiz 3 (10 marks, 13th week)\n\n\nDecember 10 (Tuesday), 6:00pm at LH4, FES \n4.3 to 4.5, 5.1 to 5.6 (as studied in class), 6.1, 6.2\n\n\nN.B.: If you can’t take the quiz for some reason, you need to inform us in advance."
+    "text": "Quizzes\nWe will most likely have three quizzes. Tentatively:\n\nQuiz 1 [5 Marks]\nQuiz 2 (10 marks, 8th week)\nQuiz 3 (10 marks, 13th week)\n\n\nDecember 10 (Tuesday), 6:00pm at LH4, FES \n4.3 to 4.5, 5.1 to 5.6 (as studied in class), 6.1, 6.2\n\n\nN.B.: If you can’t take the quiz for some reason, you need to inform us in advance.",
+    "crumbs": [
+      "Home",
+      "Courses",
+      "Calculus I"
+    ]
   },
   {
     "objectID": "C0calculusI/home_calculusI.html#assignments",
     "href": "C0calculusI/home_calculusI.html#assignments",
     "title": "Calculus I",
     "section": "Assignments",
-    "text": "Assignments\nAssignment 1\nAssignment 2\nAssignment 3\nAssignment 4\nAssignment 5"
+    "text": "Assignments\nAssignment 1\nAssignment 2\nAssignment 3\nAssignment 4\nAssignment 5",
+    "crumbs": [
+      "Home",
+      "Courses",
+      "Calculus I"
+    ]
   },
   {
     "objectID": "C0calculusII/notebooks/test.html",
@@ -1187,7 +1227,12 @@
     "href": "C0calculusI/home_calculusI.html#midterm",
     "title": "Calculus I",
     "section": "Midterm",
-    "text": "Midterm\nThe midterm will include everything studied in class up till (and including) section 4.1."
+    "text": "Midterm\nThe midterm will include everything studied in class up till (and including) section 4.1.",
+    "crumbs": [
+      "Home",
+      "Courses",
+      "Calculus I"
+    ]
   },
   {
     "objectID": "C0TopologicalMaterials/home_topmat.html",
@@ -2707,5 +2752,54 @@
     "title": "Differential Equations",
     "section": "",
     "text": "flowchart TD\n    A[\"dy/dx + P(x)y = F(x)yⁿ\"] --&gt; B[\"If n ≥ 2\"]\n    A --&gt; C[\"If n = 0 or 1\"]\n    \n    B --&gt; D[\"Substitute u = y¹⁻ⁿ\"]\n    D --&gt; E[\"Then use integrating factor method\"]\n    \n    C --&gt; F[\"Integrating factor method\"]\n\n\nFigure 1: How Quarto orchestrates rendering of documents: start with a qmd file, use the Knitr or Jupyter engine to perform the computations and convert it to an md file, then use Pandoc to convert to various file formats including HTML, PDF, and Word.\n\n\n\n\n\n\n\n\nflowchart TD\n    A[\"M(x,y)dx + N(x,y)dy\"] --&gt; B[\"If it is not Homogeneous\"]\n    A --&gt; C[\"Check if it is Homogeneous\"]\n    \n    B --&gt; D[\"Then it must be exact\"]\n    D --&gt; E[\"Otherwise make exact\"]\n    \n    C --&gt; F[\"If so substitute y=vx then solve as seperable equations\"]"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/exact_eq.html",
+    "href": "C0ode/lecture_notes/exact_eq.html",
+    "title": "Homogeneous vs Exact Flow",
+    "section": "",
+    "text": "M(x,y)dx + N(x,y)dy = 0\n\n\nCheck (Is it Homogeneous?)\n\n\nOnly if not Homogeneous\n\n\n✅ It is HomogeneousSubstitute y = vxThen it becomes separable\n\n\n✅ Else it is ExactIf not exact, make it exact by 4 methods\n\n\nHomogeneous is a special case of Exact"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/solving_nonhomogeneous_eq.html",
+    "href": "C0ode/lecture_notes/solving_nonhomogeneous_eq.html",
+    "title": "Solving a Non-Homogeneous Differential Equation",
+    "section": "",
+    "text": "✅ Step 1: Solve auxiliary eq. for complementary solution\n\n\nStep 2: A)Use annihilator or B)substitution method\n\n\n📌 Step 3A: Find annihilator and solve it\n\n\n📌 Step 3B: Assume a particular solution based on RHS rules\n\n\n🧠 Step 4–5: Differentiate yₚ and substitute → compare coefficients\n\n\n✅ Final Step: General Solution → y = y_c + y_p"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/solution_by_substitution.html",
+    "href": "C0ode/lecture_notes/solution_by_substitution.html",
+    "title": "Solution by substitution",
+    "section": "",
+    "text": "dy/dx + P(x)y = f(x)yⁿ\n\n\nif n ≥ 2\n\n\nif n = 0 or 1\n\n\nSubstitute u = y1–nThen I.F. method\n\n\nIntegrating Factor Method"
+  },
+  {
+    "objectID": "courses/docs/C0stochastic/brownian.html",
+    "href": "courses/docs/C0stochastic/brownian.html",
+    "title": "Brownian Motion",
+    "section": "",
+    "text": "flowchart LR\n    markdown[\"`Random walk\"]\n    newLines[\"`Line1\n    Line 2\n    Line 3`\"]\n    markdown --&gt; newLines"
+  },
+  {
+    "objectID": "courses/docs/C0stochastic/brownian.html#brownian-motion-as-a-markov-process",
+    "href": "courses/docs/C0stochastic/brownian.html#brownian-motion-as-a-markov-process",
+    "title": "Brownian Motion",
+    "section": "Brownian motion as a markov process",
+    "text": "Brownian motion as a markov process\n\\({X(t), t \\geq 0}\\).\n\nMarkov property: Prediction of process $X(s+t) with known information about \\(X(r), r \\leq s\\) depends only on X(s)"
+  },
+  {
+    "objectID": "courses/docs/C0stochastic/brownian.html#filtration",
+    "href": "courses/docs/C0stochastic/brownian.html#filtration",
+    "title": "Brownian Motion",
+    "section": "Filtration",
+    "text": "Filtration\nDescribes the past of a process \\(X\\).\n\\[\nF_t = \\sigma {X(s), s \\in [0,t]}\n\\]"
+  },
+  {
+    "objectID": "courses/docs/C0stochastic/brownian.html#resources",
+    "href": "courses/docs/C0stochastic/brownian.html#resources",
+    "title": "Brownian Motion",
+    "section": "Resources",
+    "text": "Resources\n\nOliver Ibe’s Markov processes for stochastic modeling"
   }
 ]

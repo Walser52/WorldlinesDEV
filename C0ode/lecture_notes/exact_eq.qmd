@@ -1,0 +1,113 @@
+---
+title: "Homogeneous vs Exact Flow"
+format: html
+include-after-body: leaderline-cdn.html
+---
+
+<style>
+.box {
+  position: absolute;
+  width: 250px;
+  padding: 16px;
+  background-color: #f3e5f5;
+  border-left: 5px solid #8e24aa;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  color: #4a148c;
+}
+
+#eq {
+  top: 80px;
+  left: 420px;
+  background-color: #fffde7;
+  border-left-color: #f9a825;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#check {
+  top: 160px;
+  left: 280px;
+  width: 180px;
+ background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+}
+
+#not-homogeneous {
+  top: 160px;
+  left: 610px;
+  width: 200px;
+background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+}
+
+#homogeneous {
+  top: 260px;
+  left: 240px;
+  background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+  font-size: 14px;
+}
+
+#exact {
+  top: 260px;
+  left: 600px;
+ background-color: #e8eaf6;
+  border-left-color: #5c6bc0;
+  font-size: 14px;
+}
+
+#bottom-note {
+  top: 400px;
+  left: 340px;
+  width: 400px;
+  background-color: #fce4ec;
+  border-left-color: #c2185b;
+  font-weight: bold;
+}
+</style>
+
+<div id="eq" class="box">M(x,y)dx + N(x,y)dy = 0</div>
+<div id="check" class="box">Check (Is it Homogeneous?)</div>
+<div id="not-homogeneous" class="box">Only if not Homogeneous</div>
+<div id="homogeneous" class="box">✅ It is Homogeneous<br>Substitute y = vx<br>Then it becomes separable</div>
+<div id="exact" class="box">✅ Else it is Exact<br>If not exact, make it exact by 4 methods</div>
+<div id="bottom-note" class="box">Homogeneous is a special case of Exact</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    new LeaderLine(
+      document.getElementById('eq'),
+      document.getElementById('check'),
+      { color: '#888', path: 'straight', size: 2 }
+    );
+    new LeaderLine(
+      document.getElementById('eq'),
+      document.getElementById('not-homogeneous'),
+      { color: '#888', path: 'straight', size: 2 }
+    );
+    new LeaderLine(
+      document.getElementById('check'),
+      document.getElementById('homogeneous'),
+      { color: '#888', path: 'straight', size: 2 }
+    );
+    new LeaderLine(
+      document.getElementById('not-homogeneous'),
+      document.getElementById('exact'),
+      { color: '#888', path: 'straight', size: 2 }
+    );
+    new LeaderLine(
+      document.getElementById('homogeneous'),
+      document.getElementById('bottom-note'),
+      { color: '#999', path: 'arc', size: 1.5 }
+    );
+    new LeaderLine(
+      document.getElementById('exact'),
+      document.getElementById('bottom-note'),
+      { color: '#999', path: 'arc', size: 1.5 }
+    );
+  });
+</script>
