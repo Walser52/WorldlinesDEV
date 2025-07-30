@@ -1,0 +1,56 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Partial Derivatives\n",
+        "---\n"
+      ],
+      "id": "b52df715"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#Example 4: Section 14.1, Thomas 15th edition.\n",
+        "from sympy import symbols, integrate\n",
+        "\n",
+        "# Define the variables\n",
+        "x, y = symbols('x y')\n",
+        "\n",
+        "# Define the function to integrate\n",
+        "f = 16 - x**2 - y**2\n",
+        "\n",
+        "# Define the bounds\n",
+        "x_lower = y**2 / 4\n",
+        "x_upper = (y + 2)/4\n",
+        "y_lower = 0\n",
+        "y_upper = 2\n",
+        "\n",
+        "# Compute the double integral\n",
+        "res = integrate(f, (x, x_lower, x_upper))\n",
+        "result = integrate(res, (y, y_lower, y_upper))\n",
+        "\n",
+        "# Display the result\n",
+        "display(res)\n",
+        "print('Now integrating over y')\n",
+        "display(result)\n"
+      ],
+      "id": "553af1f2",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "py313mats",
+      "language": "python",
+      "display_name": "py313mats",
+      "path": "/home/fes33/.local/share/jupyter/kernels/py313mats"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

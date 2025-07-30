@@ -11,6 +11,6 @@ $$ y(x) = y_0 + \int_{x_0}^{x} g(t)\,dt $$
 
 {{< include _examples/_ex1_separable.qmd >}}
 
-{{< include _examples/_ex1_separable.qmd >}}
+{{< include _examples/_ex2_separable.qmd >}}
 
-{{< include _examples/_ex1_separable.qmd >}}
+{{< include _examples/_ex3_separable.qmd >}}

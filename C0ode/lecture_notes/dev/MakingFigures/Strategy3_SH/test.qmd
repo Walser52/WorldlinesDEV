@@ -1,0 +1,97 @@
+---
+title: Making figures using leader line
+---
+
+Some css and js has been added. See the css folder. To make a figure, proceed as follows. First you create a stage. 
+
+
+```
+#| eval: false # Do evaluate this chunk
+</script>
+<div class="stage" id="stage" style="position: relative; height: 300px;">
+
+  <!-- <div class="tbox"  id="nodeA" >
+  <div class="handwrith" id="nodeAh" style="">Manifold</div>
+  <div class="handwrit" id="nodeAc" style="">Topological space locally $R^n$ covered by a family of </div>
+  </div> -->
+
+  <div class="bbcbox"  id="nodeA" >
+  <div class="bbcheader" id="nodeA4" style="">Manifold</div>
+  <div class="bbcbody" id="nodeA4" style="">Topological space locally $R^n$ covered by a family of 
+  </div>
+
+
+  </div>
+  </div>
+
+
+  <div class="tbox"  id="nodeA2" style="top: 20%; left: 70%;">
+  <div class="theaderfill" id="nodeA2h" style="">Manifold</div>
+  <div class="tbody" id="nodeA2c" style="">Topological space locally $R^n$</div>
+  </div>
+
+  <div class="anchor80-line" id="nodeC" style="width: 30%; position: absolute; top: 80%; left: 100px;">
+    bb
+  </div>
+</div>
+```
+
+See the `css/shapes.css` file for details. `bbcbox` is a style I've seen on BBC News. Those shapes can be modified. 
+
+But once you have the `stage`, you can create the connections.
+
+```
+<script>
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA'},
+    to: {id: 'nodeA2'},
+    lineOptions: {color: 'DarkGoldenRod', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
+  });
+
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA'},
+    to: {id: 'nodeC'},
+    lineOptions: {color: 'navy', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
+  });
+</script>
+```
+
+
+
+</script>
+<div class="stage" id="stage" style="position: absolute; height: 300px;">
+
+  <div class="bbcbox"  id="nodeA" >
+  <div class="bbcheader" id="nodeA4" style="">Manifold</div>
+  <div class="bbcbody" id="nodeA4" style="">Topological space locally $R^n$ covered by a family of </div>
+  </div>
+
+
+
+  <div class="tbox"  id="nodeA2" style="top: 20%; left: 70%;">
+  <div class="theaderfill" id="nodeA2h" style="">Manifold</div>
+  <div class="tbody" id="nodeA2c" style="">Topological space locally $R^n$</div>
+  </div>
+
+  <div class="anchor80-line" id="nodeC" style="width: 30%; position: absolute; top: 80%; left: 100px;">
+    bbah  </div>
+</div>
+<!-- </div> -->
+
+<script>
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA'},
+    to: {id: 'nodeA2'},
+    lineOptions: {color: 'DarkGoldenRod', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
+  });
+
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA'},
+    to: {id: 'nodeC'},
+    lineOptions: {color: 'navy', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
+  });
+</script>

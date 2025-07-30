@@ -1,0 +1,145 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Matrix operations with Julia\n",
+        "---\n",
+        "\n",
+        "You can define a matrix in Julia.\n",
+        "\n",
+        ":::{.panel-tabset group=\"language\"}\n",
+        "\n",
+        "## Julia"
+      ],
+      "id": "730c1450"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "using LinearAlgebra \n",
+        "\n",
+        "A = [1 2 3; 4 1 6; 7 8 1]\n",
+        "A"
+      ],
+      "id": "95ca252e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "You can do some basic operations:\n"
+      ],
+      "id": "6646c26b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "println(\"Trace is: \", tr(A));\n",
+        "println(\"Determinant is: \", det(A));\n",
+        "println(\"Inverse is: \");\n",
+        "inv(A)"
+      ],
+      "id": "6c3b3da0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Python\n",
+        "\n",
+        "```{python}\n",
+        "import numpy as np\n",
+        "\n",
+        "# Define the matrix\n",
+        "matrix = np.array([[2, 4, 6],\n",
+        "                   [1, 3, 5],\n",
+        "                   [9, 7, 8]])\n",
+        "\n",
+        "# Compute the trace of the matrix\n",
+        "matrix_trace = np.trace(matrix)\n",
+        "\n",
+        "# Compute the inverse of the matrix\n",
+        "matrix_inverse = np.linalg.inv(matrix)\n",
+        "\n",
+        "# Compute the transpose of the matrix\n",
+        "matrix_transpose = np.transpose(matrix)\n",
+        "\n",
+        "# Print the results\n",
+        "print(\"Matrix:\")\n",
+        "print(matrix)\n",
+        "\n",
+        "print(\"\\nTrace of the matrix:\")\n",
+        "print(matrix_trace)\n",
+        "\n",
+        "print(\"\\nInverse of the matrix:\")\n",
+        "print(matrix_inverse)\n",
+        "\n",
+        "print(\"\\nTranspose of the matrix:\")\n",
+        "print(matrix_transpose)\n",
+        "\n",
+        "```\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "For more info see [julia docs](https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/)\n",
+        "\n",
+        "## Solving linear equations\n",
+        "\n",
+        "Say we have a linear system of equations. How do we find out in advance whether there is a solution to the system or not. \n",
+        "\n",
+        "The determinant 'determines' it for us (hence the name):\n",
+        "\n",
+        "\n",
+        "\\begin{align}\n",
+        "1x + 2y + 3z = 6\\\\\n",
+        "2x + 4y + 6z = 12\\\\\n",
+        "3x + 6y + 9z = 18\\\\\n",
+        "\\end{align}"
+      ],
+      "id": "2b3fc399"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "using LinearAlgebra\n",
+        "# using LinearSolve\n",
+        "\n",
+        "# Define the coefficient matrix A and the right-hand side vector b\n",
+        "A = [\n",
+        "    1  2  3;\n",
+        "    2  4  6;\n",
+        "    3  6  9\n",
+        "]\n",
+        "\n",
+        "b = [6, 12, 18]\n",
+        "\n",
+        "# Calculate the determinant of A\n",
+        "det_A = det(A)\n",
+        "println(\"Determinant of A: $det_A\")\n"
+      ],
+      "id": "693a5825",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "julia-1.9",
+      "language": "julia",
+      "display_name": "Julia 1.9.3",
+      "path": "/home/fes33/.local/share/jupyter/kernels/julia-1.9"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

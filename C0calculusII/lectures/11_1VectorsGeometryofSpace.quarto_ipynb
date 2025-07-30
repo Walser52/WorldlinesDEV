@@ -1,0 +1,313 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Vectors and Geometry of Space\n",
+        "---\n",
+        "\n",
+        "\n",
+        "## Contour plots"
+      ],
+      "id": "e4e45e71"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import matplotlib as mpl\n",
+        "from mpl_toolkits.mplot3d import Axes3D\n",
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "# mpl.rcParams['legend.fontsize'] = 10\n",
+        "\n",
+        "fig = plt.figure()\n",
+        "ax = fig.add_subplot(projection = '3d')\n",
+        "\n",
+        "theta = np.linspace(0, 2 * np.pi, 100)\n",
+        "z = 0\n",
+        "r = 1\n",
+        "x = r * np.sin(theta)\n",
+        "y = r * np.cos(theta)\n",
+        "ax.plot(x, y, z)\n",
+        "\n",
+        "## We can shift the same plot by choosing different values of z.\n",
+        "# z = 3\n",
+        "# ax.plot(x, y, z)\n",
+        "\n",
+        "## for z in np.linspace(0, 1, 100):\n",
+        "##   ax.plot(x, y, z)\n",
+        "\n",
+        "plt.show()"
+      ],
+      "id": "c251da5b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "But what if we link `r` and `z`?\n"
+      ],
+      "id": "3df1d24c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# mpl.rcParams['legend.fontsize'] = 10\n",
+        "\n",
+        "fig = plt.figure()\n",
+        "ax = fig.add_subplot(projection = '3d')\n",
+        "\n",
+        "theta = np.linspace(0, 2 * np.pi, 100)\n",
+        "z = 0\n",
+        "r = 1\n",
+        "x = r * np.sin(theta)\n",
+        "y = r * np.cos(theta)\n",
+        "ax.plot(x, y, z)\n",
+        "\n",
+        "## We can shift the same plot by choosing different values of z.\n",
+        "# z = 3\n",
+        "# ax.plot(x, y, z)\n",
+        "\n",
+        "## for z in np.linspace(0, 1, 100):\n",
+        "##   ax.plot(x, y, z)\n",
+        "\n",
+        "plt.show()"
+      ],
+      "id": "3325f440",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Region plot (inequalities)"
+      ],
+      "id": "72950e84"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# from itertools import product\n",
+        "\n",
+        "# def cartesian_product(*arrays):\n",
+        "#     la = len(arrays)\n",
+        "#     dtype = np.result_type(*arrays)\n",
+        "#     arr = np.empty([len(a) for a in arrays] + [la], dtype=dtype)\n",
+        "#     for i, a in enumerate(np.ix_(*arrays)):\n",
+        "#         arr[...,i] = a\n",
+        "#     return arr.reshape(-1, la)\n",
+        "\n",
+        "\n",
+        "# fig = plt.figure()\n",
+        "# ax = fig.add_subplot(projection='3d')\n",
+        "\n",
+        "\n",
+        "# xd = np.linspace(0,1,100)\n",
+        "# yd = np.linspace(0,1,100)\n",
+        "# zd = np.linspace(0,1,100)\n",
+        "# products =   cartesian_product(xd, yd, zd)\n",
+        "\n",
+        "\n",
+        "# for x, y, z in products:\n",
+        "    \n",
+        "#     ax.scatter(x, y, z)\n",
+        "\n",
+        "\n",
+        "\n",
+        "# ax.set_xlabel('X Label')\n",
+        "# ax.set_ylabel('Y Label')\n",
+        "# ax.set_zlabel('Z Label')\n",
+        "\n",
+        "# plt.show()"
+      ],
+      "id": "3bf44cfa",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Vectors in sympy"
+      ],
+      "id": "640442f4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from sympy.vector import CoordSys3D\n",
+        "N = CoordSys3D('N')"
+      ],
+      "id": "00fb3e34",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "v = 2*N.i + N.j #Defines a vector\n"
+      ],
+      "id": "c7626d31",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from sympy.vector import Vector\n",
+        "Vector.zero\n",
+        "type(Vector.zero)\n",
+        "N.i + Vector.zero\n",
+        "Vector.zero == 2*Vector.zero"
+      ],
+      "id": "a9ed6497",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Dot(`&`) and Cross product(`^`):"
+      ],
+      "id": "60bca4a4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "v1 = 2*N.i + 3*N.j - N.k\n",
+        "v2 = N.i - 4*N.j + N.k\n",
+        "v1.dot(v2)\n",
+        "v1.cross(v2)\n",
+        "v2.cross(v1)\n",
+        "\n",
+        "\n",
+        "v1 & v2\n",
+        "v1 ^ v2"
+      ],
+      "id": "241c5790",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "%matplotlib inline\n",
+        "\n",
+        "import matplotlib.pyplot as plt\n",
+        "import numpy as np\n",
+        "from mpl_toolkits.mplot3d import Axes3D\n",
+        "\n",
+        "# Creating data\n",
+        "x = np.linspace(-5, 5, 100)\n",
+        "y = np.linspace(-5, 5, 100)\n",
+        "X, Y = np.meshgrid(x, y)\n",
+        "Z = np.sin(X) + np.cos(Y)\n",
+        "\n",
+        "# Creating a 3D plot\n",
+        "fig = plt.figure()\n",
+        "ax = fig.add_subplot(111, projection='3d')\n",
+        "\n",
+        "# Plotting the 3D contour\n",
+        "ax.contour3D(X, Y, Z, 50, cmap='viridis')\n",
+        "\n",
+        "# Customizing the plot\n",
+        "ax.set_xlabel('X-axis')\n",
+        "ax.set_ylabel('Y-axis')\n",
+        "ax.set_zlabel('Z-axis')\n",
+        "ax.set_title('Basic 3D Contour Plot')\n",
+        "\n",
+        "# Displaying the plot\n",
+        "plt.show()"
+      ],
+      "id": "e0c17e9c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from mpl_toolkits.mplot3d import axes3d\n",
+        "import matplotlib.pyplot as plt\n",
+        "from matplotlib import cm\n",
+        "\n",
+        "fig = plt.figure()\n",
+        "ax = fig.add_subplot(projection = '3d')\n",
+        "\n",
+        "X, Y, Z = axes3d.get_test_data(0.05)\n",
+        "ax.plot_surface(X, Y, Z, rstride=8, cstride=8, alpha=0.3)\n",
+        "cset = ax.contour(X, Y, Z, zdir='z', offset=-100, cmap=cm.coolwarm)\n",
+        "cset = ax.contour(X, Y, Z, zdir='x', offset=-40, cmap=cm.coolwarm)\n",
+        "cset = ax.contour(X, Y, Z, zdir='y', offset=40, cmap=cm.coolwarm)\n",
+        "\n",
+        "ax.set_xlabel('X')\n",
+        "ax.set_xlim(-40, 40)\n",
+        "ax.set_ylabel('Y')\n",
+        "ax.set_ylim(-40, 40)\n",
+        "ax.set_zlabel('Z')\n",
+        "ax.set_zlim(-100, 100)\n",
+        "\n",
+        "plt.show()"
+      ],
+      "id": "91e2f509",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import plotly.graph_objects as go\n",
+        "import numpy as np\n",
+        "np.random.seed(1)\n",
+        "\n",
+        "N = 70\n",
+        "\n",
+        "fig = go.Figure(data=[go.Mesh3d(x=(70*np.random.randn(N)),\n",
+        "                   y=(55*np.random.randn(N)),\n",
+        "                   z=(40*np.random.randn(N)),\n",
+        "                   opacity=0.5,\n",
+        "                   color='rgba(244,22,100,0.6)'\n",
+        "                  )])\n",
+        "\n",
+        "fig.update_layout(\n",
+        "    scene = dict(\n",
+        "        xaxis = dict(nticks=4, range=[-100,100],),\n",
+        "                     yaxis = dict(nticks=4, range=[-50,100],),\n",
+        "                     zaxis = dict(nticks=4, range=[-100,100],),),\n",
+        "    width=700,\n",
+        "    margin=dict(r=20, l=10, b=10, t=10))\n",
+        "\n",
+        "fig.show()"
+      ],
+      "id": "4d24bf74",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "py313mats",
+      "language": "python",
+      "display_name": "py313mats",
+      "path": "/home/fes33/.local/share/jupyter/kernels/py313mats"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

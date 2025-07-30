@@ -43,7 +43,7 @@ where $C$ is the constant of integration.
 
 ## Step-by-Step
 
-{{< include _examples/_ex1_separableREV.qmd >}}
+{{< include _examples/_ex1REV_separable.qmd >}}
 
 ## Video
 
