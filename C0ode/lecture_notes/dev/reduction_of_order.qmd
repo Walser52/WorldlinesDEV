@@ -1,0 +1,87 @@
+---
+title: "Reduction of Order Flowchart"
+format: html
+---
+
+<style>
+.flow-container {
+  position: relative;
+  height: 650px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.node {
+  padding: 15px 25px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 16px;
+  min-width: 200px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.node:hover {
+  transform: translateY(-5px);
+}
+
+.step1 { background: #e3f2fd; border: 2px solid #1976d2; grid-column: 2 / 3; grid-row: 1 / 2; }
+.step2 { background: #fff3e0; border: 2px solid #fb8c00; grid-column: 2 / 3; grid-row: 2 / 3; }
+.step3 { background: #ede7f6; border: 2px solid #5e35b1; grid-column: 2 / 3; grid-row: 3 / 4; }
+.step4 { background: #e8f5e9; border: 2px solid #388e3c; grid-column: 2 / 3; grid-row: 4 / 5; }
+
+.side-left { background: #fce4ec; border: 2px solid #d81b60; grid-column: 1 / 2; grid-row: 4 / 5; }
+.side-right { background: #e1f5fe; border: 2px solid #0288d1; grid-column: 3 / 4; grid-row: 4 / 5; }
+</style>
+
+<div class="flow-container">
+  <div id="step1" class="node step1">Given one solution:<br>\( y_1 \)</div>
+  <div id="step2" class="node step2">Assume:<br>\( y = y_1 \cdot u \)</div>
+  <div id="step3" class="node step3">Find \( y' \), set \( w = u' \), then find \( w \)</div>
+  <div id="step4" class="node step4">Solve for \( u \), then plug into:<br>\( y = y_1 \cdot u \)</div>
+
+  <div id="left" class="node side-left">Alternative:<br>Use substitution method</div>
+  <div id="right" class="node side-right">Or use direct formula:<br>\( y_2 = y_1 \cdot \left( \int \frac{e^{-\int P(x)\,dx}}{y_1^2} dx \right) \)</div>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    new LeaderLine(
+      document.getElementById('step1'),
+      document.getElementById('step2'),
+      { startPlug: 'disc', endPlug: 'arrow1', color: '#1976d2', path: 'straight' }
+    );
+
+    new LeaderLine(
+      document.getElementById('step2'),
+      document.getElementById('step3'),
+      { startPlug: 'disc', endPlug: 'arrow1', color: '#fb8c00', path: 'straight' }
+    );
+
+    new LeaderLine(
+      document.getElementById('step3'),
+      document.getElementById('step4'),
+      { startPlug: 'disc', endPlug: 'arrow1', color: '#5e35b1', path: 'straight' }
+    );
+
+    new LeaderLine(
+      document.getElementById('step4'),
+      document.getElementById('left'),
+      { startPlug: 'disc', endPlug: 'arrow1', color: '#d81b60', path: 'arc' }
+    );
+
+    new LeaderLine(
+      document.getElementById('step4'),
+      document.getElementById('right'),
+      { startPlug: 'disc', endPlug: 'arrow1', color: '#0288d1', path: 'arc' }
+    );
+  });
+</script>

@@ -2875,8 +2875,15 @@
   {
     "objectID": "C0ode/lecture_notes/dev/dependene.html",
     "href": "C0ode/lecture_notes/dev/dependene.html",
-    "title": "Ratio Dependence Flowchart",
+    "title": "Reduction of Order - Flowchart",
     "section": "",
-    "text": "Start\n\n\nIs the ratio of functions&lt;br&gt;$F₂(x)/F₁(x)$ a constant?\n\n\n&lt;div id=\"dep-redesign\" class=\"node-redesign result-yes\"&gt;\n  Yes&lt;br&gt;Linearly Dependent\n&lt;/div&gt;\n&lt;div id=\"indep-redesign\" class=\"node-redesign result-no\"&gt;\n  No&lt;br&gt;Linearly Independent\n&lt;/div&gt;"
+    "text": "y₁ is one given solution\n\n\nAssume y = y₁·u\n\n\nDifferentiate: y′\n\n\nPut w = u′ and find w\n\n\nReplace u\n\n\nPut u in y₁·u"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/dev/reduction_of_order.html",
+    "href": "C0ode/lecture_notes/dev/reduction_of_order.html",
+    "title": "Reduction of Order Flowchart",
+    "section": "",
+    "text": "Given one solution:( y_1 )\n\n\nAssume:( y = y_1 u )\n\n\nFind ( y’ ), set ( w = u’ ), then find ( w )\n\n\nSolve for ( u ), then plug into:( y = y_1 u )\n\n\nAlternative:Use substitution method\n\n\nOr use direct formula:( y_2 = y_1 ( dx ) )"
   }
 ]

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Reduction of Order - Flowchart – Worldlines</title>
+<title>Reduction of Order Flowchart – Worldlines</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -299,7 +299,7 @@ function drawLeader({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Reduction of Order - Flowchart</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Reduction of Order Flowchart</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -309,7 +309,7 @@ function drawLeader({
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
@@ -415,16 +415,16 @@ function drawLeader({
         
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Reduction of Order - Flowchart</h1>
+<h1 class="title">Reduction of Order Flowchart</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta">
 
     
   
@@ -436,77 +436,97 @@ function drawLeader({
 </header>
 
 
-<div class="flowchart-container">
-<div id="given" class="flow-box">
-y₁ is one given solution
+<style>
+.flow-container {
+  position: relative;
+  height: 650px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.node {
+  padding: 15px 25px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 16px;
+  min-width: 200px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.node:hover {
+  transform: translateY(-5px);
+}
+
+.step1 { background: #e3f2fd; border: 2px solid #1976d2; grid-column: 2 / 3; grid-row: 1 / 2; }
+.step2 { background: #fff3e0; border: 2px solid #fb8c00; grid-column: 2 / 3; grid-row: 2 / 3; }
+.step3 { background: #ede7f6; border: 2px solid #5e35b1; grid-column: 2 / 3; grid-row: 3 / 4; }
+.step4 { background: #e8f5e9; border: 2px solid #388e3c; grid-column: 2 / 3; grid-row: 4 / 5; }
+
+.side-left { background: #fce4ec; border: 2px solid #d81b60; grid-column: 1 / 2; grid-row: 4 / 5; }
+.side-right { background: #e1f5fe; border: 2px solid #0288d1; grid-column: 3 / 4; grid-row: 4 / 5; }
+</style>
+<div class="flow-container">
+<div id="step1" class="node step1">
+Given one solution:<br>( y_1 )
 </div>
-<div id="assume" class="flow-box">
-Assume y = y₁·u
+<div id="step2" class="node step2">
+Assume:<br>( y = y_1 u )
 </div>
-<div id="diff" class="flow-box">
-Differentiate: y′
+<div id="step3" class="node step3">
+Find ( y’ ), set ( w = u’ ), then find ( w )
 </div>
-<div id="substitute" class="flow-box">
-Put w = u′ and find w
+<div id="step4" class="node step4">
+Solve for ( u ), then plug into:<br>( y = y_1 u )
 </div>
-<div id="replace" class="flow-box">
-Replace u
+<div id="left" class="node side-left">
+Alternative:<br>Use substitution method
 </div>
-<div id="final" class="flow-box">
-Put u in y₁·u
+<div id="right" class="node side-right">
+Or use direct formula:<br>( y_2 = y_1 ( dx ) )
 </div>
 </div>
 <script>
-  // Positioning each box (in JS, since Quarto removes CSS absolute sometimes)
-  const positions = {
-    given:      { top: 20,  left: 50 },
-    assume:     { top: 110, left: 50 },
-    diff:       { top: 200, left: 50 },
-    substitute: { top: 290, left: 50 },
-    replace:    { top: 380, left: 50 },
-    final:      { top: 470, left: 50 }
-  };
+  window.addEventListener('DOMContentLoaded', () => {
+    new LeaderLine(
+      document.getElementById('step1'),
+      document.getElementById('step2'),
+      { startPlug: 'disc', endPlug: 'arrow1', color: '#1976d2', path: 'straight' }
+    );
 
-  for (const [id, pos] of Object.entries(positions)) {
-    const el = document.getElementById(id);
-    el.style.position = 'absolute';
-    el.style.top = pos.top + 'px';
-    el.style.left = pos.left + '%';
-    el.style.transform = 'translateX(-50%)';
-    el.classList.add('flow-box');
-  }
+    new LeaderLine(
+      document.getElementById('step2'),
+      document.getElementById('step3'),
+      { startPlug: 'disc', endPlug: 'arrow1', color: '#fb8c00', path: 'straight' }
+    );
 
-  // Add leader lines
-  window.addEventListener("load", function () {
-    new LeaderLine(document.getElementById('given'), document.getElementById('assume'), { path: 'straight' });
-    new LeaderLine(document.getElementById('assume'), document.getElementById('diff'), { path: 'straight' });
-    new LeaderLine(document.getElementById('diff'), document.getElementById('substitute'), { path: 'straight' });
-    new LeaderLine(document.getElementById('substitute'), document.getElementById('replace'), { path: 'straight' });
-    new LeaderLine(document.getElementById('replace'), document.getElementById('final'), { path: 'straight' });
+    new LeaderLine(
+      document.getElementById('step3'),
+      document.getElementById('step4'),
+      { startPlug: 'disc', endPlug: 'arrow1', color: '#5e35b1', path: 'straight' }
+    );
+
+    new LeaderLine(
+      document.getElementById('step4'),
+      document.getElementById('left'),
+      { startPlug: 'disc', endPlug: 'arrow1', color: '#d81b60', path: 'arc' }
+    );
+
+    new LeaderLine(
+      document.getElementById('step4'),
+      document.getElementById('right'),
+      { startPlug: 'disc', endPlug: 'arrow1', color: '#0288d1', path: 'arc' }
+    );
   });
 </script>
-<style>
-.flowchart-container {
-  position: relative;
-  height: 600px;
-  width: 100%;
-  background: white;
-  border: 1px dashed #aaa;
-  margin-top: 20px;
-}
-
-.flow-box {
-  background: #ffffff;
-  border: 2px solid #333;
-  border-radius: 10px;
-  padding: 10px 15px;
-  width: 240px;
-  text-align: center;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
-  font-size: 16px;
-  font-weight: 500;
-}
-</style>
 
 
 
