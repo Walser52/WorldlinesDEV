@@ -1,0 +1,126 @@
+---
+title: "Wronskian Flowchart"
+format: html
+---
+
+<style>
+.flow-container-redesign {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  background-color: #fefefe;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  font-family: sans-serif;
+  gap: 20px;
+  padding: 20px;
+}
+
+.node-redesign {
+  padding: 15px 25px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 16px;
+  min-width: 180px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.node-redesign:hover {
+  transform: translateY(-5px);
+}
+
+.start-redesign {
+  background: #e3f2fd;
+  border: 2px solid #1976d2;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.decision-redesign {
+  background: #fff8e1;
+  border: 2px solid #ff9800;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  padding: 20px 30px;
+}
+
+.result-yes {
+  background: #e3f2fd;
+  border: 2px solid #1976d2;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.result-no {
+   background: #e3f2fd;
+  border: 2px solid #1976d2;
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+</style>
+
+<div class="flow-container-redesign">
+  <div id="start-redesign" class="node-redesign start-redesign">
+    Start
+  </div>
+  <div id="check-redesign" class="node-redesign decision-redesign">
+    Check Wronskian W(F₁, F₂, ..., Fₙ)
+  </div>
+  <div id="dep-redesign" class="node-redesign result-yes">
+    = 0 Linearly Dependent
+  </div>
+  <div id="indep-redesign" class="node-redesign result-no">
+    ≠ 0 Linearly Independent
+  </div>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    new LeaderLine(
+      document.getElementById('start-redesign'),
+      document.getElementById('check-redesign'),
+      {
+        startPlug: 'disc',
+        endPlug: 'arrow1',
+        size: 2,
+        color: '#1976d2',
+        path: 'straight',
+        startSocket: 'bottom',
+        endSocket: 'top'
+      }
+    );
+
+    new LeaderLine(
+      document.getElementById('check-redesign'),
+      document.getElementById('dep-redesign'),
+      {
+        startPlug: 'disc',
+        endPlug: 'arrow1',
+        size: 2,
+        color: '#e91e63',
+        path: 'arc',
+        startSocket: 'left',
+        endSocket: 'top'
+      }
+    );
+
+    new LeaderLine(
+      document.getElementById('check-redesign'),
+      document.getElementById('indep-redesign'),
+      {
+        startPlug: 'disc',
+        endPlug: 'arrow1',
+        size: 2,
+        color: '#4caf50',
+        path: 'arc',
+        startSocket: 'right',
+        endSocket: 'top'
+      }
+    );
+  });
+</script>

@@ -2857,5 +2857,26 @@
     "title": "Solution by substitution",
     "section": "",
     "text": "dy/dx + P(x)y = f(x)yⁿ\n\n\nif n ≥ 2\n\n\nif n = 0 or 1\n\n\nSubstitute u = y1–nThen I.F. method\n\n\nIntegrating Factor Method"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/dev/test.html",
+    "href": "C0ode/lecture_notes/dev/test.html",
+    "title": "Wronskian Flowchart",
+    "section": "",
+    "text": "Start\n\n\nCheck Wronskian W(F₁, F₂, ..., Fₙ)\n\n\n= 0 Linearly Dependent\n\n\n≠ 0 Linearly Independent"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/dev/wronskian.html",
+    "href": "C0ode/lecture_notes/dev/wronskian.html",
+    "title": "Wronskian Flowchart",
+    "section": "",
+    "text": "Start\n\n\nCheck Wronskian W(F₁, F₂, ..., Fₙ)\n\n\n= 0 Linearly Dependent\n\n\n≠ 0 Linearly Independent"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/dev/dependene.html",
+    "href": "C0ode/lecture_notes/dev/dependene.html",
+    "title": "Ratio Dependence Flowchart",
+    "section": "",
+    "text": "Start\n\n\nIs the ratio of functions&lt;br&gt;$F₂(x)/F₁(x)$ a constant?\n\n\n&lt;div id=\"dep-redesign\" class=\"node-redesign result-yes\"&gt;\n  Yes&lt;br&gt;Linearly Dependent\n&lt;/div&gt;\n&lt;div id=\"indep-redesign\" class=\"node-redesign result-no\"&gt;\n  No&lt;br&gt;Linearly Independent\n&lt;/div&gt;"
   }
 ]
