@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Reduction of Order Flowchart – Worldlines</title>
+<title>Types of Roots Flowchart – Worldlines</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -299,7 +299,7 @@ function drawLeader({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Reduction of Order Flowchart</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Types of Roots Flowchart</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -419,7 +419,7 @@ function drawLeader({
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Reduction of Order Flowchart</h1>
+<h1 class="title">Types of Roots Flowchart</h1>
 </div>
 
 
@@ -437,106 +437,70 @@ function drawLeader({
 
 
 <style>
-.flow-container {
-  position: relative;
-  height: 650px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
-  grid-template-rows: repeat(4, 1fr);
-  align-items: center;
-  justify-items: center;
-  gap: 20px;
-  padding: 20px;
-  font-family: sans-serif;
-}
-
-/* Common node styling */
-.node {
-  padding: 15px 25px;
-  border-radius: 12px;
+/* Wronskian-style box */
+.node-redesign {
+  display: inline-block;
+  padding: 12px 18px;
+  border: 2px solid #444;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
   text-align: center;
-  font-size: 16px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
   min-width: 200px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-  position: relative;
 }
 
-.node:hover {
-  transform: translateY(-5px);
+/* Different light colors for each case */
+.case1 { background-color: #d4edda; } /* light green */
+.case2 { background-color: #fff3cd; } /* light yellow */
+.case3 { background-color: #f8d7da; } /* light pink */
+
+.flowchart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  margin-top: 50px;
 }
-
-/* Color scheme similar to Wronskian */
-.step1, .step2, .step3, .step4 {
-  background: #e3f2fd;          /* light blue background */
-  border: 2px solid #1976d2;    /* blue border */
-}
-
-.side-left, .side-right {
-  background: #fff8e1;          /* light yellow background */
-  border: 2px solid #ff9800;    /* orange border */
-}
-
-/* Grid placement */
-.step1 { grid-column: 2 / 3; grid-row: 1 / 2; }
-.step2 { grid-column: 2 / 3; grid-row: 2 / 3; }
-.step3 { grid-column: 2 / 3; grid-row: 3 / 4; }
-.step4 { grid-column: 2 / 3; grid-row: 4 / 5; }
-
-.side-left { grid-column: 1 / 2; grid-row: 4 / 5; }
-.side-right { grid-column: 3 / 4; grid-row: 4 / 5; }
 </style>
-<div class="flow-container">
-<div id="step1" class="node step1">
-Given one solution:<br>( y_1 )
+<div class="flowchart-container">
+<div id="discriminant" class="node-redesign">
+<pre><code>Calculate Discriminant:&lt;br&gt; \( D = b^2 - 4ac \)</code></pre>
 </div>
-<div id="step2" class="node step2">
-Assume:<br>( y = y_1 u )
+<div id="case1" class="node-redesign case1">
+<pre><code>\( D &gt; 0 \)&lt;br&gt;Real &amp; Distinct Roots</code></pre>
 </div>
-<div id="step3" class="node step3">
-Find ( y’ ), set ( w = u’ ), then find ( w )
+<div id="case2" class="node-redesign case2">
+<pre><code>\( D = 0 \)&lt;br&gt;Real &amp; Equal Roots</code></pre>
 </div>
-<div id="step4" class="node step4">
-Solve for ( u ), then plug into:<br>( y = y_1 u )
+<div id="case3" class="node-redesign case3">
+<pre><code>\( D &lt; 0 \)&lt;br&gt;Complex Roots</code></pre>
 </div>
-<div id="left" class="node side-left">
-Alternative:<br>Use substitution method
 </div>
-<div id="right" class="node side-right">
-<p>Or use direct formula<br></p>
-</div>
-<script src="https://anseki.github.io/leader-line/leader-line.min.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const lineOptions = {
-      startPlug: 'disc',
-      endPlug: 'arrow1',
-      size: 2,
-      path: 'straight',
-      color: '#1976d2'  // main blue color for vertical flow
-    };
+document.addEventListener("DOMContentLoaded", function() {
+  // Draw arrows
+  new LeaderLine(
+    document.getElementById('discriminant'),
+    document.getElementById('case1'),
+    { color: '#28a745', path: 'straight', endPlug: 'arrow3' }
+  );
 
-    new LeaderLine(document.getElementById('step1'), document.getElementById('step2'), lineOptions);
-    new LeaderLine(document.getElementById('step2'), document.getElementById('step3'), lineOptions);
-    new LeaderLine(document.getElementById('step3'), document.getElementById('step4'), lineOptions);
+  new LeaderLine(
+    document.getElementById('discriminant'),
+    document.getElementById('case2'),
+    { color: '#ffc107', path: 'straight', endPlug: 'arrow3' }
+  );
 
-    new LeaderLine(
-      document.getElementById('step4'),
-      document.getElementById('left'),
-      { ...lineOptions, path: 'arc', color: '#e91e63' } // pink for left branch
-    );
-
-    new LeaderLine(
-      document.getElementById('step4'),
-      document.getElementById('right'),
-      { ...lineOptions, path: 'arc', color: '#4caf50' } // green for right branch
-    );
-  });
+  new LeaderLine(
+    document.getElementById('discriminant'),
+    document.getElementById('case3'),
+    { color: '#dc3545', path: 'straight', endPlug: 'arrow3' }
+  );
+});
 </script>
 
 
-</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

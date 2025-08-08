@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wronskian Flowchart – Worldlines</title>
+<title>Types of Roots Flowchart – Worldlines</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -299,7 +299,7 @@ function drawLeader({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Wronskian Flowchart</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Types of Roots Flowchart</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -419,7 +419,7 @@ function drawLeader({
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Wronskian Flowchart</h1>
+<h1 class="title">Types of Roots Flowchart</h1>
 </div>
 
 
@@ -438,122 +438,218 @@ function drawLeader({
 
 <style>
 .flow-container-redesign {
-  position: relative;
-  height: 400px;
-  width: 100%;
-  background-color: #fefefe;
-  display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  font-family: sans-serif;
-  gap: 20px;
-  padding: 20px;
+    position: relative;
+    height: 600px;
+    width: 100%;
+    background-color: #fefefe;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    align-items: center;
+    justify-items: center;
+    font-family: sans-serif;
+    gap: 20px;
+    padding: 20px;
 }
 
 .node-redesign {
-  padding: 15px 25px;
-  border-radius: 12px;
-  text-align: center;
-  font-size: 16px;
-  min-width: 180px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-  position: relative;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 16px;
+    min-width: 180px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    position: relative;
 }
 
 .node-redesign:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
 .start-redesign {
-  background: #e3f2fd;
-  border: 2px solid #1976d2;
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
+    background: #e3f2fd;
+    border: 2px solid #1976d2;
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
 }
 
 .decision-redesign {
-  background: #fff8e1;
-  border: 2px solid #ff9800;
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  padding: 20px 30px;
+    background: #fff8e1;
+    border: 2px solid #ff9800;
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+    padding: 20px 30px;
 }
 
-.result-yes {
-  background: #ffebee;
-  border: 2px solid #e91e63;
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
+.result-node {
+    background: #e3f2fd;
+    border: 2px solid #1976d2;
+    padding: 20px 10px;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
-.result-no {
-  background: #e8f5e9;
-  border: 2px solid #4caf50;
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
+.result-left {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
+.result-center {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.result-right {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}
+
+.solution-node {
+    background: #f1f8e9;
+    border: 2px solid #388e3c;
+    grid-row: 4 / 5;
+    padding: 15px 10px;
+}
+
+.solution-left {
+    grid-column: 1 / 2;
+}
+
+.solution-center {
+    grid-column: 2 / 3;
+}
+
+.solution-right {
+    grid-column: 3 / 4;
 }
 </style>
 <div class="flow-container-redesign">
-<div id="start-redesign" class="node-redesign start-redesign">
-<pre><code>Start</code></pre>
+<pre><code>&lt;div id="start-node" class="node-redesign start-redesign"&gt;
+    Auxiliary Equation: $am^2 + bm + c = 0$
+&lt;/div&gt;
+&lt;div id="decision-node" class="node-redesign decision-redesign"&gt;
+    Check the Discriminant: $\Delta = b^2 - 4ac$
+&lt;/div&gt;
+&lt;div id="roots-left" class="node-redesign result-node result-left"&gt;
+    $\Delta &gt; 0$ &lt;br&gt; (Real and Distinct Roots: $m_1, m_2$)
+&lt;/div&gt;
+&lt;div id="roots-center" class="node-redesign result-node result-center"&gt;
+    $\Delta = 0$ &lt;br&gt; (Real and Equal Roots: $m_1 = m_2$)
+&lt;/div&gt;
+&lt;div id="roots-right" class="node-redesign result-node result-right"&gt;
+    $\Delta &lt; 0$ &lt;br&gt; (Complex Conjugate Roots: $\alpha \pm i\beta$)
+&lt;/div&gt;
+&lt;div id="solution-left" class="node-redesign solution-node solution-left"&gt;
+    General Solution: &lt;br&gt; $y = c_1e^{m_1x} + c_2e^{m_2x}$
+&lt;/div&gt;
+&lt;div id="solution-center" class="node-redesign solution-node solution-center"&gt;
+    General Solution: &lt;br&gt; $y = c_1e^{m_1x} + c_2xe^{m_1x}$
+&lt;/div&gt;
+&lt;div id="solution-right" class="node-redesign solution-node solution-right"&gt;
+    General Solution: &lt;br&gt; $y = e^{\alpha x}(c_1 \cos(\beta x) + c_2 \sin(\beta x))$
+&lt;/div&gt;</code></pre>
 </div>
-<div id="check-redesign" class="node-redesign decision-redesign">
-<pre><code>Check Wronskian W(F₁, F₂, ..., Fₙ)</code></pre>
-</div>
-<div id="dep-redesign" class="node-redesign result-yes">
-<pre><code>= 0 Linearly Dependent</code></pre>
-</div>
-<div id="indep-redesign" class="node-redesign result-no">
-<pre><code>≠ 0 Linearly Independent</code></pre>
-</div>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/leader-line@1.0.7/leader-line.min.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    new LeaderLine(
-      document.getElementById('start-redesign'),
-      document.getElementById('check-redesign'),
-      {
-        startPlug: 'disc',
-        endPlug: 'arrow1',
-        size: 2,
-        color: '#1976d2',
-        path: 'straight',
-        startSocket: 'bottom',
-        endSocket: 'top'
-      }
-    );
+    window.addEventListener('DOMContentLoaded', () => {
+        // Connect Auxiliary Equation to Discriminant Check
+        new LeaderLine(
+            document.getElementById('start-node'),
+            document.getElementById('decision-node'),
+            {
+                startPlug: 'disc',
+                endPlug: 'arrow1',
+                size: 2,
+                color: '#1976d2',
+                path: 'straight',
+                startSocket: 'bottom',
+                endSocket: 'top'
+            }
+        );
 
-    new LeaderLine(
-      document.getElementById('check-redesign'),
-      document.getElementById('dep-redesign'),
-      {
-        startPlug: 'disc',
-        endPlug: 'arrow1',
-        size: 2,
-        color: '#e91e63',
-        path: 'arc',
-        startSocket: 'left',
-        endSocket: 'top'
-      }
-    );
+        // Connect Discriminant to the three root types
+        new LeaderLine(
+            document.getElementById('decision-node'),
+            document.getElementById('roots-left'),
+            {
+                startPlug: 'disc',
+                endPlug: 'arrow1',
+                size: 2,
+                color: '#4caf50',
+                path: 'arc',
+                startSocket: 'left',
+                endSocket: 'top'
+            }
+        );
+        new LeaderLine(
+            document.getElementById('decision-node'),
+            document.getElementById('roots-center'),
+            {
+                startPlug: 'disc',
+                endPlug: 'arrow1',
+                size: 2,
+                color: '#1976d2',
+                path: 'straight',
+                startSocket: 'bottom',
+                endSocket: 'top'
+            }
+        );
+        new LeaderLine(
+            document.getElementById('decision-node'),
+            document.getElementById('roots-right'),
+            {
+                startPlug: 'disc',
+                endPlug: 'arrow1',
+                size: 2,
+                color: '#e91e63',
+                path: 'arc',
+                startSocket: 'right',
+                endSocket: 'top'
+            }
+        );
 
-    new LeaderLine(
-      document.getElementById('check-redesign'),
-      document.getElementById('indep-redesign'),
-      {
-        startPlug: 'disc',
-        endPlug: 'arrow1',
-        size: 2,
-        color: '#4caf50',
-        path: 'arc',
-        startSocket: 'right',
-        endSocket: 'top'
-      }
-    );
-  });
+        // Connect each root type to its general solution
+        new LeaderLine(
+            document.getElementById('roots-left'),
+            document.getElementById('solution-left'),
+            {
+                startPlug: 'disc',
+                endPlug: 'arrow1',
+                size: 2,
+                color: '#4caf50',
+                path: 'straight',
+                startSocket: 'bottom',
+                endSocket: 'top'
+            }
+        );
+        new LeaderLine(
+            document.getElementById('roots-center'),
+            document.getElementById('solution-center'),
+            {
+                startPlug: 'disc',
+                endPlug: 'arrow1',
+                size: 2,
+                color: '#1976d2',
+                path: 'straight',
+                startSocket: 'bottom',
+                endSocket: 'top'
+            }
+        );
+        new LeaderLine(
+            document.getElementById('roots-right'),
+            document.getElementById('solution-right'),
+            {
+                startPlug: 'disc',
+                endPlug: 'arrow1',
+                size: 2,
+                color: '#e91e63',
+                path: 'straight',
+                startSocket: 'bottom',
+                endSocket: 'top'
+            }
+        );
+    });
 </script>
 
 

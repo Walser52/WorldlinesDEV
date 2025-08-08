@@ -1,0 +1,74 @@
+---
+title: "Types of Roots Flowchart"
+format: html
+---
+
+```{=html}
+<style>
+/* Wronskian-style box */
+.node-redesign {
+  display: inline-block;
+  padding: 12px 18px;
+  border: 2px solid #444;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  min-width: 200px;
+}
+
+/* Different light colors for each case */
+.case1 { background-color: #d4edda; } /* light green */
+.case2 { background-color: #fff3cd; } /* light yellow */
+.case3 { background-color: #f8d7da; } /* light pink */
+
+.flowchart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  margin-top: 50px;
+}
+</style>
+
+<div class="flowchart-container">
+  <div id="discriminant" class="node-redesign">
+    Calculate Discriminant:<br> \( D = b^2 - 4ac \)
+  </div>
+
+  <div id="case1" class="node-redesign case1">
+    \( D > 0 \)<br>Real & Distinct Roots
+  </div>
+
+  <div id="case2" class="node-redesign case2">
+    \( D = 0 \)<br>Real & Equal Roots
+  </div>
+
+  <div id="case3" class="node-redesign case3">
+    \( D < 0 \)<br>Complex Roots
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Draw arrows
+  new LeaderLine(
+    document.getElementById('discriminant'),
+    document.getElementById('case1'),
+    { color: '#28a745', path: 'straight', endPlug: 'arrow3' }
+  );
+
+  new LeaderLine(
+    document.getElementById('discriminant'),
+    document.getElementById('case2'),
+    { color: '#ffc107', path: 'straight', endPlug: 'arrow3' }
+  );
+
+  new LeaderLine(
+    document.getElementById('discriminant'),
+    document.getElementById('case3'),
+    { color: '#dc3545', path: 'straight', endPlug: 'arrow3' }
+  );
+});
+</script>
