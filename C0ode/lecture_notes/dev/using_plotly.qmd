@@ -1,0 +1,179 @@
+---
+title: Using Plotly
+---
+
+By using `echo: false` the code will not show but the figure will. 
+
+
+::: {.panel-tabset}
+
+## Style 1
+
+Example and solutions could go here. 
+
+
+
+```{python}
+#| echo: false
+
+import plotly.express as px
+import pandas as pd
+import numpy as np
+
+# Define the function f(y) from the autonomous equation dy/dx = f(y)
+def f(y):
+    return y**2 - 4
+
+# Create a range of y values
+y_values = np.linspace(-4, 4, 100)
+f_y_values = f(y_values)
+
+# Create a pandas DataFrame for Plotly Express
+df = pd.DataFrame({'y': y_values, 'f(y)': f_y_values})
+
+# Create a line plot
+fig = px.line(
+    df,
+    x='y',
+    y='f(y)',
+    title='Plot of f(y) for $dy/dx = y^2 - 4$',
+    labels={'y': 'y (Dependent Variable)', 'f(y)': 'Slope (dy/dx)'}
+)
+
+# Add a horizontal line at f(y)=0 (equilibrium points)
+fig.add_hline(
+    y=0,
+    line_dash="dash",
+    line_color="red",
+    annotation_text="Equilibrium Points where f(y) = 0",
+    annotation_position="bottom right"
+)
+
+# Customize layout: white background, bigger fonts, centered axes, custom axis label fonts
+fig.update_layout(
+    xaxis_title='y',
+    yaxis_title='f(y) = dy/dx',
+    autosize=False,
+    width=600,
+    height=600,
+    margin=dict(t=50, b=50, l=50, r=50),
+    font=dict(size=18),  # default font for ticks/title
+    xaxis_title_font=dict(size=20, family='Times New Roman', color='black'),
+    yaxis_title_font=dict(size=20, family='Times New Roman', color='black'),
+    plot_bgcolor="white",
+    paper_bgcolor="white",
+    xaxis=dict(
+        zeroline=True,
+        zerolinewidth=2,
+        zerolinecolor='black',
+        linecolor='black',
+        mirror=True
+    ),
+    yaxis=dict(
+        zeroline=True,
+        zerolinewidth=2,
+        zerolinecolor='black',
+        linecolor='black',
+        mirror=True
+    )
+)
+
+# Show the plot
+fig.show()
+
+
+```
+
+
+## Style 2
+
+::::{.columns}
+:::{.column}
+
+We can also use a two column format for figures that can be smaller. 
+
+We can have some explanatory text here on the left. 
+
+:::
+:::{.column}
+
+```{python}
+#| echo: false
+
+import plotly.express as px
+import pandas as pd
+import numpy as np
+
+# Define the function f(y) from the autonomous equation dy/dx = f(y)
+def f(y):
+    return y**2 - 4
+
+# Create a range of y values
+y_values = np.linspace(-4, 4, 100)
+f_y_values = f(y_values)
+
+# Create a pandas DataFrame for Plotly Express
+df = pd.DataFrame({'y': y_values, 'f(y)': f_y_values})
+
+# Create a line plot
+fig = px.line(
+    df,
+    x='y',
+    y='f(y)',
+    title='Plot of f(y) for $dy/dx = y^2 - 4$',
+    labels={'y': 'y (Dependent Variable)', 'f(y)': 'Slope (dy/dx)'}
+)
+
+# Add a horizontal line at f(y)=0 (equilibrium points)
+fig.add_hline(
+    y=0,
+    line_dash="dash",
+    line_color="red",
+    annotation_text="",
+    annotation_position="bottom right"
+)
+
+# Customize layout: white background, bigger fonts, centered axes, custom axis label fonts
+fig.update_layout(
+    xaxis_title='y',
+    yaxis_title='f(y) = dy/dx',
+    autosize=False,
+    width=300,
+    height=300,
+    margin=dict(t=50, b=50, l=50, r=50),
+    font=dict(size=18),  # default font for ticks/title
+    xaxis_title_font=dict(size=20, family='Times New Roman', color='black'),
+    yaxis_title_font=dict(size=20, family='Times New Roman', color='black'),
+    plot_bgcolor="white",
+    paper_bgcolor="white",
+    xaxis=dict(
+        zeroline=True,
+        zerolinewidth=2,
+        zerolinecolor='black',
+        linecolor='black',
+        mirror=True
+    ),
+    yaxis=dict(
+        zeroline=True,
+        zerolinewidth=2,
+        zerolinecolor='black',
+        linecolor='black',
+        mirror=True
+    )
+)
+
+# Show the plot
+fig.show()
+
+
+```
+
+:::
+::::
+
+## Video 
+
+A video link could be embedded here. 
+
+
+:::
