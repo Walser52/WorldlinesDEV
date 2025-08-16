@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Auxiliary Equation Flowchart – Worldlines</title>
+<title>Cauchy-Euler Flowchart – Worldlines</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -299,7 +299,7 @@ function drawLeader({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Auxiliary Equation Flowchart</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Cauchy-Euler Flowchart</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -419,7 +419,7 @@ function drawLeader({
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Auxiliary Equation Flowchart</h1>
+<h1 class="title">Cauchy-Euler Flowchart</h1>
 </div>
 
 
@@ -445,12 +445,12 @@ html, body {
 
 .flow-container-redesign {
   position: relative;
-  height: 500px;
+  height: 600px;
   width: 100%;
   background-color: #fefefe;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
   font-family: sans-serif;
@@ -459,12 +459,12 @@ html, body {
 }
 
 .node-redesign {
-  padding: 12px 18px;  /* slightly smaller */
+  padding: 12px 18px;
   border-radius: 12px;
   text-align: center;
   font-size: 15px;
-  min-width: 160px;   /* smaller width so they don’t overlap */
-  max-width: 200px;
+  min-width: 200px;
+  max-width: 250px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s;
   position: relative;
@@ -512,19 +512,24 @@ html, body {
 </style>
 <div class="flow-container-redesign">
 <div id="start-redesign" class="node-redesign start-redesign">
-<pre><code>Auxiliary Equation</code></pre>
+<pre><code>\( ax^2 y'' + bxy' + cy = 0 \)&lt;br&gt;&lt;br&gt;
+Auxiliary Equation:&lt;br&gt;
+\( am^2 + (b-a)m + c = 0 \)</code></pre>
 </div>
 <div id="check-redesign" class="node-redesign decision-redesign">
 <pre><code>Types of Roots (Discriminant)</code></pre>
 </div>
 <div id="real-distinct" class="node-redesign result-left">
-<p>Disc &gt; 0<br>Real &amp; Distinct<br><br> y = C₁e<sup>m₁x</sup> + C₂e<sup>m₂x</sup></p>
+<pre><code>Distinct Real Roots (\(m_1 \neq m_2\)) &lt;br&gt;&lt;br&gt;
+\( y = c_1 x^{m_1} + c_2 x^{m_2} \)</code></pre>
 </div>
 <div id="real-equal" class="node-redesign result-center">
-<p>Disc = 0<br>Real &amp; Equal<br><br> y = (C₁ + C₂x)e<sup>mx</sup></p>
+<pre><code>Repeated Roots (\(m_1 = m_2\)) &lt;br&gt;&lt;br&gt;
+\( y = c_1 x^m + c_2 x^m \ln(x) \)</code></pre>
 </div>
 <div id="complex" class="node-redesign result-right">
-<p>Disc &lt; 0<br>Complex Roots<br><br> y = e<sup>αx</sup>(C₁cosβx + C₂sinβx)</p>
+<pre><code>Complex Roots (\(m = \alpha \pm i\beta\)) &lt;br&gt;&lt;br&gt;
+\( y = x^{\alpha}\big(c_1 \cos(\beta \ln x) + c_2 \sin(\beta \ln x)\big) \)</code></pre>
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/1.0.7/leader-line.min.js"></script>
@@ -533,60 +538,31 @@ html, body {
     new LeaderLine(
       document.getElementById('start-redesign'),
       document.getElementById('check-redesign'),
-      {
-        startPlug: 'disc',
-        endPlug: 'arrow1',
-        size: 2,
-        color: 'grey',
-        path: 'straight',
-        startSocket: 'bottom',
-        endSocket: 'top'
-      }
+      { startPlug: 'disc', endPlug: 'arrow1', size: 2, color: 'grey', path: 'straight', startSocket: 'bottom', endSocket: 'top' }
     );
 
     new LeaderLine(
       document.getElementById('check-redesign'),
       document.getElementById('real-distinct'),
-      {
-        startPlug: 'disc',
-        endPlug: 'arrow1',
-        size: 2,
-        color: 'grey',
-        path: 'arc',
-        startSocket: 'bottom-left',
-        endSocket: 'top'
-      }
+      { startPlug: 'disc', endPlug: 'arrow1', size: 2, color: 'grey', path: 'arc', startSocket: 'bottom-left', endSocket: 'top' }
     );
 
     new LeaderLine(
       document.getElementById('check-redesign'),
       document.getElementById('real-equal'),
-      {
-        startPlug: 'disc',
-        endPlug: 'arrow1',
-        size: 2,
-        color: 'grey',
-        path: 'straight',
-        startSocket: 'bottom',
-        endSocket: 'top'
-      }
+      { startPlug: 'disc', endPlug: 'arrow1', size: 2, color: 'grey', path: 'straight', startSocket: 'bottom', endSocket: 'top' }
     );
 
     new LeaderLine(
       document.getElementById('check-redesign'),
       document.getElementById('complex'),
-      {
-        startPlug: 'disc',
-        endPlug: 'arrow1',
-        size: 2,
-        color: 'grey',
-        path: 'arc',
-        startSocket: 'bottom-right',
-        endSocket: 'top'
-      }
+      { startPlug: 'disc', endPlug: 'arrow1', size: 2, color: 'grey', path: 'arc', startSocket: 'bottom-right', endSocket: 'top' }
     );
   });
 </script>
+<!-- MathJax script to render LaTeX -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
 

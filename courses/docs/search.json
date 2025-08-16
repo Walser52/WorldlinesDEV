@@ -2861,9 +2861,9 @@
   {
     "objectID": "C0ode/lecture_notes/dev/test.html",
     "href": "C0ode/lecture_notes/dev/test.html",
-    "title": "Types of Roots Flowchart",
+    "title": "Cauchy-Euler Flowchart",
     "section": "",
-    "text": "&lt;div id=\"start-node\" class=\"node-redesign start-redesign\"&gt;\n    Auxiliary Equation: $am^2 + bm + c = 0$\n&lt;/div&gt;\n&lt;div id=\"decision-node\" class=\"node-redesign decision-redesign\"&gt;\n    Check the Discriminant: $\\Delta = b^2 - 4ac$\n&lt;/div&gt;\n&lt;div id=\"roots-left\" class=\"node-redesign result-node result-left\"&gt;\n    $\\Delta &gt; 0$ &lt;br&gt; (Real and Distinct Roots: $m_1, m_2$)\n&lt;/div&gt;\n&lt;div id=\"roots-center\" class=\"node-redesign result-node result-center\"&gt;\n    $\\Delta = 0$ &lt;br&gt; (Real and Equal Roots: $m_1 = m_2$)\n&lt;/div&gt;\n&lt;div id=\"roots-right\" class=\"node-redesign result-node result-right\"&gt;\n    $\\Delta &lt; 0$ &lt;br&gt; (Complex Conjugate Roots: $\\alpha \\pm i\\beta$)\n&lt;/div&gt;\n&lt;div id=\"solution-left\" class=\"node-redesign solution-node solution-left\"&gt;\n    General Solution: &lt;br&gt; $y = c_1e^{m_1x} + c_2e^{m_2x}$\n&lt;/div&gt;\n&lt;div id=\"solution-center\" class=\"node-redesign solution-node solution-center\"&gt;\n    General Solution: &lt;br&gt; $y = c_1e^{m_1x} + c_2xe^{m_1x}$\n&lt;/div&gt;\n&lt;div id=\"solution-right\" class=\"node-redesign solution-node solution-right\"&gt;\n    General Solution: &lt;br&gt; $y = e^{\\alpha x}(c_1 \\cos(\\beta x) + c_2 \\sin(\\beta x))$\n&lt;/div&gt;"
+    "text": "$ax^2 y'' + bxy' + cy = 0$&lt;br&gt;&lt;br&gt;\nAuxiliary Equation:&lt;br&gt;\n$am^2 + (b-a)m + c = 0$\n\n\nTypes of Roots (Discriminant)\n\n\nDistinct Real Roots ($m_1 \\neq m_2$) &lt;br&gt;&lt;br&gt;\n$y = c_1 x^{m_1} + c_2 x^{m_2}$\n\n\nRepeated Roots ($m_1 = m_2$) &lt;br&gt;&lt;br&gt;\n$y = c_1 x^m + c_2 x^m \\ln(x)$\n\n\nComplex Roots ($m = \\alpha \\pm i\\beta$) &lt;br&gt;&lt;br&gt;\n$y = x^{\\alpha}(c_1 \\cos(\\beta \\ln x) + c_2 \\sin(\\beta \\ln x))$"
   },
   {
     "objectID": "C0ode/lecture_notes/dev/wronskian.html",
@@ -2889,9 +2889,9 @@
   {
     "objectID": "C0ode/lecture_notes/dev/types_of_roots.html",
     "href": "C0ode/lecture_notes/dev/types_of_roots.html",
-    "title": "Types of Roots Flowchart",
+    "title": "Auxiliary Equation Flowchart",
     "section": "",
-    "text": "Calculate Discriminant:&lt;br&gt; \\( D = b^2 - 4ac \\)\n\n\n\\( D &gt; 0 \\)&lt;br&gt;Real & Distinct Roots\n\n\n\\( D = 0 \\)&lt;br&gt;Real & Equal Roots\n\n\n\\( D &lt; 0 \\)&lt;br&gt;Complex Roots"
+    "text": "Auxiliary Equation\n\n\nTypes of Roots (Discriminant)\n\n\nDisc &gt; 0Real & Distinct y = C₁em₁x + C₂em₂x\n\n\nDisc = 0Real & Equal y = (C₁ + C₂x)emx\n\n\nDisc &lt; 0Complex Roots y = eαx(C₁cosβx + C₂sinβx)"
   },
   {
     "objectID": "C0ode/lecture_notes/dev/types_of_roots.html#types-of-roots",
@@ -2899,5 +2899,26 @@
     "title": "Types of Roots",
     "section": "",
     "text": "Find Discriminant&lt;br&gt;Δ = b² - 4ac\n\n\n\n\nΔ &gt; 0&lt;br&gt;Real & Distinct Roots\n\n\nΔ = 0&lt;br&gt;Real & Equal Roots\n\n\nΔ &lt; 0&lt;br&gt;Complex Roots"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/dev/using_plotly.html",
+    "href": "C0ode/lecture_notes/dev/using_plotly.html",
+    "title": "Using Plotly",
+    "section": "",
+    "text": "By using echo: false the code will not show but the figure will.\n\nStyle 1Style 2Video\n\n\nExample and solutions could go here.\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n\n\nWe can also use a two column format for figures that can be smaller.\nWe can have some explanatory text here on the left.\n\n\n\n                            \n                                            \n\n\n\n\n\n\nA video link could be embedded here."
+  },
+  {
+    "objectID": "C0ode/lecture_notes/dev/variation_of_parameters.html",
+    "href": "C0ode/lecture_notes/dev/variation_of_parameters.html",
+    "title": "Variation of Parameters Flowchart",
+    "section": "",
+    "text": "ODE  (a_2 y’’ + a_1 y’ + a_0 y = g(x))\n\n\nComplementary Solution  (y_c = c_1 y_1 + c_2 y_2)\n\n\nWronskian (W)\n\n\nStandard Form  (y’’ + P(x)y’ + Q(x)y = f(x))\n\n\nWronskians (W_1, W_2)\n\n\nIntegrate  [ u_1’ = , u_2’ = ]\n\n\nParticular Solution  (y_p = u_1 y_1 + u_2 y_2)\n\n\nFinal Solution  (y = y_c + y_p)"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/dev/types_of_roots_cauchyeuler.html",
+    "href": "C0ode/lecture_notes/dev/types_of_roots_cauchyeuler.html",
+    "title": "Cauchy-Euler Flowchart",
+    "section": "",
+    "text": "\\( ax^2 y'' + bxy' + cy = 0 \\)&lt;br&gt;&lt;br&gt;\nAuxiliary Equation:&lt;br&gt;\n\\( am^2 + (b-a)m + c = 0 \\)\n\n\nTypes of Roots (Discriminant)\n\n\nDistinct Real Roots (\\(m_1 \\neq m_2\\)) &lt;br&gt;&lt;br&gt;\n\\( y = c_1 x^{m_1} + c_2 x^{m_2} \\)\n\n\nRepeated Roots (\\(m_1 = m_2\\)) &lt;br&gt;&lt;br&gt;\n\\( y = c_1 x^m + c_2 x^m \\ln(x) \\)\n\n\nComplex Roots (\\(m = \\alpha \\pm i\\beta\\)) &lt;br&gt;&lt;br&gt;\n\\( y = x^{\\alpha}\\big(c_1 \\cos(\\beta \\ln x) + c_2 \\sin(\\beta \\ln x)\\big) \\)"
   }
 ]
