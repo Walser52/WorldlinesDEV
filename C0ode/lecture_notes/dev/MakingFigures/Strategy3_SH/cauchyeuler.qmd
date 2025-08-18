@@ -1,0 +1,91 @@
+---
+title: Cauchy Euler
+---
+
+
+</script>
+<div class="stage" id="stage" style="position: absolute; height: 300px; width:600px">
+
+  <div class="bbcbox"  id="nodeA" style="position: absolute; top: 50%">
+  <div class="bbcheader" id="nodeA4" style="">Cauchy Euler</div>
+  <div class="bbcbody" id="nodeA4" style="">
+
+$$
+( ax^2 y'' + bxy' + cy = 0 )
+$$
+
+Auxiliary Equation:
+$$
+( am^2 + (b-a)m + c = 0)
+$$
+
+  </div>
+  </div>
+
+
+  <div class="bbcbox"  id="nodeB1" style="position: absolute; top: 0%; left: 80%;">
+  <div class="bbcheader" id="nodeB1h" style="">$b^2-4ac = 0$</div>
+  <div class="bbcbody" id="nodeB1b" style="">
+Distinct Real Roots $(m_1 \neq m_2)$
+
+$$
+y = c_1 x^{m_1} + c_2 x^{m_2}
+$$
+  </div>
+  </div>
+
+
+  <div class="bbcbox"  id="nodeB2" style="position: absolute; top: 50%; left: 80%;">
+  <div class="bbcheader" id="nodeB2h" style="">$b^2-4ac = 0$</div>
+  <div class="bbcbody" id="nodeB2b" style="">
+Distinct Real Roots $(m_1 \neq m_2)$
+
+$$
+y = c_1 x^{m_1} + c_2 x^{m_2}
+$$
+  </div>
+  </div>
+
+
+
+  <div class="bbcbox"  id="nodeB3" style="position: absolute; top: 100%; left: 80%;">
+  <div class="bbcheader" id="nodeB3h" style="">$b^2-4ac = 0$</div>
+  <div class="bbcbody" id="nodeB3b" style="">
+Distinct Real Roots $(m_1 \neq m_2)$
+
+$$
+y = c_1 x^{m_1} + c_2 x^{m_2}
+$$
+  </div>
+  </div>
+
+
+
+
+
+</div>
+<!-- </div> -->
+
+<script>
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA'},
+    to: {id: 'nodeB1'},
+    lineOptions: {color: 'DarkGoldenRod', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
+  });
+
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA'},
+    to: {id: 'nodeB2'},
+    lineOptions: {color: 'DarkGoldenRod', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
+  });
+
+  drawLeader({
+    containerId: 'stage',
+    from: {id: 'nodeA'},
+    to: {id: 'nodeB3'},
+    lineOptions: {color: 'DarkGoldenRod', endLabel: 'T(x)',path: 'fluid', startPlug: 'disc', endPlug: 'arrow3'}
+  });
+
+</script>
