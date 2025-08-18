@@ -79,11 +79,12 @@ html, body {
 </style>
 
 <div class="flow-container-redesign">
-  <div id="start-redesign" class="node-redesign start-redesign">
-    $ax^2 y'' + bxy' + cy = 0$<br><br>
-    Auxiliary Equation:<br>
-    $am^2 + (b-a)m + c = 0$
-  </div>
+<div id="start-redesign" class="node-redesign start-redesign">
+$ax^2 y'' + bxy' + cy = 0$
+<br><br>
+Auxiliary Equation:<br>
+$am^2 + (b-a)m + c = 0$
+</div>
 
   <div id="check-redesign" class="node-redesign decision-redesign">
     Types of Roots (Discriminant)

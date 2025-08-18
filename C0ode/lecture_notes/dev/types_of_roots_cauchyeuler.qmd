@@ -1,6 +1,5 @@
 ---
 title: "Cauchy-Euler Flowchart"
-format: html
 ---
 
 <style>
@@ -78,32 +77,66 @@ html, body {
 }
 </style>
 
-<div class="flow-container-redesign">
-  <div id="start-redesign" class="node-redesign start-redesign">
-    \( ax^2 y'' + bxy' + cy = 0 \)<br><br>
-    Auxiliary Equation:<br>
-    \( am^2 + (b-a)m + c = 0 \)
-  </div>
+Some points (annoyances of quarto):
 
-  <div id="check-redesign" class="node-redesign decision-redesign">
-    Types of Roots (Discriminant)
-  </div>
+- You (may) need a blank space after the $$.
+- The indentation doesn't work. So quarto code blocks need to be flush left. 
+- Details on this are given in https://quarto.org/docs/authoring/markdown-basics.html#sec-divs-and-spans
+- Make sure you read 'Ordering of Attributes' in the above link.
 
-  <div id="real-distinct" class="node-redesign result-left">
-    Distinct Real Roots (\(m_1 \neq m_2\)) <br><br>
-    \( y = c_1 x^{m_1} + c_2 x^{m_2} \)
-  </div>
 
-  <div id="real-equal" class="node-redesign result-center">
-    Repeated Roots (\(m_1 = m_2\)) <br><br>
-    \( y = c_1 x^m + c_2 x^m \ln(x) \)
-  </div>
 
-  <div id="complex" class="node-redesign result-right">
-    Complex Roots (\(m = \alpha \pm i\beta\)) <br><br>
-    \( y = x^{\alpha}\big(c_1 \cos(\beta \ln x) + c_2 \sin(\beta \ln x)\big) \)
-  </div>
-</div>
+::::{.flow-container-redesign}
+
+:::{#start-redesign .node-redesign .start-redesign}
+$$
+( ax^2 y'' + bxy' + cy = 0 )
+$$
+
+Auxiliary Equation:
+$$
+( am^2 + (b-a)m + c = 0)
+$$
+
+:::
+
+:::{#check-redesign .node-redesign .decision-redesign}
+Types of Roots (Discriminant)
+:::
+
+:::{#real-distinct .node-redesign .result-left}
+Distinct Real Roots $(m_1 \neq m_2)$
+
+$$
+y = c_1 x^{m_1} + c_2 x^{m_2}
+$$
+:::
+
+:::{#real-distinct .node-redesign .result-left}
+Distinct Real Roots $m_1 \neq m_2$
+
+$$
+y = c_1 x^{m_1} + c_2 x^{m_2}
+$$
+:::
+
+:::{#real-equal .node-redesign .result-center}
+Repeated Roots $(m_1 = m_2)$
+$$
+ y = c_1 x^m + c_2 x^m \ln(x)
+$$
+
+:::
+
+:::{#complex .node-redesign .result-right}
+Complex Roots $(m = \alpha \pm i\beta)$:
+
+$$
+( y = x^{\alpha}\big(c_1 \cos(\beta \ln x) + c_2 \sin(\beta \ln x)\big))
+$$
+:::
+
+::::
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/1.0.7/leader-line.min.js"></script>
 <script>
@@ -133,8 +166,3 @@ html, body {
     );
   });
 </script>
-
-<!-- MathJax script to render LaTeX -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
