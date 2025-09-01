@@ -2899,5 +2899,12 @@
     "title": "Types of Roots",
     "section": "",
     "text": "Find Discriminant&lt;br&gt;Δ = b² - 4ac\n\n\n\n\nΔ &gt; 0&lt;br&gt;Real & Distinct Roots\n\n\nΔ = 0&lt;br&gt;Real & Equal Roots\n\n\nΔ &lt; 0&lt;br&gt;Complex Roots"
+  },
+  {
+    "objectID": "C0ode/lecture_notes/dev/using_plotly.html",
+    "href": "C0ode/lecture_notes/dev/using_plotly.html",
+    "title": "Using Plotly",
+    "section": "",
+    "text": "By using echo: false the code will not show but the figure will.\n\nStyle 1Style 2Video\n\n\nExample and solutions could go here.\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n\n\nWe can also use a two column format for figures that can be smaller.\nWe can have some explanatory text here on the left.\n\n\n\n                            \n                                            \n\n\n\n\n\n\nA video link could be embedded here."
   }
 ]
