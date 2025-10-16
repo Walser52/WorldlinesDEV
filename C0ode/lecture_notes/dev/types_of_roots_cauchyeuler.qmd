@@ -1,6 +1,5 @@
 ---
-title: "Auxiliary Equation Flowchart"
-format: html
+title: "Cauchy-Euler Flowchart"
 ---
 
 <style>
@@ -12,12 +11,12 @@ html, body {
 
 .flow-container-redesign {
   position: relative;
-  height: 500px;
+  height: 600px;
   width: 100%;
   background-color: #fefefe;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
   font-family: sans-serif;
@@ -26,12 +25,12 @@ html, body {
 }
 
 .node-redesign {
-  padding: 12px 18px;  /* slightly smaller */
+  padding: 12px 18px;
   border-radius: 12px;
   text-align: center;
   font-size: 15px;
-  min-width: 160px;   /* smaller width so they don’t overlap */
-  max-width: 200px;
+  min-width: 200px;
+  max-width: 250px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s;
   position: relative;
@@ -78,29 +77,66 @@ html, body {
 }
 </style>
 
-<div class="flow-container-redesign">
-  <div id="start-redesign" class="node-redesign start-redesign">
-    Auxiliary Equation
-  </div>
-  <div id="check-redesign" class="node-redesign decision-redesign">
-    Types of Roots (Discriminant)
-  </div>
-  <div id="real-distinct" class="node-redesign result-left">
-  Disc > 0<br>Real & Distinct<br><br>
-  y = C₁e<sup>m₁x</sup> + C₂e<sup>m₂x</sup>
-</div>
+Some points (annoyances of quarto):
 
-<div id="real-equal" class="node-redesign result-center">
-  Disc = 0<br>Real & Equal<br><br>
-  y = (C₁ + C₂x)e<sup>mx</sup>
-</div>
+- You (may) need a blank space after the $$.
+- The indentation doesn't work. So quarto code blocks need to be flush left. 
+- Details on this are given in https://quarto.org/docs/authoring/markdown-basics.html#sec-divs-and-spans
+- Make sure you read 'Ordering of Attributes' in the above link.
 
-<div id="complex" class="node-redesign result-right">
-  Disc &lt; 0<br>Complex Roots<br><br>
-  y = e<sup>αx</sup>(C₁cosβx + C₂sinβx)
-</div>
 
-</div>
+
+::::{.flow-container-redesign}
+
+:::{#start-redesign .node-redesign .start-redesign}
+$$
+( ax^2 y'' + bxy' + cy = 0 )
+$$
+
+Auxiliary Equation:
+$$
+( am^2 + (b-a)m + c = 0)
+$$
+
+:::
+
+:::{#check-redesign .node-redesign .decision-redesign}
+Types of Roots (Discriminant)
+:::
+
+:::{#real-distinct .node-redesign .result-left}
+Distinct Real Roots $(m_1 \neq m_2)$
+
+$$
+y = c_1 x^{m_1} + c_2 x^{m_2}
+$$
+:::
+
+:::{#real-distinct .node-redesign .result-left}
+Distinct Real Roots $m_1 \neq m_2$
+
+$$
+y = c_1 x^{m_1} + c_2 x^{m_2}
+$$
+:::
+
+:::{#real-equal .node-redesign .result-center}
+Repeated Roots $(m_1 = m_2)$
+$$
+ y = c_1 x^m + c_2 x^m \ln(x)
+$$
+
+:::
+
+:::{#complex .node-redesign .result-right}
+Complex Roots $(m = \alpha \pm i\beta)$:
+
+$$
+( y = x^{\alpha}\big(c_1 \cos(\beta \ln x) + c_2 \sin(\beta \ln x)\big))
+$$
+:::
+
+::::
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/1.0.7/leader-line.min.js"></script>
 <script>
@@ -108,57 +144,25 @@ html, body {
     new LeaderLine(
       document.getElementById('start-redesign'),
       document.getElementById('check-redesign'),
-      {
-        startPlug: 'disc',
-        endPlug: 'arrow1',
-        size: 2,
-        color: 'grey',
-        path: 'straight',
-        startSocket: 'bottom',
-        endSocket: 'top'
-      }
+      { startPlug: 'disc', endPlug: 'arrow1', size: 2, color: 'grey', path: 'straight', startSocket: 'bottom', endSocket: 'top' }
     );
 
     new LeaderLine(
       document.getElementById('check-redesign'),
       document.getElementById('real-distinct'),
-      {
-        startPlug: 'disc',
-        endPlug: 'arrow1',
-        size: 2,
-        color: 'grey',
-        path: 'arc',
-        startSocket: 'bottom-left',
-        endSocket: 'top'
-      }
+      { startPlug: 'disc', endPlug: 'arrow1', size: 2, color: 'grey', path: 'arc', startSocket: 'bottom-left', endSocket: 'top' }
     );
 
     new LeaderLine(
       document.getElementById('check-redesign'),
       document.getElementById('real-equal'),
-      {
-        startPlug: 'disc',
-        endPlug: 'arrow1',
-        size: 2,
-        color: 'grey',
-        path: 'straight',
-        startSocket: 'bottom',
-        endSocket: 'top'
-      }
+      { startPlug: 'disc', endPlug: 'arrow1', size: 2, color: 'grey', path: 'straight', startSocket: 'bottom', endSocket: 'top' }
     );
 
     new LeaderLine(
       document.getElementById('check-redesign'),
       document.getElementById('complex'),
-      {
-        startPlug: 'disc',
-        endPlug: 'arrow1',
-        size: 2,
-        color: 'grey',
-        path: 'arc',
-        startSocket: 'bottom-right',
-        endSocket: 'top'
-      }
+      { startPlug: 'disc', endPlug: 'arrow1', size: 2, color: 'grey', path: 'arc', startSocket: 'bottom-right', endSocket: 'top' }
     );
   });
 </script>
